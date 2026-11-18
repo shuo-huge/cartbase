@@ -1,0 +1,87 @@
+name: Bug report
+description: Something is broken or behaves differently from the documentation.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please search existing issues first.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: When I open ..., the page ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the exact URLs, clicks, and inputs.
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include screenshots or a short screen recording when possible.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: CartBase version
+      description: From `/api/health`, the footer, or the git tag.
+      placeholder: "0.5.1"
+
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: How are you running CartBase?
+      options:
+        - Deploy to Cloudflare button
+        - CLI deploy (pnpm run deploy:cloudflare)
+        - Local development (pnpm dev)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and OS
+      placeholder: Chrome 142 on macOS 15
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Build logs, Worker logs, or browser console output. Remove secrets first.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I removed secrets, API keys, and customer data from the report.
+          required: true

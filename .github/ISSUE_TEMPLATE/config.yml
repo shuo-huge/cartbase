@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://cartbase-docs.cloudcart-shuo-preview.workers.dev
+    about: Setup, deployment, CLI, themes, plugins, payments, and the free-tier budget.
+  - name: Security report
+    url: https://github.com/shuo-huge/cartbase/security/advisories/new
+    about: Report a vulnerability privately. Do not open a public issue.

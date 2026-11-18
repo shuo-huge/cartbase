@@ -1,0 +1,62 @@
+name: Feature request
+description: Suggest a capability or an improvement to an existing one.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. Describe the problem first; the implementation is
+        usually easier to agree on once the use case is clear.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Who is affected, and what do they have to do today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should CartBase do? Include screens or API ideas if helpful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing workarounds, plugins, or other products.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Storefront
+        - Admin
+        - Products and inventory
+        - Orders and fulfilment
+        - Checkout and payments
+        - Tax and shipping
+        - Themes and page editor
+        - Plugins
+        - CLI and API
+        - Deployment and infrastructure
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This request is within the Cloudflare Workers Free constraints described in the README.
+          required: true

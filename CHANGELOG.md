@@ -4,6 +4,8 @@
 
 ### Added
 
+- `pnpm demo` runs a complete local demo in one command: build, isolated D1, migrations,
+  administrator setup, and demo content. See [docs/DEMO.md](docs/DEMO.md).
 - `pnpm demo:seed` to populate a demo store with categories, products, a published home
   page, and sample orders through the admin API. See [docs/DEMO.md](docs/DEMO.md).
 

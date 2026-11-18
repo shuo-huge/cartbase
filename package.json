@@ -27,6 +27,7 @@
     "cartbase": "node apps/cli/bin/cartbase.mjs",
     "cli": "node apps/cli/bin/cartbase.mjs",
     "demo:seed": "node scripts/seed-demo.mjs",
+    "demo": "node scripts/demo-local.mjs",
     "publish:jsdelivr": "node scripts/publish-jsdelivr.mjs",
     "test:e2e": "pnpm build && playwright test",
     "test:e2e:server": "node scripts/e2e-server.mjs",

@@ -24,7 +24,7 @@ One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional ext
 | | |
 |---|---|
 | **Deploy** | [One-click Deploy to Cloudflare](#one-click-deploy) or `pnpm run deploy:cloudflare` |
-| **Run locally** | `pnpm install && pnpm dev` |
+| **Run locally** | `pnpm install && pnpm demo` (seeded demo) · `pnpm dev` (empty store) |
 | **Documentation** | [docs site](https://cartbase-docs.cloudcart-shuo-preview.workers.dev) · [CLI](docs/CLI.md) · [Themes](docs/THEME_DEVELOPMENT.md) |
 | **Understand the design** | [Architecture](docs/ARCHITECTURE.md) · [Free-tier budget](docs/FREE_TIER_BUDGET.md) |
 

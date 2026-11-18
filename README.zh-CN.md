@@ -24,7 +24,7 @@
 | | |
 |---|---|
 | **部署** | [一键部署到 Cloudflare](#一键部署到-cloudflare) 或 `pnpm run deploy:cloudflare` |
-| **本地运行** | `pnpm install && pnpm dev` |
+| **本地运行** | `pnpm install && pnpm demo`（带演示数据）· `pnpm dev`（空店铺） |
 | **文档** | [文档站](https://cartbase-docs.cloudcart-shuo-preview.workers.dev) · [CLI](docs/CLI.md) · [主题开发](docs/THEME_DEVELOPMENT.md) |
 | **了解设计** | [架构](docs/ARCHITECTURE.md) · [免费额度预算](docs/FREE_TIER_BUDGET.md) |
 

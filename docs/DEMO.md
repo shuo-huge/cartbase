@@ -1,9 +1,34 @@
 # Demo store data
 
-`pnpm demo:seed` fills a CartBase store with demo content through the admin API. It is
-meant for a fresh demo deployment, not for an existing merchant store.
+There are two ways to get a demo store:
 
-## What it creates
+- `pnpm demo` builds the app, creates an isolated local database, starts Wrangler,
+  creates the demo administrator, and seeds everything automatically.
+- `pnpm demo:seed` adds the same content to an existing store through the admin API.
+
+Both commands are intended for demo stores. Do not run the seed against a real merchant
+store.
+
+## One-command local demo
+
+```bash
+pnpm install
+pnpm demo
+```
+
+The script prints the storefront URL, admin URL, and the generated administrator
+credentials. It uses `.wrangler/demo-local` for its database and keeps running until you
+press Ctrl+C.
+
+| Flag | Effect |
+|---|---|
+| `--reset` | Delete the local demo database and start from scratch |
+| `--port 8787` | Change the port |
+| `--no-build` | Skip the build step |
+| `--no-seed` | Start the store without demo content |
+| `--email`, `--password` | Choose the demo administrator credentials |
+
+## What `pnpm demo:seed` creates
 
 - 4 categories: Bags, Lighting, Home Goods, Accessories
 - 8 active products with descriptions, prices, stock, categories, and external images

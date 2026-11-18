@@ -313,7 +313,7 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 
 ## 参与贡献
 
-项目使用 GPLv3 协议。欢迎提交主题、插件、翻译、Bug 报告和性能改进。
+项目使用 GPLv3 协议。欢迎提交主题、插件、翻译、Bug 报告和性能改进。合并 PR 前需要先接受[贡献者许可协议](legal/CLA.md)，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 - 新增主题：[docs/THEME_DEVELOPMENT.md](docs/THEME_DEVELOPMENT.md)
 - 新增插件：[docs/PLUGIN_DEVELOPMENT.md](docs/PLUGIN_DEVELOPMENT.md)
@@ -322,4 +322,4 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 
 ## License
 
-版权所有 (C) 2026 CartBase contributors。本项目采用 GNU 通用公共许可证第 3 版（GPL-3.0-only），详见 [LICENSE](LICENSE)。第三方依赖遵循各自许可证。
+版权所有 (C) 2026 CartBase contributors。本项目采用 GNU 通用公共许可证第 3 版（GPL-3.0-only），详见 [LICENSE](LICENSE)。无法遵守 GPLv3 的闭源商用场景可购买[商业授权](legal/COMMERCIAL-LICENSE.md)。第三方依赖遵循各自许可证。

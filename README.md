@@ -314,7 +314,7 @@ See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the exact verification matrix
 
 ## Contributing
 
-CartBase is GPLv3 licensed. Themes, plugins, translations, bug reports and performance improvements are welcome.
+CartBase is GPLv3 licensed. Themes, plugins, translations, bug reports and performance improvements are welcome. Before a pull request can be merged, you must accept the [Contributor License Agreement](legal/CLA.md); see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - Add a theme: [docs/THEME_DEVELOPMENT.md](docs/THEME_DEVELOPMENT.md)
 - Add a plugin: [docs/PLUGIN_DEVELOPMENT.md](docs/PLUGIN_DEVELOPMENT.md)
@@ -323,4 +323,4 @@ CartBase is GPLv3 licensed. Themes, plugins, translations, bug reports and perfo
 
 ## License
 
-Copyright (C) 2026 CartBase contributors. Licensed under the GNU General Public License v3.0 only (GPL-3.0-only). See [LICENSE](LICENSE). Third-party dependencies keep their own licenses.
+Copyright (C) 2026 CartBase contributors. Licensed under the GNU General Public License v3.0 only (GPL-3.0-only). See [LICENSE](LICENSE). A [commercial license](legal/COMMERCIAL-LICENSE.md) is available for proprietary use that cannot comply with GPLv3. Third-party dependencies keep their own licenses.

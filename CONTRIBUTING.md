@@ -1,8 +1,8 @@
 # Contributing to CartBase
 
-Thanks for helping improve CartBase. This project is MIT licensed and is also offered
-under commercial terms, so contributions need a clear copyright grant before they can be
-merged.
+Thanks for helping improve CartBase. This project is MIT licensed. Contributions need a
+clear copyright grant before they can be merged, and the CLA keeps the project's future
+licensing options open.
 
 ## Before you open a pull request
 

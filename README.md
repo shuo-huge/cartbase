@@ -323,4 +323,4 @@ CartBase is MIT licensed. Themes, plugins, translations, bug reports and perform
 
 ## License
 
-Copyright (C) 2026 CartBase contributors. Licensed under the [MIT License](LICENSE). A [commercial license](legal/COMMERCIAL-LICENSE.md) is available for enterprise support, indemnification, and commercial components. Third-party dependencies keep their own licenses.
+Copyright (C) 2026 CartBase contributors. Licensed under the [MIT License](LICENSE). Third-party dependencies keep their own licenses.

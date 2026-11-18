@@ -322,4 +322,4 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 
 ## License
 
-版权所有 (C) 2026 CartBase contributors。本项目采用 [MIT 协议](LICENSE)。企业支持、赔偿保障和商业组件可通过[商业授权](legal/COMMERCIAL-LICENSE.md)获取。第三方依赖遵循各自许可证。
+版权所有 (C) 2026 CartBase contributors。本项目采用 [MIT 协议](LICENSE)。第三方依赖遵循各自许可证。

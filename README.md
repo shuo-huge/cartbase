@@ -11,13 +11,22 @@ One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional ext
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![D1](https://img.shields.io/badge/Database-D1-0051FF)](https://developers.cloudflare.com/d1/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-127%20passing-brightgreen)](docs/TEST_REPORT.md)
+[![Tests](https://img.shields.io/badge/tests-171%20passing-brightgreen)](docs/TEST_REPORT.md)
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Architecture](docs/ARCHITECTURE.md) · [Deployment](docs/DEPLOYMENT.md)
 
 </div>
 
 ---
+
+## Start here
+
+| | |
+|---|---|
+| **Deploy** | [One-click Deploy to Cloudflare](#one-click-deploy) or `pnpm run deploy:cloudflare` |
+| **Run locally** | `pnpm install && pnpm dev` |
+| **Documentation** | [docs site](https://cartbase-docs.cloudcart-shuo-preview.workers.dev) · [CLI](docs/CLI.md) · [Themes](docs/THEME_DEVELOPMENT.md) |
+| **Understand the design** | [Architecture](docs/ARCHITECTURE.md) · [Free-tier budget](docs/FREE_TIER_BUDGET.md) |
 
 ## Why CartBase?
 
@@ -309,6 +318,7 @@ See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the exact verification matrix
 - [Security](docs/SECURITY.md)
 - [Free-tier budget](docs/FREE_TIER_BUDGET.md)
 - [Test report](docs/TEST_REPORT.md)
+- [Changelog](CHANGELOG.md)
 
 ---
 

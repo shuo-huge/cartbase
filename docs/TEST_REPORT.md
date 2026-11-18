@@ -16,7 +16,8 @@ passing without its output.
 **v0.5.1 release (2026-11-18):** version identifiers were bumped to 0.5.1 and the deploy script no
 longer rewrites `wrangler.jsonc` comments. `pnpm typecheck`, `pnpm test` (127), `pnpm test:cli`
 (31, including 10 JSONC comment-preservation tests), `pnpm build`, `pnpm docs:build` (48 pages) and
-`pnpm check:brand` passed. The browser E2E suite was not re-run for this version-only change.
+`pnpm check:brand` passed. The browser E2E suite was run again after the release changes and all
+13 Playwright tests passed.
 
 ---
 

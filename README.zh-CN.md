@@ -11,12 +11,22 @@
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![D1](https://img.shields.io/badge/Database-D1-0051FF)](https://developers.cloudflare.com/d1/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/tests-171%20passing-brightgreen)](docs/TEST_REPORT.md)
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [架构文档](docs/ARCHITECTURE.md) · [部署文档](docs/DEPLOYMENT.md)
 
 </div>
 
 ---
+
+## 从这里开始
+
+| | |
+|---|---|
+| **部署** | [一键部署到 Cloudflare](#一键部署到-cloudflare) 或 `pnpm run deploy:cloudflare` |
+| **本地运行** | `pnpm install && pnpm dev` |
+| **文档** | [文档站](https://cartbase-docs.cloudcart-shuo-preview.workers.dev) · [CLI](docs/CLI.md) · [主题开发](docs/THEME_DEVELOPMENT.md) |
+| **了解设计** | [架构](docs/ARCHITECTURE.md) · [免费额度预算](docs/FREE_TIER_BUDGET.md) |
 
 ## 为什么做 CartBase？
 
@@ -308,6 +318,7 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 - [安全](docs/SECURITY.md)
 - [免费额度预算](docs/FREE_TIER_BUDGET.md)
 - [测试报告](docs/TEST_REPORT.md)
+- [更新日志](CHANGELOG.md)
 
 ---
 

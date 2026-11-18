@@ -18,6 +18,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import readline from "node:readline/promises";
+import { removeTopLevel, setTopLevel, stripJsonComments } from "./lib/jsonc-edit.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "wrangler.jsonc");
@@ -70,48 +71,28 @@ function wrangler(wranglerArgs, options = {}) {
   return run("npx", ["wrangler", ...wranglerArgs], options);
 }
 
-function stripJsonComments(source) {
-  let output = "";
-  let inString = false;
-  let escaped = false;
-  for (let index = 0; index < source.length; index += 1) {
-    const char = source[index];
-    const next = source[index + 1];
-    if (inString) {
-      output += char;
-      if (escaped) escaped = false;
-      else if (char === "\\") escaped = true;
-      else if (char === '"') inString = false;
-      continue;
-    }
-    if (char === '"') {
-      inString = true;
-      output += char;
-      continue;
-    }
-    if (char === "/" && next === "/") {
-      while (index < source.length && source[index] !== "\n") index += 1;
-      output += "\n";
-      continue;
-    }
-    if (char === "/" && next === "*") {
-      index += 2;
-      while (index < source.length && !(source[index] === "*" && source[index + 1] === "/")) index += 1;
-      index += 1;
-      continue;
-    }
-    output += char;
-  }
-  return output;
-}
-
 function readConfig() {
   const raw = fs.readFileSync(CONFIG_PATH, "utf8");
   return JSON.parse(stripJsonComments(raw));
 }
 
+/**
+ * Update wrangler.jsonc in place. Only the managed properties are rewritten so
+ * that comments and the user's formatting survive a deployment.
+ */
 function writeConfig(config) {
-  fs.writeFileSync(CONFIG_PATH, `${JSON.stringify(config, null, 2)}\n`, "utf8");
+  let source = fs.readFileSync(CONFIG_PATH, "utf8");
+  source = setTopLevel(source, "name", config.name);
+  source = setTopLevel(source, "d1_databases", config.d1_databases);
+  if (!("r2_buckets" in config)) source = removeTopLevel(source, "r2_buckets");
+
+  const parsed = JSON.parse(stripJsonComments(source));
+  const expected = JSON.stringify({ name: config.name, d1_databases: config.d1_databases });
+  const actual = JSON.stringify({ name: parsed.name, d1_databases: parsed.d1_databases });
+  if (actual !== expected || "r2_buckets" in parsed) {
+    fail("Could not update wrangler.jsonc without losing its comments. Check the file for syntax errors.");
+  }
+  fs.writeFileSync(CONFIG_PATH, source, "utf8");
 }
 
 function loadState() {

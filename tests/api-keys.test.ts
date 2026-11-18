@@ -201,7 +201,7 @@ describe("admin API keys", () => {
     const body = (await capabilities.json()) as {
       data: { version: string; authMethod: string; uploads: boolean; scopes: string[] };
     };
-    expect(body.data.version).toBe("0.5.0");
+    expect(body.data.version).toBe("0.5.1");
     expect(body.data.authMethod).toBe("api_key");
     expect(body.data.uploads).toBe(false);
     expect(body.data.scopes.length).toBeGreaterThan(0);

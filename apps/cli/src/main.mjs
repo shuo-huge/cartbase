@@ -79,7 +79,7 @@ export async function main(argv, env = process.env) {
   }
 
   if (flags.version && positionals.length === 0) {
-    emitSuccess("version", { data: { version: "0.5.0" }, message: "CartBase CLI 0.5.0" }, flags, {});
+    emitSuccess("version", { data: { version: "0.5.1" }, message: "CartBase CLI 0.5.1" }, flags, {});
     return;
   }
   if (positionals.length === 0) {

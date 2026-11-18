@@ -65,7 +65,7 @@ export async function capabilities(ctx) {
     mutates: Boolean(command.mutates),
     examples: command.examples || [],
   }));
-  const data = { version: "0.5.0", commandCount: manifest.length, commands: manifest };
+  const data = { version: "0.5.1", commandCount: manifest.length, commands: manifest };
   if (ctx.flags.probe) {
     const client = ctx.requireClient();
     data.health = unwrap(await client.requestJson("GET", "/api/health", { anonymous: true }));
@@ -97,7 +97,7 @@ export async function schema(ctx) {
   if (raw && commands.length === 0 && !SCHEMAS[raw]) throw usageError(`Unknown command or schema: ${raw}`);
   return {
     data: {
-      version: "0.5.0",
+      version: "0.5.1",
       commands: commands.map((command) => ({
         path: command.path,
         summary: command.summary,
@@ -141,7 +141,7 @@ export async function doctor(ctx) {
 }
 
 export async function version() {
-  return { data: { version: "0.5.0" }, message: "CartBase CLI 0.5.0" };
+  return { data: { version: "0.5.1" }, message: "CartBase CLI 0.5.1" };
 }
 
 export async function help(ctx) {

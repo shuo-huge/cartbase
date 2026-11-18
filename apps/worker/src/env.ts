@@ -41,4 +41,4 @@ export type AppContext = {
   Variables: AppVariables;
 };
 
-export const CARTBASE_VERSION = "0.5.0";
+export const CARTBASE_VERSION = "0.5.1";

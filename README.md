@@ -279,9 +279,9 @@ Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full design, order sta
 
 ## Project status
 
-**v0.5.0 — functional, not yet declared 1.0.** The repository is honest about what works and what does not.
+**v0.5.1 — functional, not yet declared 1.0.** The repository is honest about what works and what does not.
 
-Implemented and tested: setup/login/CSRF, products/categories/media, drag-reordered product images, server cart, guest checkout, stock reservation, tax calculation (inclusive/exclusive, country/region rules), manual payment, order fulfilment, 8 themes, page editor draft/preview/publish with version restore, Stripe signature + idempotency, PayPal order/capture/webhook verification, admin language pack, email notifications with a D1 outbox and provider retries, hybrid bundled/remote plugins with iframe admin pages, short-lived plugin JWTs, HMAC service calls, remote payment adapters, local media uploads to R2 or jsDelivr with encrypted credentials, a scoped API-key admin CLI for agents, 127 workerd tests, 21 CLI Node tests, and 12 Playwright browser tests (13 including setup).
+Implemented and tested: setup/login/CSRF, products/categories/media, drag-reordered product images, server cart, guest checkout, stock reservation, tax calculation (inclusive/exclusive, country/region rules), manual payment, order fulfilment, 8 themes, page editor draft/preview/publish with version restore, Stripe signature + idempotency, PayPal order/capture/webhook verification, admin language pack, email notifications with a D1 outbox and provider retries, hybrid bundled/remote plugins with iframe admin pages, short-lived plugin JWTs, HMAC service calls, remote payment adapters, local media uploads to R2 or jsDelivr with encrypted credentials, a scoped API-key admin CLI for agents, 127 workerd tests, 31 CLI Node tests, and 12 Playwright browser tests (13 including setup).
 
 Not yet verified or missing:
 - A live Stripe Sandbox checkout was verified on 2026-11-11 with test card `4242 4242 4242 4242` (order `CC-20261111-SDFVBC`); PayPal Sandbox credentials are still to be supplied. Automated provider tests remain mocked.

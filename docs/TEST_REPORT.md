@@ -8,6 +8,11 @@ Playwright 1.65.0 (Chromium 1254).
 All results below are from commands actually executed in this repository. No test is reported as
 passing without its output.
 
+**Rename verification (2026-11-18):** after renaming the product to CartBase, `pnpm typecheck`,
+`pnpm test` (127), `pnpm test:cli` (21), `pnpm build`, `pnpm test:e2e` (13), `pnpm docs:build`
+(48 pages) and `pnpm check:brand` all passed. The renamed Worker and docs Worker were deployed and
+`/api/health` returned `app: "cartbase"` with `X-CartBase-Version`.
+
 ---
 
 ## 1. Commands and results

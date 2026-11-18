@@ -5,7 +5,7 @@ meant for a fresh demo deployment, not for an existing merchant store.
 
 ## What it creates
 
-- 4 categories: Bags, Lighting, Home, Accessories
+- 4 categories: Bags, Lighting, Home Goods, Accessories
 - 8 active products with descriptions, prices, stock, categories, and external images
 - A published home page with announcement, hero, product grid, and story sections
 - Demo store settings (store name, currency, tax rate, SEO)

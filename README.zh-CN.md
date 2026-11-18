@@ -62,6 +62,18 @@
 
 ---
 
+## 前台截图
+
+运行中的 CartBase 前台，使用演示商品目录和默认主题。下面的后台截图使用同一套数据。
+
+| 首页 | 商品详情 |
+| :---: | :---: |
+| <img src="docs/images/storefront/home.jpg" alt="CartBase 前台首页：Hero 和精选商品" width="100%"> | <img src="docs/images/storefront/product.jpg" alt="CartBase 商品详情页：图片、价格、库存和加入购物车" width="100%"> |
+| **商品列表** | **结账** |
+| <img src="docs/images/storefront/products.jpg" alt="CartBase 商品列表：分类、搜索和排序" width="100%"> | <img src="docs/images/storefront/checkout.jpg" alt="CartBase 访客结账：收货地址和人工支付" width="100%"> |
+
+---
+
 ## 后台截图
 
 以下截图来自运行中的 CartBase 后台，使用演示商品数据和简体中文语言包。英文 README 展示相同页面的英文界面。

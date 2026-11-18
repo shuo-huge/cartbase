@@ -159,7 +159,7 @@ const categoryByName = new Map(categories.map((category) => [category.name.toLow
 const productList = await admin.json("GET", "/api/admin/products?perPage=100");
 const productBySlug = new Map(productList.items.map((product) => [product.slug, product]));
 
-const DEMO_CATEGORIES = ["Bags", "Lighting", "Home", "Accessories"];
+const DEMO_CATEGORIES = ["Bags", "Lighting", "Home Goods", "Accessories"];
 
 const DEMO_PRODUCTS = [
   {
@@ -184,12 +184,12 @@ const DEMO_PRODUCTS = [
     seeds: ["lamp-1", "lamp-2"],
   },
   {
-    name: "Linen Throw — Oat",
+    name: "Linen Throw 鈥?Oat",
     slug: "linen-throw-oat",
     description: "Stonewashed European linen with a hand-knotted fringe. Light enough for summer, warm enough for winter.",
     price: "74.00",
     stock: 31,
-    category: "Home",
+    category: "Home Goods",
     featured: true,
     seeds: ["throw-1", "throw-2"],
   },
@@ -199,7 +199,7 @@ const DEMO_PRODUCTS = [
     description: "Wheel-thrown stoneware in a soft matte glaze. Each piece varies slightly in tone and profile.",
     price: "42.00",
     stock: 18,
-    category: "Home",
+    category: "Home Goods",
     featured: true,
     seeds: ["vase-1", "vase-2"],
   },
@@ -229,7 +229,7 @@ const DEMO_PRODUCTS = [
     description: "Hand-oiled cedar with a soft chamfer and a hanging hole. For bread, cheese, and everything between.",
     price: "48.00",
     stock: 22,
-    category: "Home",
+    category: "Home Goods",
     featured: true,
     seeds: ["board-1", "board-2"],
   },
@@ -273,7 +273,7 @@ if (freshStore) {
         "store.email": "hello@example.com",
         "store.phone": "+1 415 555 0142",
         "store.address": "48 Clement Street, San Francisco, CA 94118",
-        "seo.title": `${storeName} — Everyday objects, considered`,
+        "seo.title": `${storeName} 鈥?Everyday objects, considered`,
         "seo.description": "A small collection of useful, quietly made pieces for the home.",
         "tax.default_rate_bps": "825",
         "tax.default_name": "Sales tax",
@@ -494,3 +494,4 @@ if (withOrders && productIds.has("ridge-canvas-tote")) {
 log("Demo seed complete.");
 log(`Storefront: ${baseUrl}/`);
 log(`Admin: ${baseUrl}/admin`);
+

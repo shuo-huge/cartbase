@@ -1,4 +1,4 @@
-import { expect, test, type APIRequestContext, type BrowserContext, type Page, type Route } from "@playwright/test";
+import { expect, test, type APIRequestContext, type Browser, type BrowserContext, type Page, type Route } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 import { loadFixtures } from "./fixtures";
@@ -78,6 +78,53 @@ async function capture(page: Page, locale: "en" | "zh", name: string): Promise<v
   console.log(`[screenshots] ${path.relative(process.cwd(), file)}`);
 }
 
+async function captureStorefront(browser: Browser): Promise<void> {
+  const dir = path.resolve("docs/images/storefront");
+  fs.mkdirSync(dir, { recursive: true });
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1000 },
+    locale: "en-US",
+  });
+  await context.route("https://picsum.photos/**", routeDemoArt);
+  const page = await context.newPage();
+
+  const shot = async (name: string): Promise<void> => {
+    await settle(page);
+    const file = path.join(dir, `${name}.jpg`);
+    await page.screenshot({
+      path: file,
+      type: "jpeg",
+      quality: 86,
+      animations: "disabled",
+      caret: "hide",
+    });
+    console.log(`[screenshots] ${path.relative(process.cwd(), file)}`);
+  };
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.locator(".cc-header, header").first().waitFor({ state: "visible" });
+  await shot("home");
+
+  await page.goto("/products", { waitUntil: "domcontentloaded" });
+  await page.locator(".cc-product-grid").waitFor({ state: "visible" });
+  await shot("products");
+
+  await page.goto("/products/ridge-canvas-tote", { waitUntil: "domcontentloaded" });
+  await page.locator("[data-add-to-cart]:not([data-sticky-add-to-cart])").waitFor({ state: "visible" });
+  await shot("product");
+
+  await page.locator("[data-add-to-cart]:not([data-sticky-add-to-cart])").click();
+  await expect(page.locator(".cc-cart-count").first()).toHaveText("1");
+  await page.goto("/cart", { waitUntil: "domcontentloaded" });
+  await shot("cart");
+
+  await page.goto("/checkout", { waitUntil: "domcontentloaded" });
+  await page.locator('input[name="email"]').waitFor({ state: "visible" });
+  await shot("checkout");
+
+  await context.close();
+}
+
 test("captures README screenshots in English and Simplified Chinese", async ({
   request,
   browser,
@@ -124,7 +171,7 @@ test("captures README screenshots in English and Simplified Chinese", async ({
     },
   });
 
-  const categoryNames = ["Bags", "Lighting", "Home", "Accessories"];
+  const categoryNames = ["Bags", "Lighting", "Home Goods", "Accessories"];
   const categoryIds: string[] = [];
   for (const name of categoryNames) {
     const category = await call<{ id: string }>(request, csrf, "POST", "/api/admin/categories", { name });
@@ -361,6 +408,12 @@ test("captures README screenshots in English and Simplified Chinese", async ({
       await call(request, csrf, "POST", `/api/admin/orders/${created.id}/status`, { status: "shipped" });
     }
   }
+
+  /* ------------------------------------------------------------------ */
+  /* Storefront screenshots                                              */
+  /* ------------------------------------------------------------------ */
+
+  await captureStorefront(browser);
 
   /* ------------------------------------------------------------------ */
   /* Capture both locales                                                */

@@ -62,7 +62,19 @@ CartBase exists because most ecommerce stacks force you to choose between paying
 
 ---
 
-## Screenshots
+## Storefront
+
+A running CartBase storefront with the demo catalog, rendered by the bundled default theme. The same catalog is used in the admin screenshots below.
+
+| Home | Product detail |
+| :---: | :---: |
+| <img src="docs/images/storefront/home.jpg" alt="CartBase storefront home page with hero and featured products" width="100%"> | <img src="docs/images/storefront/product.jpg" alt="CartBase product page with gallery, price, stock and add to cart" width="100%"> |
+| **Product listing** | **Checkout** |
+| <img src="docs/images/storefront/products.jpg" alt="CartBase product listing with categories, search and sorting" width="100%"> | <img src="docs/images/storefront/checkout.jpg" alt="CartBase guest checkout with shipping and manual payment" width="100%"> |
+
+---
+
+## Admin screenshots
 
 A running CartBase admin with the bundled English UI and demo catalog data. The Chinese README shows the same pages with the Simplified Chinese language pack enabled.
 

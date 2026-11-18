@@ -10,7 +10,7 @@
 
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![D1](https://img.shields.io/badge/Database-D1-0051FF)](https://developers.cloudflare.com/d1/)
-[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [架构文档](docs/ARCHITECTURE.md) · [部署文档](docs/DEPLOYMENT.md)
 
@@ -32,7 +32,7 @@
 | **VPS、MySQL、Redis、SSL、备份** | 没有服务器要维护。D1 由 Cloudflare 托管，图片可上传到 R2 或通过 jsDelivr 发布；外链仍可选。 |
 | **SaaS 锁定、多租户共享数据** | 每个商城都是你自己 Cloudflare 账户里的独立 Worker + D1；R2 可按需接入。数据、代码、域名都归你。 |
 | **重型 SSR 框架超出免费 CPU 限制** | Hono + Preact + 轻量字符串渲染，页面依然服务端渲染、SEO 可读。 |
-| **主题和页面编辑器贵且封闭** | 8 套结构不同的内置主题、三栏可视化编辑器、完整 Theme SDK，GPLv3 开源。 |
+| **主题和页面编辑器贵且封闭** | 8 套结构不同的内置主题、三栏可视化编辑器、完整 Theme SDK，MIT 开源。 |
 | **支付插件依赖付费后端** | 内置人工支付、Stripe Checkout、PayPal Orders v2，密钥使用 AES-GCM 加密。 |
 | **后台只有英文** | 内置 Admin Language Pack，支持 English / 简体中文，可运行时切换。 |
 | **假“一键部署”** | 这里列出的功能都真实实现。测试在 workerd 中连接 D1 运行；R2 文件上传为可选能力，未完成项明确列出。 |
@@ -48,7 +48,7 @@
 | 多商城 | 每店独立 Worker + D1，R2 可选 | 套餐/租户限制 | 每站点独立安装 |
 | 主题 | 8 套内置 + SDK | 多为付费 | 免费/付费扩展 |
 | 可视化编辑器 | 内置 | 内置 | 第三方 |
-| 开源 | **GPLv3** | 否 | GPL |
+| 开源 | **MIT** | 否 | GPL |
 
 ---
 
@@ -313,7 +313,7 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 
 ## 参与贡献
 
-项目使用 GPLv3 协议。欢迎提交主题、插件、翻译、Bug 报告和性能改进。合并 PR 前需要先接受[贡献者许可协议](legal/CLA.md)，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+项目使用 MIT 协议。欢迎提交主题、插件、翻译、Bug 报告和性能改进。合并 PR 前需要先接受[贡献者许可协议](legal/CLA.md)，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 - 新增主题：[docs/THEME_DEVELOPMENT.md](docs/THEME_DEVELOPMENT.md)
 - 新增插件：[docs/PLUGIN_DEVELOPMENT.md](docs/PLUGIN_DEVELOPMENT.md)
@@ -322,4 +322,4 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 
 ## License
 
-版权所有 (C) 2026 CartBase contributors。本项目采用 GNU 通用公共许可证第 3 版（GPL-3.0-only），详见 [LICENSE](LICENSE)。无法遵守 GPLv3 的闭源商用场景可购买[商业授权](legal/COMMERCIAL-LICENSE.md)。第三方依赖遵循各自许可证。
+版权所有 (C) 2026 CartBase contributors。本项目采用 [MIT 协议](LICENSE)。企业支持、赔偿保障和商业组件可通过[商业授权](legal/COMMERCIAL-LICENSE.md)获取。第三方依赖遵循各自许可证。

@@ -1,7 +1,7 @@
 # Legal documents
 
 This directory contains the templates CartBase uses to accept contributions and to sell
-commercial licenses alongside the GPLv3 open-source release.
+commercial licenses alongside the MIT open-source release.
 
 > **These are templates, not legal advice.** Have qualified counsel in your jurisdiction
 > review them, complete every placeholder, and adapt them to your business before you rely
@@ -11,8 +11,28 @@ commercial licenses alongside the GPLv3 open-source release.
 
 | File | Purpose |
 |---|---|
-| [`CLA.md`](CLA.md) | Contributor License Agreement. Every contributor must accept it before a pull request can be merged. It lets the project distribute contributions under GPLv3 and under commercial terms. |
-| [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) | Commercial license template and order form for customers who need to use CartBase without GPLv3's copyleft and source-disclosure obligations. |
+| [`CLA.md`](CLA.md) | Contributor License Agreement. Every contributor must accept it before a pull request can be merged. It lets the project distribute contributions under MIT and under commercial terms. |
+| [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) | Commercial license template and order form for customers who buy commercial components, commercial support, warranties, or indemnification. |
+
+## What MIT means for the business model
+
+MIT is permissive. Anyone may use, modify, and commercially exploit the Open Source
+Version, including in closed-source products, without paying and without disclosing their
+changes. A commercial license therefore **cannot sell permission to use the core**, and it
+cannot restrict what MIT already allows.
+
+The paid offering has to be something MIT does not provide:
+
+- **Commercial Components** — proprietary modules, integrations, or features that are not
+  published under MIT (for example, enterprise features, premium connectors, or a hosted
+  service).
+- **Commercial Services** — support, SLA, onboarding, managed deployment, and updates.
+- **Commercial assurances** — warranty, indemnification, and security review.
+- **Brand permissions** — a trademark or white-label license, if you choose to offer one.
+
+Keep the commercial components in a separate repository or package with a clear boundary.
+Do not describe the MIT core as "commercial use requires a license"; that statement would
+conflict with the LICENSE file and confuse customers.
 
 ## Placeholders to complete
 
@@ -46,31 +66,25 @@ proprietary terms. A DCO sign-off alone is **not** sufficient for dual licensing
 
 ## Commercial license workflow
 
-1. Send the customer an Order Form (Schedule A) that states the license metrics, term,
-   fees, and permitted distribution.
-2. Confirm the scope in writing: internal use, distribution inside a Customer Product, or
+1. Decide what you are selling before you send an Order Form: commercial components, a
+   support plan, indemnification, or a combination. Do not sell "closed-source permission"
+   for the MIT code.
+2. Send the customer an Order Form (Schedule A) that states the commercial components,
+   support plan, license metrics, term, and fees.
+3. Confirm the scope in writing: internal use, distribution inside a Customer Product, or
    both; number of stores, domains, environments, and administrator seats.
-3. Collect payment terms and invoice details. Do not grant rights beyond the Order Form.
-4. Deliver the agreed software through the channel in the Order Form.
-5. Keep the signed agreement and all Order Forms. If support is sold, attach Schedule B.
-6. If the customer also uses code received under GPLv3, remember that GPLv3 rights cannot
-   be taken away by the commercial agreement; the commercial license adds permissions.
-
-## Important notes about the open-source history
-
-- Earlier releases of this repository were published under the MIT license. Those releases
-  remain MIT for anyone who obtained them; changing the current `LICENSE` does not revoke
-  those grants.
-- The current source is GPLv3. A commercial license is an alternative grant for customers
-  who need proprietary-use permissions, not a restriction added on top of GPLv3.
-- Keep the copyright notice accurate. If contributors other than the maintainer have
-  merged code, their CLA records are what make commercial relicensing safe.
+4. Collect payment terms and invoice details. Do not grant rights beyond the Order Form.
+5. Deliver the commercial components and support through the channel in the Order Form.
+6. Keep the signed agreement and all Order Forms. If support is sold, attach Schedule B.
+7. Remember that the customer can always use the Open Source Version under MIT; the
+   commercial agreement adds rights and services, it does not remove MIT rights.
 
 ## 中文要点
 
-- `CLA.md`：贡献者许可协议。贡献者保留版权，但授权维护者以 GPLv3 **或商业条款**分发其贡献。没有这份授权，后续卖商业授权会有版权瑕疵。
+- `CLA.md`：贡献者许可协议。贡献者保留版权，但授权维护者以 MIT **或商业条款**分发其贡献。没有这份授权，后续卖商业授权会有版权瑕疵。
 - `COMMERCIAL-LICENSE.md`：商业授权合同模板，含订购单（Schedule A）和支持条款（Schedule B）。
+- **MIT 已经允许闭源商用**，所以商业合同不能卖“解除 copyleft”或“闭源许可”。真正能卖的是：商业组件、支持/SLA、赔偿保障、托管服务、商标/白标授权。
+- 商业组件要和 MIT 核心保持清晰边界（独立仓库/独立包/独立服务），否则容易被认为已经随 MIT 一起授权。
 - 所有方括号内容都需要替换；金额、责任上限、管辖法院/仲裁机构必须按实际情况填写。
 - CLA 必须“先签后合”：每个 PR 合并前确认已接受 CLA，并保留签署记录。公司贡献需要公司主体签 Corporate CLA。
-- 商业合同要和 GPLv3 并存：GPLv3 授权不能被商业合同收回，商业合同只是在订购单范围内**额外授予**闭源使用权限。
 - 以上均为模板，正式使用前请律师审核。

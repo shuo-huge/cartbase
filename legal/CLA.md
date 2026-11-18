@@ -6,7 +6,7 @@ Thank you for your interest in contributing to CartBase (the "Project"), maintai
 **[LICENSOR LEGAL NAME]** ("Maintainer", "we", "us"). This Contributor License Agreement
 ("CLA") documents the rights granted by contributors to the Maintainer. It protects the
 Maintainer, the Project, and its users, and enables the Project to be distributed under the
-GNU General Public License version 3 as well as under separate commercial license terms.
+MIT License as well as under separate commercial license terms.
 
 This CLA does not change your rights to use your own Contributions for any other purpose.
 You retain ownership of the copyright in your Contributions.
@@ -51,7 +51,7 @@ Contributions, in source and object form.
 Maintainer to license, sublicense, and distribute your Contributions under any terms,
 including:
 
-- (a) the GNU General Public License version 3;
+- (a) the MIT License;
 - (b) other open-source or source-available licenses; and
 - (c) proprietary or commercial license terms,
 

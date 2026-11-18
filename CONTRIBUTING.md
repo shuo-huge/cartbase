@@ -1,6 +1,6 @@
 # Contributing to CartBase
 
-Thanks for helping improve CartBase. This project is GPLv3 licensed and is also offered
+Thanks for helping improve CartBase. This project is MIT licensed and is also offered
 under commercial terms, so contributions need a clear copyright grant before they can be
 merged.
 

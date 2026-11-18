@@ -19,12 +19,12 @@ the "parties".
 A. Licensor owns and maintains CartBase, an e-commerce platform for Cloudflare Workers
 (the "Software").
 
-B. Licensor makes an Open Source Version of the Software available under the GNU General
-Public License, version 3 ("GPLv3").
+B. Licensor makes an Open Source Version of the Software available under the MIT License
+("MIT").
 
-C. Customer wishes to use the Software under terms that permit proprietary use without
-the source-disclosure and copyleft obligations of GPLv3, and Licensor is willing to grant
-that license on the terms of this Agreement and the applicable Order Form.
+C. Customer wishes to obtain Commercial Components, commercial support, warranties,
+indemnification, or other commercial benefits from Licensor, and Licensor is willing to
+provide them on the terms of this Agreement and the applicable Order Form.
 
 D. The parties therefore agree as follows.
 
@@ -52,16 +52,17 @@ the number of stores, domains, environments, administrator seats, end users, or
 deployments.
 
 **1.6 "Open Source Version"** means the version of the Software that Licensor distributes
-to the public under GPLv3.
+to the public under the MIT License.
 
 **1.7 "Order Form"** means an ordering document, quotation, or online order that
 references this Agreement and specifies the commercial terms, License Metrics, fees, and
 term. Each Order Form is incorporated into this Agreement.
 
 **1.8 "Software"** means the CartBase software, in source code and object code form,
-including the Documentation and any Updates that Licensor provides under an Order Form,
-but excluding Third-Party Components. Code that Customer receives under GPLv3 as the Open
-Source Version is governed by GPLv3, not by this Agreement.
+including the Documentation, Updates, and Commercial Components that Licensor provides
+under an Order Form, but excluding Third-Party Components. The Open Source Version is
+licensed to the public under MIT. Commercial Components are licensed only under this
+Agreement.
 
 **1.9 "Third-Party Components"** means open-source or third-party software included in or
 used with the Software, which is governed by its own license terms.
@@ -69,97 +70,116 @@ used with the Software, which is governed by its own license terms.
 **1.10 "Update"** means a bug fix, patch, minor release, or new version of the Software
 that Licensor makes generally available to commercial licensees, if any.
 
-## 2. Relationship to GPLv3
+**1.11 "Commercial Components"** means features, modules, integrations, or services that
+Licensor makes available only under this Agreement and does not distribute under MIT, as
+identified in an Order Form or Schedule A.
 
-**2.1** The Open Source Version is available under GPLv3. Customer may use, modify, and
-distribute the Open Source Version under GPLv3 at no charge, subject to GPLv3's terms.
+**1.12 "Commercial Services"** means the support, maintenance, warranty, indemnification,
+or other services that Licensor provides under this Agreement or an Order Form.
 
-**2.2** This Agreement is an alternative to GPLv3 for the scope described in the
-applicable Order Form. It grants additional permissions and does not reduce or restrict
-any rights Customer may have under GPLv3 with respect to code Customer received under
-GPLv3.
+## 2. Relationship to MIT
 
-**2.3** If Customer's intended use is fully permitted by GPLv3 and Customer complies with
-GPLv3, Customer does not need this Agreement for that use.
+**2.1** The Open Source Version is available under MIT. Customer may use, modify,
+distribute, sublicense, and commercially exploit the Open Source Version under MIT at no
+charge, subject only to MIT's notice requirement.
 
-**2.4** Nothing in this Agreement obliges Customer to accept this Agreement. Code that
-Customer receives solely under GPLv3 remains governed by GPLv3.
+**2.2** This Agreement does not reduce or restrict any rights Customer has under MIT with
+respect to the Open Source Version. It grants additional rights and services, including
+access to Commercial Components and the commercial assurances described in the Order Form.
+
+**2.3** Customer does not need this Agreement to use the Open Source Version under MIT.
+This Agreement is for the Commercial Components, Commercial Services, warranties,
+indemnification, and other commercial benefits that it specifies.
+
+**2.4** Restrictions in this Agreement apply to Commercial Components and to the
+commercial relationship between the parties. They do not limit rights granted by MIT to
+the Open Source Version.
 
 ## 3. Commercial License Grant
 
 **3.1** Subject to Customer's payment of the applicable fees and compliance with this
 Agreement, Licensor grants Customer a non-exclusive, non-transferable (except as permitted
-in Section 16.3), worldwide, **[perpetual / term-limited as stated in the Order Form]**
+in Section 15.3), worldwide, **[perpetual / term-limited as stated in the Order Form]**
 license to:
 
-- (a) use, reproduce, modify, and create Derivative Works of the Software;
-- (b) integrate the Software into Customer Products;
-- (c) distribute and make available the Software as part of Customer Products, in object
-  code and/or source code; and
+- (a) use, reproduce, modify, and create Derivative Works of the Commercial Components;
+- (b) integrate the Commercial Components with the Open Source Version and with Customer
+  Products;
+- (c) distribute and make available the Commercial Components as part of Customer
+  Products, in object code and/or source code; and
 - (d) sublicense the rights in (a) through (c) to end users solely as part of Customer
   Products and subject to Section 4.4.
 
-**3.2 Proprietary use.** Customer may exercise the rights in Section 3.1 without
-complying with GPLv3's source-disclosure, copyleft, and license-notice requirements for
-the Software as incorporated in Customer Products, provided Customer complies with this
-Agreement.
+**3.2 Open Source Version.** The Open Source Version is licensed to Customer under MIT,
+and no additional license is required for Customer to exercise MIT rights in it. Nothing
+in this Agreement restricts, conditions, or revokes those MIT rights.
 
 **3.3 Affiliates.** Customer's Affiliates may exercise the rights granted in this
 Agreement if they are identified in the Order Form. Customer remains responsible for its
 Affiliates' compliance with this Agreement.
 
-**3.4 License Metrics.** Customer's rights are limited to the License Metrics in the
-applicable Order Form. Customer shall not exceed those metrics without purchasing
-additional rights.
+**3.4 License Metrics.** Customer's rights in the Commercial Components are limited to the
+License Metrics in the applicable Order Form. Customer shall not exceed those metrics
+without purchasing additional rights.
 
 **3.5 Reservation.** Licensor reserves all rights not expressly granted in this Agreement.
 
 ## 4. Restrictions
 
+The restrictions in this Section 4 apply to Commercial Components and to Customer's
+exercise of the commercial benefits under this Agreement. They do not limit any rights
+Customer has under MIT to the Open Source Version.
+
 **4.1 No standalone resale.** Customer shall not distribute, sell, sublicense, or make
-available the Software as a standalone product, or as a competing e-commerce platform,
-except as incorporated in a Customer Product with material additional functionality.
+available the Commercial Components as a standalone product, or as a competing e-commerce
+platform, except as incorporated in a Customer Product with material additional
+functionality.
 
 **4.2 Notices.** Customer shall not remove or obscure copyright, license, or attribution
-notices in the Software's source code or Documentation. Customer may add its own notices.
+notices in the Commercial Components' source code or Documentation. Customer may add its
+own notices.
 
 **4.3 Trademarks.** This Agreement grants no right to use Licensor's names, logos, or
 trademarks, except as permitted in writing by Licensor or by Licensor's trademark policy.
 Customer shall not state or imply that Licensor endorses Customer or Customer Products.
 
-**4.4 Sublicensing and flow-down.** Customer may sublicense the Software only to end users
-as part of a Customer Product, under terms that:
+**4.4 Sublicensing and flow-down.** Customer may sublicense the Commercial Components only
+to end users as part of a Customer Product, under terms that:
 
-- (a) prohibit standalone redistribution of the Software;
+- (a) prohibit standalone redistribution of the Commercial Components;
 - (b) include disclaimers of warranty and limitations of liability at least as protective
   of Licensor as Sections 10 and 11 of this Agreement;
 - (c) prohibit circumvention of license keys or technical restrictions; and
-- (d) identify Licensor as the owner of the Software.
+- (d) identify Licensor as the owner of the Commercial Components.
 
-**4.5 No circumvention.** If the Software or a commercial build contains license keys,
-feature flags, usage limits, or other technical measures, Customer shall not circumvent,
-disable, or remove them, except to the extent such restriction is prohibited by
-applicable law.
+**4.5 No circumvention.** If the Commercial Components contain license keys, feature
+flags, usage limits, or other technical measures, Customer shall not circumvent, disable,
+or remove them, except to the extent such restriction is prohibited by applicable law.
 
 **4.6 Compliance.** Customer shall comply with all applicable laws and regulations in its
-use and distribution of the Software, including export-control, sanctions, and
-anti-corruption laws.
+use and distribution of the Commercial Components, including export-control, sanctions,
+and anti-corruption laws.
 
 **4.7 No competitive standalone use.** [Optional — delete if not desired] Customer shall
-not use the Software to develop or operate a standalone product that is substantially
-similar to the Software and offered as a commercial substitute for the Software.
+not use the Commercial Components to develop or operate a standalone product that is
+substantially similar to them and offered as a commercial substitute.
 
-**4.8 Source distribution.** If Customer distributes the Software in source-code form,
-Customer must include this Agreement's restrictions (or terms at least as protective) with
-that distribution and must not grant recipients rights broader than those Customer
-received.
+**4.8 Source distribution.** If Customer distributes the Commercial Components in
+source-code form, Customer must include this Agreement's restrictions (or terms at least
+as protective) with that distribution and must not grant recipients rights broader than
+those Customer received.
+
+**4.9 MIT compliance.** When distributing the Open Source Version, Customer shall comply
+with MIT, including retaining the copyright and permission notice in all copies or
+substantial portions of the software.
 
 ## 5. Ownership
 
 **5.1** Licensor retains all right, title, and interest in and to the Software, the
 Documentation, and all intellectual property rights in them, including all Updates and
-modifications made by Licensor. No rights are granted by implication, estoppel, or
-otherwise except as expressly stated in this Agreement.
+modifications made by Licensor, subject to the MIT license granted for the Open Source
+Version. No rights are granted by implication, estoppel, or otherwise except as expressly
+stated in this Agreement.
 
 **5.2** Customer owns its Customer Products and the modifications to the Software that
 Customer creates, subject to Licensor's rights in the underlying Software and Third-Party
@@ -231,16 +251,17 @@ dismissed within sixty (60) days.
 
 **8.4 Effect of termination.** On termination:
 
-- (a) Customer's license rights end, except that end-user sublicenses properly granted
-  under Section 4.4 for Customer Products distributed before termination survive;
-- (b) Customer shall stop distributing new copies of the Software and, on request,
-  certify in writing that it has done so;
-- (c) Customer may continue to use the Software internally for up to ninety (90) days to
-  wind down and support existing end users; and
+- (a) Customer's license rights to the Commercial Components end, except that end-user
+  sublicenses properly granted under Section 4.4 for Customer Products distributed before
+  termination survive. Rights to the Open Source Version under MIT are not affected;
+- (b) Customer shall stop distributing new copies of the Commercial Components and, on
+  request, certify in writing that it has done so;
+- (c) Customer may continue to use the Commercial Components internally for up to ninety
+  (90) days to wind down and support existing end users; and
 - (d) fees accrued before termination remain payable.
 
-**8.5 Survival.** Sections 4, 5, 6 (for accrued amounts), 8.4, 9.3, 10, 11, 12, 14, 15,
-and 16 survive termination.
+**8.5 Survival.** Sections 4, 5, 6 (for accrued amounts), 8.4, 9.3, 10, 11, 12, 14, and 15
+survive termination.
 
 ## 9. Warranties
 
@@ -284,7 +305,8 @@ obligation is subject to Customer:
 - (d) use outside the scope of this Agreement;
 - (e) failure to use an Update that Licensor made available and that would have avoided
   the claim; or
-- (f) the Open Source Version or any code used under GPLv3 or another open-source license.
+- (f) Third-Party Components or code used under a license other than this Agreement or
+  MIT.
 
 **10.3 Remedies.** If an infringement claim is made or likely, Licensor may, at its
 option, procure the right for Customer to continue using the Software, modify or replace
@@ -444,6 +466,7 @@ convenience only, and the English version controls.
 | Order Form number | |
 | Effective date | |
 | Licensed Software / version | |
+| Commercial Components included | None / list: |
 | License type | Perpetual / annual subscription / other: |
 | License Metrics | Stores: ___  Domains: ___  Environments: ___  Admin seats: ___  End users: ___ |
 | Permitted distribution | Internal use only / Customer Products / other: |

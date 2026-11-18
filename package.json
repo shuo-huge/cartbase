@@ -1,6 +1,6 @@
 {
   "name": "cartbase",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": true,
   "description": "A lightweight, plugin-based, themeable ecommerce platform built natively for Cloudflare Workers Free.",
   "license": "MIT",

@@ -51,6 +51,10 @@ function sanitize(relative, source) {
   if (relative === ".gitignore") {
     value = value.split(`.${OLD}/`).join("");
   }
+  if (relative === "CHANGELOG.md") {
+    // The changelog records the historical rename by name.
+    value = value.split("CloudCart").join("");
+  }
   return value;
 }
 

@@ -1,6 +1,6 @@
 import { apiError, networkError, usageError } from "./errors.mjs";
 
-const DEFAULT_USER_AGENT = "Mozilla/5.0 (compatible; CartBaseCLI/0.5.1; +https://github.com/shuo-huge/cartbase)";
+const DEFAULT_USER_AGENT = "Mozilla/5.0 (compatible; CartBaseCLI/0.5.2; +https://github.com/shuo-huge/cartbase)";
 
 function parseSetCookies(headers) {
   if (typeof headers.getSetCookie === "function") {

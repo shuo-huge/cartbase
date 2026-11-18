@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.5.2 — 2026-11-18
 
 ### Added
 
@@ -8,6 +8,11 @@
   administrator setup, and demo content. See [docs/DEMO.md](docs/DEMO.md).
 - `pnpm demo:seed` to populate a demo store with categories, products, a published home
   page, and sample orders through the admin API. See [docs/DEMO.md](docs/DEMO.md).
+- Hosted demo store at
+  [cartbase-demo.cloudcart-shuo-preview.workers.dev](https://cartbase-demo.cloudcart-shuo-preview.workers.dev),
+  running on its own Worker and D1 database.
+- Storefront screenshots in both READMEs: home, product listing, product detail, cart,
+  and checkout.
 
 ### Changed
 

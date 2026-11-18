@@ -49,7 +49,7 @@ body:
     attributes:
       label: CartBase version
       description: From `/api/health`, the footer, or the git tag.
-      placeholder: "0.5.1"
+      placeholder: "0.5.2"
 
   - type: dropdown
     id: deployment

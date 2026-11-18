@@ -32,7 +32,7 @@ Every store is its own Worker + D1 and does not share a database with other merc
 
 ## Current version and scope
 
-The current version is **v0.5.1**. Core features are usable, but we do not yet claim 1.0.
+The current version is **v0.5.2**. Core features are usable, but we do not yet claim 1.0.
 
 Not yet complete or verified:
 

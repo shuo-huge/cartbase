@@ -37,4 +37,4 @@ CartBase puts products, orders, cart, checkout, themes, the page editor and plug
 
 ## Current status
 
-CartBase is currently at v0.5.1: the core storefront, 8 themes, tax, email notifications, page version rollback, image ordering, R2/jsDelivr local uploads with storage switching, hybrid built-in/remote plugins, the agent-oriented admin CLI and browser end-to-end tests are all complete. Capabilities that have not yet been verified are clearly marked in the relevant documentation.
+CartBase is currently at v0.5.2: the core storefront, 8 themes, tax, email notifications, page version rollback, image ordering, R2/jsDelivr local uploads with storage switching, hybrid built-in/remote plugins, the agent-oriented admin CLI and browser end-to-end tests are all complete. Capabilities that have not yet been verified are clearly marked in the relevant documentation.

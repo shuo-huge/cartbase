@@ -13,6 +13,12 @@ passing without its output.
 (48 pages) and `pnpm check:brand` all passed. The renamed Worker and docs Worker were deployed and
 `/api/health` returned `app: "cartbase"` with `X-CartBase-Version`.
 
+**v0.5.2 release (2026-11-18):** adds the hosted demo store, `pnpm demo` and
+`pnpm demo:seed`, storefront screenshots in the READMEs, and real theme previews captured
+from the demo catalog. `pnpm typecheck`, `pnpm test` (127), `pnpm test:cli` (31),
+`pnpm build`, `pnpm test:e2e` (13), `pnpm docs:build` (48 pages) and `pnpm check:brand`
+passed. The hosted demo Worker was deployed and `/api/health` reports version `0.5.2`.
+
 **v0.5.1 release (2026-11-18):** version identifiers were bumped to 0.5.1 and the deploy script no
 longer rewrites `wrangler.jsonc` comments. `pnpm typecheck`, `pnpm test` (127), `pnpm test:cli`
 (31, including 10 JSONC comment-preservation tests), `pnpm build`, `pnpm docs:build` (48 pages) and

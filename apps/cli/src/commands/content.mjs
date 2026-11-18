@@ -71,7 +71,7 @@ export async function downloadImage(value, { fetchImpl = fetch, timeoutMs = 20_0
         redirect: "manual",
         headers: {
           Accept: "image/*",
-          "User-Agent": "CartBaseCLI/0.5.1 (+https://github.com/shuo-huge/cartbase)",
+          "User-Agent": "CartBaseCLI/0.5.2 (+https://github.com/shuo-huge/cartbase)",
         },
         signal: AbortSignal.timeout(timeoutMs),
       });

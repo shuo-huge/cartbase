@@ -3,13 +3,13 @@ import { removeTopLevel, setTopLevel, stripJsonComments, topLevelProperties } fr
 
 const SAMPLE = `{
   // Worker name shown in the dashboard
-  "name": "cloudcart",
+  "name": "legacy-store",
   "main": "apps/worker/src/index.ts",
   /* The deploy script owns this binding. */
   "d1_databases": [
     {
       "binding": "DB", // keep the binding name
-      "database_name": "cloudcart",
+      "database_name": "legacy-store",
       "database_id": "3ee15198-1fe3-44e3-a20d-b4822f7065cc"
     }
   ],
@@ -48,7 +48,7 @@ describe("jsonc-edit", () => {
     expect(updated).toContain("/* The deploy script owns this binding. */");
     expect(updated).toContain('"vars": { "url": "https://example.com/a//b" }');
     expect(parse(updated).d1_databases).toEqual(databases);
-    expect(parse(updated).name).toBe("cloudcart");
+    expect(parse(updated).name).toBe("legacy-store");
   });
 
   it("inserts a missing property before the closing brace", () => {
@@ -67,7 +67,7 @@ describe("jsonc-edit", () => {
     const updated = removeTopLevel(SAMPLE, "main");
     expect(updated).not.toContain("apps/worker/src/index.ts");
     expect(parse(updated)).toEqual({
-      name: "cloudcart",
+      name: "legacy-store",
       d1_databases: parse(SAMPLE).d1_databases,
       vars: { url: "https://example.com/a//b" },
     });
@@ -77,7 +77,7 @@ describe("jsonc-edit", () => {
   it("removes the last property and the preceding comma", () => {
     const updated = removeTopLevel(SAMPLE, "vars");
     expect(parse(updated)).not.toHaveProperty("vars");
-    expect(parse(updated).name).toBe("cloudcart");
+    expect(parse(updated).name).toBe("legacy-store");
   });
 
   it("is a no-op for an absent property", () => {
@@ -85,7 +85,7 @@ describe("jsonc-edit", () => {
   });
 
   it("handles a comment after the last value", () => {
-    const source = `{\n  "name": "cloudcart",\n  "d1_databases": [] // trailing\n}\n`;
+    const source = `{\n  "name": "legacy-store",\n  "d1_databases": [] // trailing\n}\n`;
     const updated = setTopLevel(source, "name", "cartbase");
     expect(parse(updated).name).toBe("cartbase");
     expect(parse(updated).d1_databases).toEqual([]);

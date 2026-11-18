@@ -71,7 +71,7 @@ export function RemotePluginPage({ pluginId, pageId }: { pluginId: string; pageI
         const frame = iframeRef.current?.contentWindow;
         if (!frame || !entryOrigin) return;
         frame.postMessage({
-          type: "cloudcart:token",
+          type: "cartbase:token",
           token: result.token,
           expiresAt: result.expiresAt,
           storeId: result.storeId,
@@ -94,9 +94,9 @@ export function RemotePluginPage({ pluginId, pageId }: { pluginId: string; pageI
       if (event.source !== iframeRef.current?.contentWindow) return;
       const data = event.data as { type?: unknown } | null;
       if (!data || typeof data.type !== "string") return;
-      if (data.type === "cloudcart:ready") {
+      if (data.type === "cartbase:ready") {
         void issueToken();
-      } else if (data.type === "cloudcart:refresh-token") {
+      } else if (data.type === "cartbase:refresh-token") {
         if (Date.now() - lastLaunch.current < 3000) return;
         void issueToken();
       }

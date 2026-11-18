@@ -1,5 +1,5 @@
-import { escapeAttr, escapeHtml, jsonForScript, moneyToInput, stripTags, truncate } from "@cloudcart/shared";
-import type { ThemeToken } from "@cloudcart/theme-sdk";
+import { escapeAttr, escapeHtml, jsonForScript, moneyToInput, stripTags, truncate } from "@cartbase/shared";
+import type { ThemeToken } from "@cartbase/theme-sdk";
 
 export interface DocumentOptions {
   title: string;

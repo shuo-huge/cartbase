@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 
-const NAVIGATE_EVENT = "cloudcart:navigate";
+const NAVIGATE_EVENT = "cartbase:navigate";
 
 export function navigate(path: string): void {
   const target = path.startsWith("/admin") ? path : `/admin${path.startsWith("/") ? path : `/${path}`}`;

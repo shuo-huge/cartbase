@@ -4,7 +4,7 @@ import type {
   EmailTransport,
   OutgoingEmail,
   ValidationResult,
-} from "@cloudcart/plugin-sdk";
+} from "@cartbase/plugin-sdk";
 
 export const manifest = {
   id: "email-notifications",

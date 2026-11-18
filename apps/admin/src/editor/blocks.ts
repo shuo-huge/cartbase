@@ -1,4 +1,4 @@
-import type { PageSection } from "@cloudcart/shared";
+import type { PageSection } from "@cartbase/shared";
 
 export type FieldType = "text" | "textarea" | "url" | "number" | "select" | "color" | "checkbox" | "repeater" | "html";
 

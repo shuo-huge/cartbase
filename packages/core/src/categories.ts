@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { CategoryRow } from "@cloudcart/database";
-import { HttpError, newId, newSlugSuffix, nowIso, slugify } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { CategoryRow } from "@cartbase/database";
+import { HttpError, newId, newSlugSuffix, nowIso, slugify } from "@cartbase/shared";
 import { z } from "zod";
 
 export const categoryInputSchema = z.object({

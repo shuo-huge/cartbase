@@ -5,7 +5,7 @@
  * this script performs the required git commit/tag/push step.
  *
  * Usage:
- *   node scripts/publish-jsdelivr.mjs --repo ../cloudcart-media --dest products \
+ *   node scripts/publish-jsdelivr.mjs --repo ../cartbase-media --dest products \
  *     --tag v1 ./photo-1.jpg ./photo-2.jpg
  *
  * The target repository must already exist, have an `origin` GitHub remote,

@@ -1,4 +1,4 @@
-import { formatMoney } from "@cloudcart/shared";
+import { formatMoney } from "@cartbase/shared";
 import type { ComponentChildren } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
@@ -152,7 +152,7 @@ export function useAsync<T>(loader: () => Promise<T>, deps: unknown[] = []): {
 
 type ToastKind = "success" | "error";
 
-const TOAST_EVENT = "cloudcart:toast";
+const TOAST_EVENT = "cartbase:toast";
 
 export function toast(message: string, kind: ToastKind = "success"): void {
   window.dispatchEvent(new CustomEvent(TOAST_EVENT, { detail: { message, kind } }));

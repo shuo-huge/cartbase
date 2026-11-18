@@ -1,8 +1,8 @@
-# Claude Code Master Prompt — CloudCart
+# Claude Code Master Prompt — CartBase
 
 你是一名资深全栈架构师、Cloudflare Workers 专家、电商系统工程师和 UI/UX 设计师。
 
-你的任务是从零开发 CloudCart，一个完整的、轻量级、插件化、主题化的开源电商系统。
+你的任务是从零开发 CartBase，一个完整的、轻量级、插件化、主题化的开源电商系统。
 
 这不是普通的商城 Demo，也不是静态 HTML 模板。
 
@@ -118,7 +118,7 @@ https://developers.cloudflare.com/workers/static-assets/
 
 项目名称：
 
-CloudCart
+CartBase
 
 项目描述：
 
@@ -126,7 +126,7 @@ A lightweight, plugin-based, themeable ecommerce platform built natively for Clo
 
 中文：
 
-CloudCart — 免费部署、插件化、可视化主题编辑的轻量电商系统。
+CartBase — 免费部署、插件化、可视化主题编辑的轻量电商系统。
 
 目标用户：
 
@@ -206,7 +206,7 @@ CloudCart — 免费部署、插件化、可视化主题编辑的轻量电商系
 
 创建以下项目结构：
 
-cloudcart/
+cartbase/
 apps/
 storefront/
 admin/
@@ -265,7 +265,7 @@ LICENSE
 
 # 4. 系统核心架构
 
-CloudCart Core 负责：
+CartBase Core 负责：
 
 - 商品
 - 分类
@@ -315,7 +315,7 @@ tests/
 统一接口示例：
 
 ```typescript
-export interface CloudCartPlugin {
+export interface CartBasePlugin {
   manifest: PluginManifest;
 
   register(context: PluginContext): void;
@@ -1094,7 +1094,7 @@ README 必须提供：
 必须明确区分：
 
 - Cloudflare 官方真实指标
-- CloudCart 本地估算指标
+- CartBase 本地估算指标
 
 接近安全阈值时：
 

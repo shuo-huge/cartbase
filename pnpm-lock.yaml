@@ -166,25 +166,25 @@ importers:
 
   .:
     devDependencies:
-      '@cloudcart/core':
+      '@cartbase/core':
         specifier: workspace:*
         version: link:packages/core
-      '@cloudcart/database':
+      '@cartbase/database':
         specifier: workspace:*
         version: link:packages/database
-      '@cloudcart/plugin-email-notifications':
+      '@cartbase/plugin-email-notifications':
         specifier: workspace:*
         version: link:plugins/notifications/email
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:packages/plugin-sdk
-      '@cloudcart/plugin-stripe':
+      '@cartbase/plugin-stripe':
         specifier: workspace:*
         version: link:plugins/payments/stripe
-      '@cloudcart/security':
+      '@cartbase/security':
         specifier: workspace:*
         version: link:packages/security
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:packages/shared
       '@cloudflare/vitest-plugin':
@@ -223,10 +223,10 @@ importers:
 
   apps/admin:
     dependencies:
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@cloudcart/ui':
+      '@cartbase/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       preact:
@@ -246,6 +246,8 @@ importers:
         specifier: 8.3.6
         version: 8.3.6(@types/node@24.19.2)(esbuild@0.28.2)(yaml@2.9.1)
 
+  apps/cli: {}
+
   apps/docs:
     dependencies:
       '@astrojs/starlight':
@@ -257,7 +259,7 @@ importers:
 
   apps/storefront:
     dependencies:
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       preact:
@@ -273,61 +275,61 @@ importers:
 
   apps/worker:
     dependencies:
-      '@cloudcart/core':
+      '@cartbase/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@cloudcart/database':
+      '@cartbase/database':
         specifier: workspace:*
         version: link:../../packages/database
-      '@cloudcart/plugin-admin-i18n':
+      '@cartbase/plugin-admin-i18n':
         specifier: workspace:*
         version: link:../../plugins/admin/i18n
-      '@cloudcart/plugin-email-notifications':
+      '@cartbase/plugin-email-notifications':
         specifier: workspace:*
         version: link:../../plugins/notifications/email
-      '@cloudcart/plugin-manual-payment':
+      '@cartbase/plugin-manual-payment':
         specifier: workspace:*
         version: link:../../plugins/payments/manual
-      '@cloudcart/plugin-paypal':
+      '@cartbase/plugin-paypal':
         specifier: workspace:*
         version: link:../../plugins/payments/paypal
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
-      '@cloudcart/plugin-stripe':
+      '@cartbase/plugin-stripe':
         specifier: workspace:*
         version: link:../../plugins/payments/stripe
-      '@cloudcart/security':
+      '@cartbase/security':
         specifier: workspace:*
         version: link:../../packages/security
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@cloudcart/theme-beauty':
+      '@cartbase/theme-beauty':
         specifier: workspace:*
         version: link:../../themes/beauty
-      '@cloudcart/theme-default':
+      '@cartbase/theme-default':
         specifier: workspace:*
         version: link:../../themes/default
-      '@cloudcart/theme-electronics':
+      '@cartbase/theme-electronics':
         specifier: workspace:*
         version: link:../../themes/electronics
-      '@cloudcart/theme-fashion':
+      '@cartbase/theme-fashion':
         specifier: workspace:*
         version: link:../../themes/fashion
-      '@cloudcart/theme-home':
+      '@cartbase/theme-home':
         specifier: workspace:*
         version: link:../../themes/home
-      '@cloudcart/theme-jewelry':
+      '@cartbase/theme-jewelry':
         specifier: workspace:*
         version: link:../../themes/jewelry
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
-      '@cloudcart/theme-single-product':
+      '@cartbase/theme-single-product':
         specifier: workspace:*
         version: link:../../themes/single-product
-      '@cloudcart/theme-sports':
+      '@cartbase/theme-sports':
         specifier: workspace:*
         version: link:../../themes/sports
       hono:
@@ -339,19 +341,19 @@ importers:
 
   packages/core:
     dependencies:
-      '@cloudcart/database':
+      '@cartbase/database':
         specifier: workspace:*
         version: link:../database
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../plugin-sdk
-      '@cloudcart/security':
+      '@cartbase/security':
         specifier: workspace:*
         version: link:../security
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../shared
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../theme-sdk
       zod:
@@ -360,13 +362,13 @@ importers:
 
   packages/database:
     dependencies:
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../shared
 
   packages/plugin-sdk:
     dependencies:
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../shared
       zod:
@@ -375,7 +377,7 @@ importers:
 
   packages/security:
     dependencies:
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../shared
 
@@ -383,10 +385,10 @@ importers:
 
   packages/theme-sdk:
     dependencies:
-      '@cloudcart/security':
+      '@cartbase/security':
         specifier: workspace:*
         version: link:../security
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../shared
 
@@ -394,103 +396,103 @@ importers:
 
   plugins/admin/i18n:
     dependencies:
-      '@cloudcart/database':
+      '@cartbase/database':
         specifier: workspace:*
         version: link:../../../packages/database
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../../../packages/plugin-sdk
 
   plugins/notifications/email:
     dependencies:
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../../../packages/plugin-sdk
 
   plugins/payments/manual:
     dependencies:
-      '@cloudcart/database':
+      '@cartbase/database':
         specifier: workspace:*
         version: link:../../../packages/database
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../../../packages/plugin-sdk
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../../packages/shared
 
   plugins/payments/paypal:
     dependencies:
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../../../packages/plugin-sdk
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../../packages/shared
 
   plugins/payments/stripe:
     dependencies:
-      '@cloudcart/plugin-sdk':
+      '@cartbase/plugin-sdk':
         specifier: workspace:*
         version: link:../../../packages/plugin-sdk
-      '@cloudcart/security':
+      '@cartbase/security':
         specifier: workspace:*
         version: link:../../../packages/security
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../../packages/shared
 
   themes/beauty:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/default:
     dependencies:
-      '@cloudcart/security':
+      '@cartbase/security':
         specifier: workspace:*
         version: link:../../packages/security
-      '@cloudcart/shared':
+      '@cartbase/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/electronics:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/fashion:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/home:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/jewelry:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/single-product:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 
   themes/sports:
     dependencies:
-      '@cloudcart/theme-sdk':
+      '@cartbase/theme-sdk':
         specifier: workspace:*
         version: link:../../packages/theme-sdk
 

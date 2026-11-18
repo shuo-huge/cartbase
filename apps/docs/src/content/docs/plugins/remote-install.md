@@ -12,12 +12,12 @@ description: 通过 Manifest URL 安装、启用和管理远程插件。
 3. 输入 Manifest URL，例如：
 
    ```text
-   https://plugin.example.com/cloudcart-plugin.json
+   https://plugin.example.com/cartbase-plugin.json
    ```
 
 4. 点击 **Preview**
 5. 检查插件名称、作者、版本、权限、后台菜单和服务地址
-6. 如果插件服务已经配置了密钥，在 **Service secret** 中粘贴；留空则让 CloudCart 生成
+6. 如果插件服务已经配置了密钥，在 **Service secret** 中粘贴；留空则让 CartBase 生成
 7. 点击 **Install plugin**
 
 安装完成后插件处于**禁用**状态。
@@ -34,10 +34,10 @@ description: 通过 Manifest URL 安装、启用和管理远程插件。
 
 ## 服务密钥
 
-如果 CloudCart 生成了密钥，安装完成后会**只显示一次**。你需要：
+如果 CartBase 生成了密钥，安装完成后会**只显示一次**。你需要：
 
 1. 立即复制
-2. 配置到插件服务器的 `CLOUDCART_SERVICE_SECRET`
+2. 配置到插件服务器的 `CARTBASE_SERVICE_SECRET`
 3. 点击 Done
 
 如果密钥丢失，可以在插件上点击 **Update**，重新安装并生成新密钥；旧密钥配置需要同步更新。

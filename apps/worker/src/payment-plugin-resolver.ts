@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { PaymentPlugin } from "@cloudcart/plugin-sdk";
-import { getRemotePluginRow, storedRemoteManifest } from "@cloudcart/core";
+import type { Database } from "@cartbase/database";
+import type { PaymentPlugin } from "@cartbase/plugin-sdk";
+import { getRemotePluginRow, storedRemoteManifest } from "@cartbase/core";
 import { getPaymentPlugin } from "./plugin-registry";
 import { RemotePaymentPlugin } from "./remote-payment-plugin";
 

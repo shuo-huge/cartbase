@@ -35,7 +35,7 @@ describe("admin API keys", () => {
     const client = createClient();
     await client.ensureSession();
     const created = await createKey(client, { scopes: ["products:read", "products:write"] });
-    expect(created.token.startsWith("cck_")).toBe(true);
+    expect(created.token.startsWith("cbk_")).toBe(true);
     expect(created.scopes).toEqual(["products:read", "products:write"]);
 
     const list = await client.request("/api/admin/api-keys");
@@ -169,7 +169,7 @@ describe("admin API keys", () => {
     expect(after.status).toBe(401);
     expect(((await after.json()) as { error: { code: string } }).error.code).toBe("api_key_invalid");
 
-    const invalid = await keyRequest("cck_00000000000000000000000000000000.invalid-secret-value", "/api/admin/me");
+    const invalid = await keyRequest("cbk_00000000000000000000000000000000.invalid-secret-value", "/api/admin/me");
     expect(invalid.status).toBe(401);
 
     const expiring = await createKey(client);

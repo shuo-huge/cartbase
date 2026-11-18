@@ -24,7 +24,7 @@ examples/remote-plugin/
   "capabilities": ["analytics.read"],
   "permissions": ["store:read", "products:read"],
   "service": {
-    "baseUrl": "https://plugin.example.com/api/cloudcart/v1",
+    "baseUrl": "https://plugin.example.com/api/cartbase/v1",
     "auth": "hmac-sha256"
   },
   "admin": {
@@ -46,18 +46,18 @@ examples/remote-plugin/
 
 ## 服务密钥
 
-安装时 CloudCart 会生成或接收一个服务密钥。插件服务器需要保存同一个密钥，用于验证 CloudCart 的 HMAC 请求。
+安装时 CartBase 会生成或接收一个服务密钥。插件服务器需要保存同一个密钥，用于验证 CartBase 的 HMAC 请求。
 
 ## HMAC 请求
 
-CloudCart 调用插件服务时会带：
+CartBase 调用插件服务时会带：
 
 ```text
-x-cloudcart-plugin: <plugin id>
-x-cloudcart-store-id: <store id>
-x-cloudcart-timestamp: <ISO timestamp>
-x-cloudcart-nonce: <random>
-x-cloudcart-signature: <base64url HMAC-SHA256>
+x-cartbase-plugin: <plugin id>
+x-cartbase-store-id: <store id>
+x-cartbase-timestamp: <ISO timestamp>
+x-cartbase-nonce: <random>
+x-cartbase-signature: <base64url HMAC-SHA256>
 ```
 
 签名原文：
@@ -88,7 +88,7 @@ const expected = crypto
 
 ## 后台 iframe
 
-CloudCart 使用 sandbox iframe 打开：
+CartBase 使用 sandbox iframe 打开：
 
 ```html
 <iframe sandbox="allow-scripts allow-forms allow-same-origin"></iframe>
@@ -106,14 +106,14 @@ Content-Security-Policy: frame-ancestors https://your-store.workers.dev
 
 ```js
 const parentOrigin = new URL(document.referrer).origin;
-window.parent.postMessage({ type: "cloudcart:ready", pageId }, parentOrigin);
+window.parent.postMessage({ type: "cartbase:ready", pageId }, parentOrigin);
 ```
 
-CloudCart 会返回：
+CartBase 会返回：
 
 ```js
 {
-  type: "cloudcart:token",
+  type: "cartbase:token",
   token,
   expiresAt,
   storeId,
@@ -126,7 +126,7 @@ CloudCart 会返回：
 需要刷新时发送：
 
 ```js
-window.parent.postMessage({ type: "cloudcart:refresh-token" }, parentOrigin);
+window.parent.postMessage({ type: "cartbase:refresh-token" }, parentOrigin);
 ```
 
 Token 只保存在内存，不要放进 URL、localStorage 或日志。
@@ -153,7 +153,7 @@ JWT 有效期 5 分钟，只对当前插件和当前商店有效，不能调用 
 
 ## CORS
 
-CloudCart 使用精确 origin 白名单，不使用 `*`。插件后台 origin 必须与 Manifest 的 `admin.entryUrl` origin 一致。
+CartBase 使用精确 origin 白名单，不使用 `*`。插件后台 origin 必须与 Manifest 的 `admin.entryUrl` origin 一致。
 
 ## 支付插件
 
@@ -166,7 +166,7 @@ CloudCart 使用精确 origin 白名单，不使用 `*`。插件后台 origin �
 - `POST /payments/capture`
 - `POST /payments/refund`
 
-Webhook 验证后返回 CloudCart `PaymentEvent`，并带上内部 `orderId`。CloudCart 仍会校验金额、币种和幂等性，插件不能直接把订单改为已支付。
+Webhook 验证后返回 CartBase `PaymentEvent`，并带上内部 `orderId`。CartBase 仍会校验金额、币种和幂等性，插件不能直接把订单改为已支付。
 
 ## 本地开发
 

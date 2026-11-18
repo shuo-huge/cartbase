@@ -1,4 +1,4 @@
-import type { PageDocument } from "@cloudcart/shared";
+import type { PageDocument } from "@cartbase/shared";
 import type { ThemeManifest } from "./manifest";
 
 export interface StoreBranding {

@@ -10,8 +10,8 @@ import type {
   RefundInput,
   RefundResult,
   ValidationResult,
-} from "@cloudcart/plugin-sdk";
-import { moneyToInput, parseMoneyInput } from "@cloudcart/shared";
+} from "@cartbase/plugin-sdk";
+import { moneyToInput, parseMoneyInput } from "@cartbase/shared";
 
 export const manifest = {
   id: "paypal",

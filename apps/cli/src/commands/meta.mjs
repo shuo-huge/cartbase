@@ -23,7 +23,7 @@ function headerPairs(values) {
 export async function api(ctx) {
   const method = String(ctx.args[0] || "").toUpperCase();
   const path = ctx.args[1];
-  if (!METHODS.has(method)) throw usageError("Usage: cloudcart api <GET|POST|PUT|PATCH|DELETE> /api/admin/...");
+  if (!METHODS.has(method)) throw usageError("Usage: cartbase api <GET|POST|PUT|PATCH|DELETE> /api/admin/...");
   if (!path || !path.startsWith("/api/admin/")) {
     throw usageError(`The api command only accepts /api/admin/ paths (got ${path ?? "(missing)"}).`);
   }
@@ -141,19 +141,19 @@ export async function doctor(ctx) {
 }
 
 export async function version() {
-  return { data: { version: "0.5.0" }, message: "CloudCart CLI 0.5.0" };
+  return { data: { version: "0.5.0" }, message: "CartBase CLI 0.5.0" };
 }
 
 export async function help(ctx) {
   const lines = [
-    "CloudCart CLI",
+    "CartBase CLI",
     "",
-    "Usage: cloudcart <resource> <action> [options]",
+    "Usage: cartbase <resource> <action> [options]",
     "",
     ...ctx.manifest.map((command) => `  ${command.path.padEnd(28)} ${command.summary}`),
     "",
     "Global options: --url --key --profile --json --yes --dry-run --help --version",
-    "Run `cloudcart schema <command>` for payloads and `cloudcart capabilities --json` for the full manifest.",
+    "Run `cartbase schema <command>` for payloads and `cartbase capabilities --json` for the full manifest.",
   ];
   return { data: { commands: ctx.manifest.map((command) => command.path) }, message: lines.join("\n") };
 }

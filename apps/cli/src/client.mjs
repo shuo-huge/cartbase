@@ -1,6 +1,6 @@
 import { apiError, networkError, usageError } from "./errors.mjs";
 
-const DEFAULT_USER_AGENT = "Mozilla/5.0 (compatible; CloudCartCLI/0.5.0; +https://github.com/shuo-huge/cloudcart)";
+const DEFAULT_USER_AGENT = "Mozilla/5.0 (compatible; CartBaseCLI/0.5.0; +https://github.com/shuo-huge/cartbase)";
 
 function parseSetCookies(headers) {
   if (typeof headers.getSetCookie === "function") {
@@ -18,7 +18,7 @@ export class ApiClient {
   constructor({
     baseUrl,
     apiKey = null,
-    userAgent = process.env.CLOUDCART_USER_AGENT || DEFAULT_USER_AGENT,
+    userAgent = process.env.CARTBASE_USER_AGENT || DEFAULT_USER_AGENT,
     timeout = 30_000,
     dryRun = false,
     verbose = false,

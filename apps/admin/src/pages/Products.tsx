@@ -1,4 +1,4 @@
-import { formatDate, formatMoney, moneyToInput } from "@cloudcart/shared";
+import { formatDate, formatMoney, moneyToInput } from "@cartbase/shared";
 import { useEffect, useRef, useState } from "preact/hooks";
 import Sortable from "sortablejs";
 import { adminGet, adminSend } from "../api";

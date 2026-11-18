@@ -1,8 +1,8 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
-import { getRemotePluginRow, getRemoteServiceSecret } from "@cloudcart/core";
-import { verifyHmacSha256Raw, sha256Hex } from "@cloudcart/security";
+import { Database } from "@cartbase/database";
+import { getRemotePluginRow, getRemoteServiceSecret } from "@cartbase/core";
+import { verifyHmacSha256Raw, sha256Hex } from "@cartbase/security";
 import {
   fetchRemoteManifest,
   installRemotePluginFromUrl as installFromUrl,
@@ -68,7 +68,7 @@ describe("remote manifest fetching", () => {
   it("fetches, validates, and hashes a manifest", async () => {
     const mock = mockFetch(() => jsonResponse(remoteManifest()));
     try {
-      const result = await fetchRemoteManifest("https://service.example.com/cloudcart-plugin.json");
+      const result = await fetchRemoteManifest("https://service.example.com/cartbase-plugin.json");
       expect(result.manifest.id).toBe("service-analytics");
       expect(result.manifestHash).toMatch(/^[a-f0-9]{64}$/);
       expect(mock.calls).toHaveLength(1);
@@ -98,7 +98,7 @@ describe("remote manifest fetching", () => {
       return jsonResponse(remoteManifest());
     });
     try {
-      const result = await fetchRemoteManifest("https://service.example.com/cloudcart-plugin.json");
+      const result = await fetchRemoteManifest("https://service.example.com/cartbase-plugin.json");
       expect(result.manifestUrl).toBe("https://service.example.com/manifest.json");
       expect(mock.calls).toHaveLength(2);
     } finally {
@@ -144,7 +144,7 @@ describe("remote service client and launch", () => {
     const mock = mockFetch(() => jsonResponse(remoteManifest()));
     try {
       const installed = await installFromUrl(database(), ENV, {
-        manifestUrl: "https://service.example.com/cloudcart-plugin.json",
+        manifestUrl: "https://service.example.com/cartbase-plugin.json",
         bundledIds: new Set(),
       });
       expect(installed.id).toBe("service-analytics");
@@ -164,9 +164,9 @@ describe("remote service client and launch", () => {
       expect(request.init.method).toBe("POST");
       expect(request.init.body).toBe('{"hello":"world"}');
       const headers = new Headers(request.init.headers);
-      const timestamp = headers.get("x-cloudcart-timestamp")!;
-      const nonce = headers.get("x-cloudcart-nonce")!;
-      const signature = headers.get("x-cloudcart-signature")!;
+      const timestamp = headers.get("x-cartbase-timestamp")!;
+      const nonce = headers.get("x-cartbase-nonce")!;
+      const signature = headers.get("x-cartbase-signature")!;
       const hash = await sha256Hex('{"hello":"world"}');
       const canonical = `${timestamp}\n${nonce}\nPOST\n/api/v1/echo\n${hash}`;
       expect(await verifyHmacSha256Raw(secret!, canonical, signature)).toBe(true);

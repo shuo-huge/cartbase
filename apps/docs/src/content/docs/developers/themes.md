@@ -1,6 +1,6 @@
 ---
 title: 主题开发
-description: 创建、注册和测试一套 CloudCart 主题。
+description: 创建、注册和测试一套 CartBase 主题。
 ---
 
 主题在构建时打包，后台只能切换和修改设计变量，不能在运行时上传主题代码。

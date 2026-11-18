@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { PLUGIN_TYPES, type PluginType } from "@cloudcart/shared";
+import { PLUGIN_TYPES, type PluginType } from "@cartbase/shared";
 import { PLUGIN_API_VERSION, type PluginManifest } from "./manifest";
 
 /** Permissions a remote plugin may request. Nothing else is accepted. */
@@ -242,20 +242,20 @@ export function parseRemotePluginManifest(
 }
 
 export const PLUGIN_POSTMESSAGE = {
-  ready: "cloudcart:ready",
-  token: "cloudcart:token",
-  refreshToken: "cloudcart:refresh-token",
-  error: "cloudcart:error",
+  ready: "cartbase:ready",
+  token: "cartbase:token",
+  refreshToken: "cartbase:refresh-token",
+  error: "cartbase:error",
 } as const;
 
 export const PLUGIN_HMAC_HEADERS = {
-  plugin: "x-cloudcart-plugin",
-  store: "x-cloudcart-store-id",
-  timestamp: "x-cloudcart-timestamp",
-  nonce: "x-cloudcart-nonce",
-  signature: "x-cloudcart-signature",
+  plugin: "x-cartbase-plugin",
+  store: "x-cartbase-store-id",
+  timestamp: "x-cartbase-timestamp",
+  nonce: "x-cartbase-nonce",
+  signature: "x-cartbase-signature",
 } as const;
 
-export const PLUGIN_JWT_INFO = "cloudcart:plugin-jwt:v1";
+export const PLUGIN_JWT_INFO = "cartbase:plugin-jwt:v1";
 export const PLUGIN_TOKEN_TTL_SECONDS = 5 * 60;
 export const PLUGIN_CSP_ALLOW_INSECURE_ENV = "PLUGIN_ALLOW_INSECURE_ORIGINS";

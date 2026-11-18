@@ -1,7 +1,7 @@
 export type SqlValue = string | number | null;
 
 /**
- * Thin wrapper around D1 prepared statements. Every query in CloudCart goes
+ * Thin wrapper around D1 prepared statements. Every query in CartBase goes
  * through prepare()/bind(); user input is never concatenated into SQL.
  */
 export class Database {

@@ -3,7 +3,7 @@ title: Media
 description: Upload images locally and switch storage between R2 and jsDelivr; reorder product images and link external images.
 ---
 
-CloudCart supports three image sources:
+CartBase supports three image sources:
 
 - **Local upload**: choose a file on the product editor page or in the media library; it is written to the current storage automatically
 - **R2**: available when the deployment has a `MEDIA` binding configured; images are served by the Worker at `/media/*`
@@ -37,7 +37,7 @@ R2 is only available when this deployment has a `MEDIA` binding. To enable it:
 
 ```jsonc
 "r2_buckets": [
-  { "binding": "MEDIA", "bucket_name": "cloudcart-media" }
+  { "binding": "MEDIA", "bucket_name": "cartbase-media" }
 ]
 ```
 
@@ -47,7 +47,7 @@ The current one-click deployment does not create R2 by default; without R2, the 
 
 ### jsDelivr (GitHub)
 
-1. Create a **public** GitHub repository (for example `your-name/cloudcart-media`)
+1. Create a **public** GitHub repository (for example `your-name/cartbase-media`)
 2. Create a fine-grained PAT with **Contents: Read and write** permission for that repository only
 3. In the admin, go to **Settings → Media storage** and fill in:
    - Repository owner

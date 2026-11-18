@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { ShippingRateRow, ShippingZoneRow } from "@cloudcart/database";
-import { HttpError, newId, nowIso, parseMoneyInput } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { ShippingRateRow, ShippingZoneRow } from "@cartbase/database";
+import { HttpError, newId, nowIso, parseMoneyInput } from "@cartbase/shared";
 import { getSetting, SETTING_KEYS } from "./settings";
 import { z } from "zod";
 

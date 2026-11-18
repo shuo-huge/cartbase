@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const MANIFEST_URL = "http://127.0.0.1:8788/cloudcart-plugin.json";
+const MANIFEST_URL = "http://127.0.0.1:8788/cartbase-plugin.json";
 const PLUGIN_SECRET = "e2e-remote-plugin-secret-123456";
 const PLUGIN_ORIGIN = "http://127.0.0.1:8788";
 

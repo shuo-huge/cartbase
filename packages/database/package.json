@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/database",
+  "name": "@cartbase/database",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,6 +8,6 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/shared": "workspace:*"
+    "@cartbase/shared": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
 ---
-title: CloudCart
+title: CartBase
 description: A free, open-source, plugin-based ecommerce platform built natively on Cloudflare Workers.
 template: splash
 hero:
@@ -15,9 +15,9 @@ hero:
       variant: secondary
 ---
 
-## Why CloudCart
+## Why CartBase
 
-CloudCart puts products, orders, cart, checkout, themes, the page editor and plugins into a single Cloudflare Worker, with data stored in your own D1 database.
+CartBase puts products, orders, cart, checkout, themes, the page editor and plugins into a single Cloudflare Worker, with data stored in your own D1 database.
 
 - **No platform monthly fees**: runs within the Cloudflare Workers Free tier.
 - **Your data stays yours**: every store has its own Worker and D1, with no shared tenancy with other merchants.
@@ -29,7 +29,7 @@ CloudCart puts products, orders, cart, checkout, themes, the page editor and plu
 
 | I want to… | Where to go |
 |---|---|
-| Understand what CloudCart is | [Introduction](/en/getting-started/introduction/) |
+| Understand what CartBase is | [Introduction](/en/getting-started/introduction/) |
 | Run it locally | [Local development](/en/getting-started/local-development/) |
 | Deploy straight to Cloudflare | [One-click deploy](/en/getting-started/one-click-deploy/) |
 | Install remote plugins | [Install remote plugins](/en/plugins/remote-install/) |
@@ -37,4 +37,4 @@ CloudCart puts products, orders, cart, checkout, themes, the page editor and plu
 
 ## Current status
 
-CloudCart is currently at v0.5.0: the core storefront, 8 themes, tax, email notifications, page version rollback, image ordering, R2/jsDelivr local uploads with storage switching, hybrid built-in/remote plugins, the agent-oriented admin CLI and browser end-to-end tests are all complete. Capabilities that have not yet been verified are clearly marked in the relevant documentation.
+CartBase is currently at v0.5.0: the core storefront, 8 themes, tax, email notifications, page version rollback, image ordering, R2/jsDelivr local uploads with storage switching, hybrid built-in/remote plugins, the agent-oriented admin CLI and browser end-to-end tests are all complete. Capabilities that have not yet been verified are clearly marked in the relevant documentation.

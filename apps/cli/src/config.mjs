@@ -6,12 +6,12 @@ import { CliError, usageError } from "./errors.mjs";
 export const CONFIG_VERSION = 1;
 
 export function configPath(env = process.env) {
-  if (env.CLOUDCART_CONFIG) return path.resolve(env.CLOUDCART_CONFIG);
+  if (env.CARTBASE_CONFIG) return path.resolve(env.CARTBASE_CONFIG);
   if (process.platform === "win32") {
-    return path.join(env.APPDATA || os.homedir(), "cloudcart", "config.json");
+    return path.join(env.APPDATA || os.homedir(), "cartbase", "config.json");
   }
   const base = env.XDG_CONFIG_HOME || path.join(os.homedir(), ".config");
-  return path.join(base, "cloudcart", "config.json");
+  return path.join(base, "cartbase", "config.json");
 }
 
 export function emptyConfig() {
@@ -56,19 +56,19 @@ export function writeConfig(config, file = configPath()) {
   return file;
 }
 
-export function resolveProfile(flags = {}, env = process.env, config = readConfig(env.CLOUDCART_CONFIG)) {
+export function resolveProfile(flags = {}, env = process.env, config = readConfig(env.CARTBASE_CONFIG)) {
   if (flags.url === true) throw usageError("--url needs a store URL.");
   if (flags.key === true || flags.token === true) throw usageError("--key needs an API key value.");
   if (flags.profile === true) throw usageError("--profile needs a profile name.");
-  const name = String(flags.profile || env.CLOUDCART_PROFILE || config.defaultProfile || "default");
+  const name = String(flags.profile || env.CARTBASE_PROFILE || config.defaultProfile || "default");
   const profile = config.profiles[name] && typeof config.profiles[name] === "object"
     ? config.profiles[name]
     : {};
   return {
     name,
     profile,
-    url: flags.url || env.CLOUDCART_URL || profile.url || null,
-    apiKey: flags.key || flags.token || env.CLOUDCART_API_KEY || env.CLOUDCART_TOKEN || profile.apiKey || null,
+    url: flags.url || env.CARTBASE_URL || profile.url || null,
+    apiKey: flags.key || flags.token || env.CARTBASE_API_KEY || env.CARTBASE_TOKEN || profile.apiKey || null,
     keyId: profile.keyId || null,
   };
 }
@@ -101,7 +101,7 @@ export function maskKey(key) {
 }
 
 export function normalizeUrl(input, { allowInsecure = false } = {}) {
-  if (!input) throw usageError("A store URL is required. Use --url or CLOUDCART_URL.");
+  if (!input) throw usageError("A store URL is required. Use --url or CARTBASE_URL.");
   let raw = String(input).trim();
   if (!/^https?:\/\//i.test(raw)) raw = `https://${raw}`;
   let url;

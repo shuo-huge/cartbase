@@ -14,7 +14,7 @@ describe("CLI HTTP client", () => {
     const calls = [];
     const client = new ApiClient({
       baseUrl: "https://example.com",
-      apiKey: "cck_test",
+      apiKey: "cbk_test",
       fetchImpl: async (url, init) => {
         calls.push({ url: String(url), init });
         return jsonResponse({ ok: true, data: { id: "prd_1" } });
@@ -24,14 +24,14 @@ describe("CLI HTTP client", () => {
     expect(data).toEqual({ ok: true, data: { id: "prd_1" } });
     expect(calls[0].url).toBe("https://example.com/api/admin/products");
     expect(calls[0].init.method).toBe("POST");
-    expect(calls[0].init.headers.get("Authorization")).toBe("Bearer cck_test");
+    expect(calls[0].init.headers.get("Authorization")).toBe("Bearer cbk_test");
     expect(calls[0].init.headers.get("Content-Type")).toBe("application/json");
   });
 
   it("maps API errors to CliError exit codes", async () => {
     const client = new ApiClient({
       baseUrl: "https://example.com",
-      apiKey: "cck_test",
+      apiKey: "cbk_test",
       fetchImpl: async () => jsonResponse({
         ok: false,
         error: { code: "insufficient_scope", message: "No write scope." },
@@ -48,7 +48,7 @@ describe("CLI HTTP client", () => {
     let called = false;
     const client = new ApiClient({
       baseUrl: "https://example.com",
-      apiKey: "cck_test",
+      apiKey: "cbk_test",
       dryRun: true,
       fetchImpl: async () => {
         called = true;
@@ -67,11 +67,11 @@ describe("CLI HTTP client", () => {
       fetchImpl: async () => jsonResponse(
         { ok: true, csrfToken: "csrf" },
         200,
-        { "set-cookie": "cc_session=abc; Path=/; HttpOnly" },
+        { "set-cookie": "cb_session=abc; Path=/; HttpOnly" },
       ),
     });
     await client.login("owner@example.com", "password");
-    expect(client.cookies.get("cc_session")).toBe("abc");
+    expect(client.cookies.get("cb_session")).toBe("abc");
   });
 
   it("rejects non-admin URLs in the generic api command", async () => {

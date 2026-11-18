@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { PageVersionRow } from "@cloudcart/database";
-import { HttpError, newId, nowIso, type PageDocument, type PageSection } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { PageVersionRow } from "@cartbase/database";
+import { HttpError, newId, nowIso, type PageDocument, type PageSection } from "@cartbase/shared";
 import { z } from "zod";
 
 const MAX_PAGE_JSON_BYTES = 256 * 1024;

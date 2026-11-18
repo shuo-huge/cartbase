@@ -19,14 +19,14 @@
     "types": ["@cloudflare/workers-types", "@cloudflare/vitest-plugin/types", "node"],
     "baseUrl": ".",
     "paths": {
-      "@cloudcart/shared": ["./packages/shared/src/index.ts"],
-      "@cloudcart/security": ["./packages/security/src/index.ts"],
-      "@cloudcart/database": ["./packages/database/src/index.ts"],
-      "@cloudcart/core": ["./packages/core/src/index.ts"],
-      "@cloudcart/plugin-sdk": ["./packages/plugin-sdk/src/index.ts"],
-      "@cloudcart/theme-sdk": ["./packages/theme-sdk/src/index.ts"],
-      "@cloudcart/plugins/*": ["./plugins/*/src/index.ts"],
-      "@cloudcart/themes/*": ["./themes/*/src/index.ts"]
+      "@cartbase/shared": ["./packages/shared/src/index.ts"],
+      "@cartbase/security": ["./packages/security/src/index.ts"],
+      "@cartbase/database": ["./packages/database/src/index.ts"],
+      "@cartbase/core": ["./packages/core/src/index.ts"],
+      "@cartbase/plugin-sdk": ["./packages/plugin-sdk/src/index.ts"],
+      "@cartbase/theme-sdk": ["./packages/theme-sdk/src/index.ts"],
+      "@cartbase/plugins/*": ["./plugins/*/src/index.ts"],
+      "@cartbase/themes/*": ["./themes/*/src/index.ts"]
     }
   },
   "include": [

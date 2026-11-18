@@ -1,23 +1,23 @@
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import {
   CART_COOKIE,
   getActiveTheme,
   getThemeSettings,
   loadStoreConfig,
-} from "@cloudcart/core";
-import type { StoreConfig } from "@cloudcart/core";
+} from "@cartbase/core";
+import type { StoreConfig } from "@cartbase/core";
 import {
   cookieIsSecure,
   parseCookies,
   serializeCookie,
-} from "@cloudcart/security";
-import type { ThemeDefinition } from "@cloudcart/theme-sdk";
+} from "@cartbase/security";
+import type { ThemeDefinition } from "@cartbase/theme-sdk";
 import type { Context } from "hono";
 import type { AppContext, Env } from "./env";
 import { getThemeDefinition } from "./theme-registry";
 
-export const SESSION_COOKIE = "cc_session";
-export const CSRF_COOKIE = "cc_csrf";
+export const SESSION_COOKIE = "cb_session";
+export const CSRF_COOKIE = "cb_csrf";
 export const CART_MAX_AGE = 60 * 60 * 24 * 30;
 
 export function db(c: { env: Env }): Database {

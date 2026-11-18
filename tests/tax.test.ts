@@ -1,13 +1,13 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import {
   createTaxRate,
   orderTotalWithTax,
   resolveTaxRate,
   taxAmountCents,
   taxableBaseCents,
-} from "@cloudcart/core";
+} from "@cartbase/core";
 import { addToCart, checkoutForm, createClient, createProduct } from "./support";
 
 function database(): Database {

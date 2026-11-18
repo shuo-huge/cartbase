@@ -1,4 +1,4 @@
-import { formatDate } from "@cloudcart/shared";
+import { formatDate } from "@cartbase/shared";
 import { useEffect, useState } from "preact/hooks";
 import { adminGet, adminSend } from "../api";
 import { DataTable, ErrorBox, Field, Loading, Modal, toast, useAsync } from "../components";
@@ -367,7 +367,7 @@ export function SettingsPage() {
 
       {usage.data && (
         <p class="muted small">
-          Cloudflare-free limits are shared across your whole account. CloudCart never upgrades your plan automatically.
+          Cloudflare-free limits are shared across your whole account. CartBase never upgrades your plan automatically.
           Local estimate for {usage.data.localEstimate.day}: {usage.data.localEstimate.api_requests} requests,
           {" "}{usage.data.localEstimate.d1_writes} estimated D1 writes.
         </p>

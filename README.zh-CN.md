@@ -1,12 +1,12 @@
 <div align="center">
 
-# CloudCart
+# CartBase
 
 **免费、开源、插件化的电商系统，原生运行在 Cloudflare Workers 上。**
 
 一个 Worker · 一个 D1 数据库 · 图片本地上传（R2/jsDelivr）· 外链可选
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cloudcart)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cartbase)
 
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![D1](https://img.shields.io/badge/Database-D1-0051FF)](https://developers.cloudflare.com/d1/)
@@ -18,15 +18,15 @@
 
 ---
 
-## 为什么做 CloudCart？
+## 为什么做 CartBase？
 
 开一个小网店，不应该在产品还没卖出去之前先交一堆月费。
 
-大多数电商方案都会逼你三选一：交平台月费、自己维护服务器、或者放弃数据控制权。CloudCart 用 Cloudflare 免费额度作为整套运行时——边缘计算、SQLite、对象存储、静态资源——把这道选择题直接去掉。
+大多数电商方案都会逼你三选一：交平台月费、自己维护服务器、或者放弃数据控制权。CartBase 用 Cloudflare 免费额度作为整套运行时——边缘计算、SQLite、对象存储、静态资源——把这道选择题直接去掉。
 
 ### 它解决的痛点
 
-| 痛点 | CloudCart 的做法 |
+| 痛点 | CartBase 的做法 |
 |---|---|
 | **Shopify 式月费 + 付费插件** | 没有平台订阅费。运行在 Cloudflare Workers Free 上，你只需要付域名和支付渠道手续费。 |
 | **VPS、MySQL、Redis、SSL、备份** | 没有服务器要维护。D1 由 Cloudflare 托管，图片可上传到 R2 或通过 jsDelivr 发布；外链仍可选。 |
@@ -39,7 +39,7 @@
 
 ### 和常见方案对比
 
-| | **CloudCart** | Shopify | WooCommerce |
+| | **CartBase** | Shopify | WooCommerce |
 |---|---|---|---|
 | 平台月费 | **0 元**（Cloudflare 免费额度） | 订阅费 + 付费 App | 软件免费，托管付费 |
 | 托管 | Cloudflare 边缘网络 | 包含 | VPS（$5–20+/月） |
@@ -54,23 +54,23 @@
 
 ## 后台截图
 
-以下截图来自运行中的 CloudCart 后台，使用演示商品数据和简体中文语言包。英文 README 展示相同页面的英文界面。
+以下截图来自运行中的 CartBase 后台，使用演示商品数据和简体中文语言包。英文 README 展示相同页面的英文界面。
 
 | 仪表盘 | 商品目录 |
 | :---: | :---: |
-| <img src="docs/images/screenshots/zh/dashboard.jpg" alt="CloudCart 后台仪表盘：订单、销售额和库存" width="100%"> | <img src="docs/images/screenshots/zh/products.jpg" alt="CloudCart 商品目录：价格、库存和分类" width="100%"> |
+| <img src="docs/images/screenshots/zh/dashboard.jpg" alt="CartBase 后台仪表盘：订单、销售额和库存" width="100%"> | <img src="docs/images/screenshots/zh/products.jpg" alt="CartBase 商品目录：价格、库存和分类" width="100%"> |
 | **订单与履约** | **商品编辑与本地图片上传** |
-| <img src="docs/images/screenshots/zh/orders.jpg" alt="CloudCart 订单列表与支付、履约状态" width="100%"> | <img src="docs/images/screenshots/zh/product-media.jpg" alt="商品编辑器上传图片到 jsDelivr 或 R2" width="100%"> |
+| <img src="docs/images/screenshots/zh/orders.jpg" alt="CartBase 订单列表与支付、履约状态" width="100%"> | <img src="docs/images/screenshots/zh/product-media.jpg" alt="商品编辑器上传图片到 jsDelivr 或 R2" width="100%"> |
 | **可视化页面编辑器** | **媒体存储：R2 或 jsDelivr** |
-| <img src="docs/images/screenshots/zh/page-builder.jpg" alt="CloudCart 可视化页面编辑器与实时预览" width="100%"> | <img src="docs/images/screenshots/zh/settings-media.jpg" alt="CloudCart 媒体存储设置：R2 与 jsDelivr" width="100%"> |
+| <img src="docs/images/screenshots/zh/page-builder.jpg" alt="CartBase 可视化页面编辑器与实时预览" width="100%"> | <img src="docs/images/screenshots/zh/settings-media.jpg" alt="CartBase 媒体存储设置：R2 与 jsDelivr" width="100%"> |
 
 ---
 
 ## 一键部署到 Cloudflare
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cloudcart)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cartbase)
 
-Cloudflare 会把 CloudCart 部署到**你的账户**并创建 D1。R2 是可选的。按钮会使用仓库根目录的 `build` 和 `deploy` 脚本：先构建前台和后台，再执行 `scripts/deploy.mjs`。**不需要手动生成、复制或填写任何密钥。** 部署脚本会自动生成 `APP_MASTER_KEY` 和 `SETUP_TOKEN`，将它们保存为 Worker Secret，并在部署日志中输出一个私密的一次性安装链接。
+Cloudflare 会把 CartBase 部署到**你的账户**并创建 D1。R2 是可选的。按钮会使用仓库根目录的 `build` 和 `deploy` 脚本：先构建前台和后台，再执行 `scripts/deploy.mjs`。**不需要手动生成、复制或填写任何密钥。** 部署脚本会自动生成 `APP_MASTER_KEY` 和 `SETUP_TOKEN`，将它们保存为 Worker Secret，并在部署日志中输出一个私密的一次性安装链接。
 
 打开最近一次成功部署日志中的 **Setup link**。安装页面只需要填写管理员姓名、邮箱和密码。商店名称和货币使用默认值，安装后可以在后台「设置」中修改。初始化令牌已经包含在私密链接中，不会作为表单字段显示。
 
@@ -88,8 +88,8 @@ Cloudflare 会把 CloudCart 部署到**你的账户**并创建 D1。R2 是可选
 ## CLI 部署（推荐，最完整）
 
 ```bash
-git clone https://github.com/shuo-huge/cloudcart.git
-cd cloudcart
+git clone https://github.com/shuo-huge/cartbase.git
+cd cartbase
 pnpm install
 pnpm run deploy:cloudflare
 ```
@@ -104,7 +104,7 @@ pnpm run deploy:cloudflare
 6. 保留现有 `APP_MASTER_KEY`，并在商城尚未初始化时生成或刷新一次性安装令牌；
 7. 输出商城地址、后台地址和一次性初始化链接。
 
-可重复执行：已有资源和密钥会复用，不会覆盖业务数据。在本地交互式终端运行时，脚本部署完成后会自动打开商城/安装页面；使用 `--no-open`（或 `CLOUDCART_NO_OPEN=1`）可以关闭自动打开。
+可重复执行：已有资源和密钥会复用，不会覆盖业务数据。在本地交互式终端运行时，脚本部署完成后会自动打开商城/安装页面；使用 `--no-open`（或 `CARTBASE_NO_OPEN=1`）可以关闭自动打开。
 
 ```bash
 pnpm run deploy:cloudflare -- --name my-store   # 指定 Worker/资源名称
@@ -145,15 +145,15 @@ pnpm test:e2e
 
 ## 文档站
 
-公开使用文档已部署在 **https://cloudcart-docs.cloudcart-shuo-preview.workers.dev**，支持简体中文 / English 语言切换。文档源码在 `apps/docs`，使用 Astro Starlight 构建，和商城 Worker 分开部署。
+公开使用文档已部署在 **https://cartbase-docs.cloudcart-shuo-preview.workers.dev**，支持简体中文 / English 语言切换。文档源码在 `apps/docs`，使用 Astro Starlight 构建，和商城 Worker 分开部署。
 
 ```bash
 pnpm docs:dev       # 本地预览 http://localhost:4321
 pnpm docs:build     # 静态产物在 apps/docs/dist
-pnpm docs:deploy    # 构建并部署 cloudcart-docs Worker
+pnpm docs:deploy    # 构建并部署 cartbase-docs Worker
 ```
 
-`docs:deploy` 使用 `wrangler.docs.jsonc`，部署一个独立的静态资源 Worker：`cloudcart-docs`。也可以把 `apps/docs/dist` 通过 Cloudflare Pages 部署。
+`docs:deploy` 使用 `wrangler.docs.jsonc`，部署一个独立的静态资源 Worker：`cartbase-docs`。也可以把 `apps/docs/dist` 通过 Cloudflare Pages 部署。
 
 部署到正式域名前设置 `DOCS_SITE_URL`（例如 `DOCS_SITE_URL=https://docs.example.com`），这样 canonical 和 sitemap 会使用正式域名。
 
@@ -169,23 +169,23 @@ pnpm docs:deploy    # 构建并部署 cloudcart-docs Worker
 
 ```bash
 # 首次登录：自动创建 API Key 并保存到用户目录
-pnpm cloudcart auth login --url https://your-store.example.com --email owner@example.com
+pnpm cartbase auth login --url https://your-store.example.com --email owner@example.com
 
 # 内容运营
-pnpm cloudcart products list --json
-pnpm cloudcart products create --name "帆布托特包" --price 25.00 --status active --image https://example.com/tote.jpg --json
-pnpm cloudcart blog create --title "上新说明" --slug launch-notes --text-file post.html --publish --json
+pnpm cartbase products list --json
+pnpm cartbase products create --name "帆布托特包" --price 25.00 --status active --image https://example.com/tote.jpg --json
+pnpm cartbase blog create --title "上新说明" --slug launch-notes --text-file post.html --publish --json
 
 # 订单与营销
-pnpm cloudcart orders list --json
-pnpm cloudcart coupons create --code SAVE10 --type percent --value 10 --json
+pnpm cartbase orders list --json
+pnpm cartbase coupons create --code SAVE10 --type percent --value 10 --json
 
 # 智能体发现命令
-pnpm cloudcart capabilities --json
-pnpm cloudcart schema product
+pnpm cartbase capabilities --json
+pnpm cartbase schema product
 ```
 
-非交互智能体可以直接设置 `CLOUDCART_URL` 和 `CLOUDCART_API_KEY`。写操作加 `--json` 获得稳定输出，先跑 `--dry-run`，删除类操作显式加 `--yes`。API Key 按资源限权、在 D1 中只存哈希、可通过 `cloudcart auth logout` 撤销。
+非交互智能体可以直接设置 `CARTBASE_URL` 和 `CARTBASE_API_KEY`。写操作加 `--json` 获得稳定输出，先跑 `--dry-run`，删除类操作显式加 `--yes`。API Key 按资源限权、在 D1 中只存哈希、可通过 `cartbase auth logout` 撤销。
 
 商品图片可以在后台或 CLI 直接上传。在 **Settings → Media storage** 配置默认存储：
 
@@ -193,13 +193,13 @@ pnpm cloudcart schema product
 - **jsDelivr**：使用 fine-grained PAT（Contents: Read and write）发布到公开 GitHub 仓库，Token 加密保存
 
 ```bash
-pnpm cloudcart media upload ./photo.jpg --storage jsdelivr --json
-pnpm cloudcart products images attach PRODUCT_ID --image-url https://example.com/photo.jpg --storage jsdelivr --json
+pnpm cartbase media upload ./photo.jpg --storage jsdelivr --json
+pnpm cartbase products images attach PRODUCT_ID --image-url https://example.com/photo.jpg --storage jsdelivr --json
 ```
 
 外部 HTTPS 图片仍可通过后台高级面板或 CLI 的 `--external` 使用。`publish:jsdelivr` 手动发布脚本保留。jsDelivr 定位是开源项目 CDN，商业商品目录请先确认其条款；生产环境更建议 R2。
 
-博客复用内容页：每篇文章发布到 `/pages/<slug>`，正文是一个 rich-text section。CloudCart 没有独立的 posts 表、`/blog` 列表或 RSS。完整命令见 [`docs/CLI.md`](docs/CLI.md)。
+博客复用内容页：每篇文章发布到 `/pages/<slug>`，正文是一个 rich-text section。CartBase 没有独立的 posts 表、`/blog` 列表或 RSS。完整命令见 [`docs/CLI.md`](docs/CLI.md)。
 
 ## 功能
 
@@ -232,7 +232,7 @@ Default、Fashion、Beauty、Electronics、Jewelry、Home、Sports、Single Prod
 ### 插件
 内置插件构建时打包、运行时启停，设置保存在 D1；未打包进当前 Worker 的内置插件无法启用。内置：Manual、Stripe、PayPal、**Admin Language Pack**（English / 简体中文），以及 **Email Notifications**（Resend 或 Cloudflare Email Workers，D1 发件箱、定时失败重试和后台日志；默认关闭）。
 
-**远程插件**通过 Manifest URL 安装，无需重新构建 Worker。插件代码和后台页面运行在插件作者自己的 HTTPS 服务上；CloudCart 只保存 Manifest 并调用签名 API。启用的远程插件会自动在后台左侧添加菜单，并通过 iframe 打开。iframe 通过 `postMessage` 获得 5 分钟、按插件限权的 JWT，可调用 `/api/plugin/v1/*` 受限 API；禁用后下一次请求立即失效。完整示例见 [`examples/remote-plugin`](examples/remote-plugin)。
+**远程插件**通过 Manifest URL 安装，无需重新构建 Worker。插件代码和后台页面运行在插件作者自己的 HTTPS 服务上；CartBase 只保存 Manifest 并调用签名 API。启用的远程插件会自动在后台左侧添加菜单，并通过 iframe 打开。iframe 通过 `postMessage` 获得 5 分钟、按插件限权的 JWT，可调用 `/api/plugin/v1/*` 受限 API；禁用后下一次请求立即失效。完整示例见 [`examples/remote-plugin`](examples/remote-plugin)。
 
 ### 安全
 PBKDF2 密码、HMAC Session、CSRF 双提交、登录限流、全部预编译 SQL、HTML 白名单消毒、图片魔数校验、开放重定向防护、Webhook 验签、审计日志。
@@ -265,7 +265,7 @@ packages/plugin-sdk, theme-sdk, ui
 plugins/          admin/i18n、payments/{manual,stripe,paypal}、notifications/email
 examples/         remote-plugin 远程插件示例
 themes/           8 套内置主题
-brand/            CloudCart 图标母版与生成后的 favicon/App icon
+brand/            CartBase 图标母版与生成后的 favicon/App icon
 migrations/       11 个 D1 迁移
 scripts/          部署 CLI、图标生成、jsDelivr 图片发布
 tests/            workerd 集成测试

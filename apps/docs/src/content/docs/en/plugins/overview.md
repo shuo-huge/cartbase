@@ -3,14 +3,14 @@ title: Plugin overview
 description: The differences between bundled and remote plugins, their security boundaries, and when to use each.
 ---
 
-CloudCart supports two kinds of plugins:
+CartBase supports two kinds of plugins:
 
 | | Bundled plugins | Remote plugins |
 |---|---|---|
 | Code location | Packaged with the Worker build | The plugin author's own HTTPS service |
-| Installation | Released with the CloudCart version | Enter a Manifest URL in the admin |
+| Installation | Released with the CartBase version | Enter a Manifest URL in the admin |
 | Redeploy required | Needed when upgrading the code | Not needed |
-| Admin pages | Built into the CloudCart admin | Embedded via iframe |
+| Admin pages | Built into the CartBase admin | Embedded via iframe |
 | Data access | Internal Worker services | Permission-scoped `/api/plugin/v1/*` |
 | Takes effect | Immediately on enable | After install and enable |
 
@@ -36,7 +36,7 @@ Remote plugins are suitable for:
 
 Security boundaries:
 
-- Plugin code is **never** downloaded into the CloudCart Worker for execution
+- Plugin code is **never** downloaded into the CartBase Worker for execution
 - During installation, the administrator confirms the Manifest and permissions
 - Server-to-server communication is signed with HMAC-SHA256
 - The admin iframe uses a short-lived JWT and can only access authorised APIs

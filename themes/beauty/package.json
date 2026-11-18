@@ -1,9 +1,9 @@
 {
-  "name": "@cloudcart/theme-beauty",
+  "name": "@cartbase/theme-beauty",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "exports": { ".": "./src/index.ts" },
   "types": "./src/index.ts",
-  "dependencies": { "@cloudcart/theme-sdk": "workspace:*" }
+  "dependencies": { "@cartbase/theme-sdk": "workspace:*" }
 }

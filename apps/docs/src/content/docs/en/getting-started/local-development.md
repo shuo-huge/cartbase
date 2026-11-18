@@ -1,6 +1,6 @@
 ---
 title: Local development
-description: Run CloudCart locally, change the code and debug against a local D1 database.
+description: Run CartBase locally, change the code and debug against a local D1 database.
 ---
 
 ## Requirements
@@ -12,8 +12,8 @@ description: Run CloudCart locally, change the code and debug against a local D1
 ## Start
 
 ```bash
-git clone https://github.com/shuo-huge/cloudcart.git
-cd cloudcart
+git clone https://github.com/shuo-huge/cartbase.git
+cd cartbase
 pnpm install
 pnpm db:migrate:local
 pnpm dev

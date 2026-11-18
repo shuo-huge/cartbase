@@ -20,7 +20,7 @@ export async function promptText(question) {
 
 export async function promptHidden(question) {
   if (!process.stdin.isTTY || !process.stdin.setRawMode) {
-    throw usageError("A password is required. Use --password-stdin or CLOUDCART_PASSWORD in non-interactive mode.");
+    throw usageError("A password is required. Use --password-stdin or CARTBASE_PASSWORD in non-interactive mode.");
   }
   process.stdout.write(question);
   const stdin = process.stdin;
@@ -65,13 +65,13 @@ export async function promptHidden(question) {
 }
 
 export async function getEmail(flags, env = process.env) {
-  return String(flags.email || env.CLOUDCART_EMAIL || (await promptText("Admin email: "))).trim();
+  return String(flags.email || env.CARTBASE_EMAIL || (await promptText("Admin email: "))).trim();
 }
 
 export async function getPassword(flags, env = process.env) {
   if (typeof flags.password === "string") return flags.password;
   if (flags["password-stdin"]) return (await readStdin()).replace(/\r?\n$/, "");
-  if (env.CLOUDCART_PASSWORD) return env.CLOUDCART_PASSWORD;
+  if (env.CARTBASE_PASSWORD) return env.CARTBASE_PASSWORD;
   return promptHidden("Admin password: ");
 }
 

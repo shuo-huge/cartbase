@@ -1,7 +1,7 @@
 import { env, SELF } from "cloudflare:test";
-import { computeStripeSignature, verifyStripeSignature } from "@cloudcart/plugin-stripe";
-import { createOrderAccessToken } from "@cloudcart/core";
-import { Database } from "@cloudcart/database";
+import { computeStripeSignature, verifyStripeSignature } from "@cartbase/plugin-stripe";
+import { createOrderAccessToken } from "@cartbase/core";
+import { Database } from "@cartbase/database";
 import { describe, expect, it } from "vitest";
 
 const BASE = "https://example.com";
@@ -37,7 +37,7 @@ async function json(path: string, method: string, body: unknown, headers: Record
 }
 
 function csrf(): Record<string, string> {
-  return { "X-CSRF-Token": jar.get("cc_csrf") ?? "" };
+  return { "X-CSRF-Token": jar.get("cb_csrf") ?? "" };
 }
 
 async function ensureSession(): Promise<void> {

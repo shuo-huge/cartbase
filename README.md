@@ -1,12 +1,12 @@
 <div align="center">
 
-# CloudCart
+# CartBase
 
 **A free, open-source, plugin-based ecommerce platform built natively for Cloudflare Workers.**
 
 One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional external URLs
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cloudcart)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cartbase)
 
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![D1](https://img.shields.io/badge/Database-D1-0051FF)](https://developers.cloudflare.com/d1/)
@@ -19,15 +19,15 @@ One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional ext
 
 ---
 
-## Why CloudCart?
+## Why CartBase?
 
 Opening a small online store should not cost more than the products you sell.
 
-CloudCart exists because most ecommerce stacks force you to choose between paying a monthly platform fee, maintaining a server, or giving up control of your data. It removes that trade-off by using Cloudflare's free tier as the entire runtime: edge compute, SQLite, object storage, and static assets.
+CartBase exists because most ecommerce stacks force you to choose between paying a monthly platform fee, maintaining a server, or giving up control of your data. It removes that trade-off by using Cloudflare's free tier as the entire runtime: edge compute, SQLite, object storage, and static assets.
 
 ### The problems it solves
 
-| Pain point | How CloudCart fixes it |
+| Pain point | How CartBase fixes it |
 |---|---|
 | **Shopify-style subscriptions + paid apps** | No platform subscription. Runs inside Cloudflare Workers Free. You pay for your domain and payment-provider fees, not hosting. |
 | **VPS, MySQL, Redis, SSL, backups** | No server to patch, no database to provision. D1 is managed by Cloudflare; images can be uploaded to R2 or published through jsDelivr, with external HTTPS URLs still available. |
@@ -40,7 +40,7 @@ CloudCart exists because most ecommerce stacks force you to choose between payin
 
 ### How it compares
 
-| | **CloudCart** | Shopify | WooCommerce |
+| | **CartBase** | Shopify | WooCommerce |
 |---|---|---|---|
 | Monthly platform fee | **$0** on Cloudflare Free | Subscription + paid apps | $0 software, paid hosting |
 | Hosting | Cloudflare edge | Included | VPS ($5–20+/mo) |
@@ -55,23 +55,23 @@ CloudCart exists because most ecommerce stacks force you to choose between payin
 
 ## Screenshots
 
-A running CloudCart admin with the bundled English UI and demo catalog data. The Chinese README shows the same pages with the Simplified Chinese language pack enabled.
+A running CartBase admin with the bundled English UI and demo catalog data. The Chinese README shows the same pages with the Simplified Chinese language pack enabled.
 
 | Dashboard | Products |
 | :---: | :---: |
-| <img src="docs/images/screenshots/en/dashboard.jpg" alt="CloudCart admin dashboard with orders, sales and inventory" width="100%"> | <img src="docs/images/screenshots/en/products.jpg" alt="CloudCart product catalog with prices, stock and categories" width="100%"> |
+| <img src="docs/images/screenshots/en/dashboard.jpg" alt="CartBase admin dashboard with orders, sales and inventory" width="100%"> | <img src="docs/images/screenshots/en/products.jpg" alt="CartBase product catalog with prices, stock and categories" width="100%"> |
 | **Orders and fulfilment** | **Product editor with local media uploads** |
-| <img src="docs/images/screenshots/en/orders.jpg" alt="CloudCart order list with payment and fulfilment status" width="100%"> | <img src="docs/images/screenshots/en/product-media.jpg" alt="Product editor uploading images to jsDelivr or R2" width="100%"> |
+| <img src="docs/images/screenshots/en/orders.jpg" alt="CartBase order list with payment and fulfilment status" width="100%"> | <img src="docs/images/screenshots/en/product-media.jpg" alt="Product editor uploading images to jsDelivr or R2" width="100%"> |
 | **Visual page builder** | **Media storage: R2 or jsDelivr** |
-| <img src="docs/images/screenshots/en/page-builder.jpg" alt="CloudCart visual page builder with live storefront preview" width="100%"> | <img src="docs/images/screenshots/en/settings-media.jpg" alt="CloudCart media storage settings for R2 and jsDelivr" width="100%"> |
+| <img src="docs/images/screenshots/en/page-builder.jpg" alt="CartBase visual page builder with live storefront preview" width="100%"> | <img src="docs/images/screenshots/en/settings-media.jpg" alt="CartBase media storage settings for R2 and jsDelivr" width="100%"> |
 
 ---
 
 ## One-click deploy
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cloudcart)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cartbase)
 
-Cloudflare deploys CloudCart into **your** account and provisions D1. R2 is optional. The button uses the repository's root `build` and `deploy` scripts: it builds the storefront/admin, then runs `scripts/deploy.mjs`. You do not need to create or paste any secrets: the script automatically generates `APP_MASTER_KEY` and `SETUP_TOKEN`, stores them as Worker secrets, and prints a private one-time setup URL in the deployment log.
+Cloudflare deploys CartBase into **your** account and provisions D1. R2 is optional. The button uses the repository's root `build` and `deploy` scripts: it builds the storefront/admin, then runs `scripts/deploy.mjs`. You do not need to create or paste any secrets: the script automatically generates `APP_MASTER_KEY` and `SETUP_TOKEN`, stores them as Worker secrets, and prints a private one-time setup URL in the deployment log.
 
 Open the **Setup link** from the latest successful deployment log. The setup page asks only for the administrator name, email and password. Store name and currency use sensible defaults and can be changed later in Admin → Settings. The setup token is carried in the private URL and is not shown as a form field.
 
@@ -89,8 +89,8 @@ If the setup link is lost before the first administrator is created, retry the d
 ## CLI deploy (recommended for a complete setup)
 
 ```bash
-git clone https://github.com/shuo-huge/cloudcart.git
-cd cloudcart
+git clone https://github.com/shuo-huge/cartbase.git
+cd cartbase
 pnpm install
 pnpm run deploy:cloudflare
 ```
@@ -105,7 +105,7 @@ The CLI checks Node, Wrangler and Cloudflare login, then:
 6. preserves `APP_MASTER_KEY` and creates or refreshes the one-time setup token while the store is uninstalled,
 7. prints the store URL, admin URL and one-time setup link.
 
-Re-running is safe: existing resources and secrets are reused, and no data is overwritten. On a local interactive terminal the script opens the store/setup page in your browser automatically; use `--no-open` (or `CLOUDCART_NO_OPEN=1`) to disable that.
+Re-running is safe: existing resources and secrets are reused, and no data is overwritten. On a local interactive terminal the script opens the store/setup page in your browser automatically; use `--no-open` (or `CARTBASE_NO_OPEN=1`) to disable that.
 
 ```bash
 pnpm run deploy:cloudflare -- --name my-store   # named Worker / resources
@@ -146,15 +146,15 @@ pnpm test:e2e
 
 ## Documentation site
 
-The public user manual is live at **https://cloudcart-docs.cloudcart-shuo-preview.workers.dev** and supports a Chinese/English language switcher. It lives in `apps/docs`, uses Astro Starlight, and deploys independently from the store Worker.
+The public user manual is live at **https://cartbase-docs.cloudcart-shuo-preview.workers.dev** and supports a Chinese/English language switcher. It lives in `apps/docs`, uses Astro Starlight, and deploys independently from the store Worker.
 
 ```bash
 pnpm docs:dev       # local preview at http://localhost:4321
 pnpm docs:build     # static output in apps/docs/dist
-pnpm docs:deploy    # build and deploy the cloudcart-docs Worker
+pnpm docs:deploy    # build and deploy the cartbase-docs Worker
 ```
 
-`docs:deploy` uses `wrangler.docs.jsonc` and creates a separate static-assets Worker named `cloudcart-docs`. You can also deploy the same `apps/docs/dist` output through Cloudflare Pages.
+`docs:deploy` uses `wrangler.docs.jsonc` and creates a separate static-assets Worker named `cartbase-docs`. You can also deploy the same `apps/docs/dist` output through Cloudflare Pages.
 
 Set `DOCS_SITE_URL` before `docs:deploy` (for example `DOCS_SITE_URL=https://docs.example.com`) so canonical URLs and the sitemap use the public domain.
 
@@ -170,23 +170,23 @@ Brand icons live in `brand/`. The committed favicon/App icon files are generated
 
 ```bash
 # First login (creates a scoped API key and stores it in your user profile)
-pnpm cloudcart auth login --url https://your-store.example.com --email owner@example.com
+pnpm cartbase auth login --url https://your-store.example.com --email owner@example.com
 
 # Content operations
-pnpm cloudcart products list --json
-pnpm cloudcart products create --name "Canvas Tote" --price 25.00 --status active --image https://example.com/tote.jpg --json
-pnpm cloudcart blog create --title "Launch notes" --slug launch-notes --text-file post.html --publish --json
+pnpm cartbase products list --json
+pnpm cartbase products create --name "Canvas Tote" --price 25.00 --status active --image https://example.com/tote.jpg --json
+pnpm cartbase blog create --title "Launch notes" --slug launch-notes --text-file post.html --publish --json
 
 # Orders and marketing
-pnpm cloudcart orders list --json
-pnpm cloudcart coupons create --code SAVE10 --type percent --value 10 --json
+pnpm cartbase orders list --json
+pnpm cartbase coupons create --code SAVE10 --type percent --value 10 --json
 
 # Discovery for agents
-pnpm cloudcart capabilities --json
-pnpm cloudcart schema product
+pnpm cartbase capabilities --json
+pnpm cartbase schema product
 ```
 
-For non-interactive agents, set `CLOUDCART_URL` and `CLOUDCART_API_KEY` in the environment. Add `--json` for stable machine-readable output, `--dry-run` before writes, and `--yes` for destructive operations. API keys are scoped to specific resources, hashed in D1, and revocable with `cloudcart auth logout`.
+For non-interactive agents, set `CARTBASE_URL` and `CARTBASE_API_KEY` in the environment. Add `--json` for stable machine-readable output, `--dry-run` before writes, and `--yes` for destructive operations. API keys are scoped to specific resources, hashed in D1, and revocable with `cartbase auth logout`.
 
 Product images can be uploaded from Admin or the CLI. Configure the default provider in **Settings → Media storage**:
 
@@ -194,13 +194,13 @@ Product images can be uploaded from Admin or the CLI. Configure the default prov
 - **jsDelivr** — publish to a public GitHub repo using a fine-grained PAT (Contents: Read and write); the token is encrypted at rest
 
 ```bash
-pnpm cloudcart media upload ./photo.jpg --storage jsdelivr --json
-pnpm cloudcart products images attach PRODUCT_ID --image-url https://example.com/photo.jpg --storage jsdelivr --json
+pnpm cartbase media upload ./photo.jpg --storage jsdelivr --json
+pnpm cartbase products images attach PRODUCT_ID --image-url https://example.com/photo.jpg --storage jsdelivr --json
 ```
 
 External HTTPS URLs remain available through the advanced panel in Admin or `--external` in the CLI. The standalone `publish:jsdelivr` script is still available for manual bulk publishing. jsDelivr is intended for open-source projects; review its terms before using it for a commercial catalog. R2 is the safer production choice.
 
-Blog posts reuse content pages: each post is published at `/pages/<slug>` with a rich-text section. CloudCart does not ship a posts table, `/blog` index or RSS feed. See [`docs/CLI.md`](docs/CLI.md) for the full command reference.
+Blog posts reuse content pages: each post is published at `/pages/<slug>` with a rich-text section. CartBase does not ship a posts table, `/blog` index or RSS feed. See [`docs/CLI.md`](docs/CLI.md) for the full command reference.
 
 ## What you get
 
@@ -233,7 +233,7 @@ Provider credentials are AES-GCM encrypted with a key derived from `APP_MASTER_K
 ### Plugins
 Build-time bundled plugins are enabled/disabled at runtime with D1-backed settings. The registry rejects bundled plugins that are not in the current build. Included: Manual, Stripe, PayPal, the **Admin Language Pack** (English / 简体中文), and **Email Notifications** (Resend or Cloudflare Email Workers, D1 outbox with cron-driven retries and an admin log; disabled by default).
 
-**Remote plugins** are installed by Manifest URL without rebuilding the Worker. Their code and admin page run on the plugin author's HTTPS service; CloudCart stores only the manifest and calls signed APIs. Enabled remote plugins add their own pages to the admin sidebar and open inside an iframe. The iframe receives a 5-minute, plugin-scoped JWT via `postMessage` and can call the permission-limited `/api/plugin/v1/*` API. Disabling a plugin revokes access on the next request. A working example lives in [`examples/remote-plugin`](examples/remote-plugin).
+**Remote plugins** are installed by Manifest URL without rebuilding the Worker. Their code and admin page run on the plugin author's HTTPS service; CartBase stores only the manifest and calls signed APIs. Enabled remote plugins add their own pages to the admin sidebar and open inside an iframe. The iframe receives a 5-minute, plugin-scoped JWT via `postMessage` and can call the permission-limited `/api/plugin/v1/*` API. Disabling a plugin revokes access on the next request. A working example lives in [`examples/remote-plugin`](examples/remote-plugin).
 
 ### Security
 PBKDF2 passwords, HMAC-bound session cookies, CSRF double-submit, login rate limiting, prepared statements everywhere, an allow-list HTML sanitiser, magic-byte image validation, open-redirect protection, verified webhooks, and audit logging.
@@ -266,7 +266,7 @@ packages/plugin-sdk, theme-sdk, ui
 plugins/          admin/i18n, payments/{manual,stripe,paypal}, notifications/email
 examples/         remote-plugin developer example
 themes/           8 bundled themes
-brand/            CloudCart icon masters and generated favicon/app icons
+brand/            CartBase icon masters and generated favicon/app icons
 migrations/       11 D1 migrations
 scripts/          deploy CLI, icon generation, jsDelivr media publishing
 tests/            workerd integration tests
@@ -314,7 +314,7 @@ See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the exact verification matrix
 
 ## Contributing
 
-CloudCart is MIT licensed. Themes, plugins, translations, bug reports and performance improvements are welcome.
+CartBase is MIT licensed. Themes, plugins, translations, bug reports and performance improvements are welcome.
 
 - Add a theme: [docs/THEME_DEVELOPMENT.md](docs/THEME_DEVELOPMENT.md)
 - Add a plugin: [docs/PLUGIN_DEVELOPMENT.md](docs/PLUGIN_DEVELOPMENT.md)

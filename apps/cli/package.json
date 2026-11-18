@@ -1,16 +1,16 @@
 {
-  "name": "@cloudcart/cli",
+  "name": "@cartbase/cli",
   "version": "0.5.0",
   "private": true,
   "type": "module",
-  "description": "Agent-friendly CloudCart admin CLI.",
+  "description": "Agent-friendly CartBase admin CLI.",
   "engines": {
     "node": ">=20"
   },
   "bin": {
-    "cloudcart": "./bin/cloudcart.mjs"
+    "cartbase": "./bin/cartbase.mjs"
   },
   "scripts": {
-    "start": "node ./bin/cloudcart.mjs"
+    "start": "node ./bin/cartbase.mjs"
   }
 }

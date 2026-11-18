@@ -3,8 +3,8 @@ import {
   listPlugins,
   uninstallRemotePlugin,
   writeAuditLog,
-} from "@cloudcart/core";
-import { HttpError } from "@cloudcart/shared";
+} from "@cartbase/core";
+import { HttpError } from "@cartbase/shared";
 import { Hono, type Context } from "hono";
 import { z } from "zod";
 import { db, readJson } from "../lib";

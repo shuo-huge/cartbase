@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/theme-sdk",
+  "name": "@cartbase/theme-sdk",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/security": "workspace:*",
-    "@cloudcart/shared": "workspace:*"
+    "@cartbase/security": "workspace:*",
+    "@cartbase/shared": "workspace:*"
   }
 }

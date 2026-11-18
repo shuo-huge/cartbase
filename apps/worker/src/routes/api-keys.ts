@@ -3,8 +3,8 @@ import {
   listApiKeys,
   revokeApiKey,
   writeAuditLog,
-} from "@cloudcart/core";
-import { HttpError } from "@cloudcart/shared";
+} from "@cartbase/core";
+import { HttpError } from "@cartbase/shared";
 import { Hono } from "hono";
 import type { AppContext } from "../env";
 import { db, jsonError, readJson } from "../lib";

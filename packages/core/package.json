@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/core",
+  "name": "@cartbase/core",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,11 +8,11 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/database": "workspace:*",
-    "@cloudcart/plugin-sdk": "workspace:*",
-    "@cloudcart/security": "workspace:*",
-    "@cloudcart/shared": "workspace:*",
-    "@cloudcart/theme-sdk": "workspace:*",
+    "@cartbase/database": "workspace:*",
+    "@cartbase/plugin-sdk": "workspace:*",
+    "@cartbase/security": "workspace:*",
+    "@cartbase/shared": "workspace:*",
+    "@cartbase/theme-sdk": "workspace:*",
     "zod": "4.6.7"
   }
 }

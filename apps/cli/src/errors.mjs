@@ -13,7 +13,7 @@ export function usageError(message) {
   return new CliError(message, { code: "usage", exitCode: 2 });
 }
 
-export function authError(message = "Run `cloudcart auth login` first.") {
+export function authError(message = "Run `cartbase auth login` first.") {
   return new CliError(message, { code: "not_authenticated", exitCode: 3 });
 }
 

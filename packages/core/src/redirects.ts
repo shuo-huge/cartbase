@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { RedirectRow } from "@cloudcart/database";
-import { HttpError, newId, normalizePath, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { RedirectRow } from "@cartbase/database";
+import { HttpError, newId, normalizePath, nowIso } from "@cartbase/shared";
 import { z } from "zod";
 
 export const redirectInputSchema = z.object({

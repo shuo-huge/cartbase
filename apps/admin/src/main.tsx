@@ -1,6 +1,6 @@
 import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import "@cloudcart/ui/styles.css";
+import "@cartbase/ui/styles.css";
 import "./admin.css";
 import { adminGet } from "./api";
 import { Toaster } from "./components";
@@ -28,14 +28,14 @@ function App() {
   useEffect(() => {
     void loadSession();
     const onExpired = () => setAdmin(null);
-    window.addEventListener("cloudcart:auth-expired", onExpired);
-    return () => window.removeEventListener("cloudcart:auth-expired", onExpired);
+    window.addEventListener("cartbase:auth-expired", onExpired);
+    return () => window.removeEventListener("cartbase:auth-expired", onExpired);
   }, []);
 
   if (checking) {
     return (
       <>
-        <div class="boot-screen">Loading CloudCart…</div>
+        <div class="boot-screen">Loading CartBase…</div>
         <TranslationOverlay />
       </>
     );
@@ -52,7 +52,7 @@ function App() {
           setAdmin(next);
           if (window.location.pathname === "/admin/login" || window.location.pathname === "/admin/setup") {
             window.history.replaceState({}, "", "/admin");
-            window.dispatchEvent(new CustomEvent("cloudcart:navigate"));
+            window.dispatchEvent(new CustomEvent("cartbase:navigate"));
           }
         }} />
       )}

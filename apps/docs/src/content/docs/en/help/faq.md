@@ -50,7 +50,7 @@ Tax-inclusive and tax-exclusive prices are supported, along with country/region 
 
 ## Can I install plugins written by others?
 
-Yes. Remote plugins are installed via a Manifest URL and do not require redeploying CloudCart.
+Yes. Remote plugins are installed via a Manifest URL and do not require redeploying CartBase.
 
 However, plugins run on the author's own server, so check permissions before installing. A plugin granted `orders:read` can read order information.
 
@@ -64,7 +64,7 @@ After enabling/disabling, the admin refreshes automatically to update the menu a
 
 ## Who owns the data?
 
-The data lives in your own Cloudflare account and D1 database. CloudCart does not host your product, order, or customer data.
+The data lives in your own Cloudflare account and D1 database. CartBase does not host your product, order, or customer data.
 
 ## Can I export data?
 

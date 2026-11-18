@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { CustomerAddressRow, CustomerRow, OrderRow } from "@cloudcart/database";
-import { HttpError, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { CustomerAddressRow, CustomerRow, OrderRow } from "@cartbase/database";
+import { HttpError, nowIso } from "@cartbase/shared";
 
 export async function listCustomers(
   db: Database,

@@ -1,12 +1,12 @@
-import { fromBase64Url, toBase64Url } from "@cloudcart/shared";
+import { fromBase64Url, toBase64Url } from "@cartbase/shared";
 import { constantTimeEqual, fromUtf8, hmacSha256Base64Url, newOpaqueToken, utf8 } from "./crypto";
 
 /** Domain-separated key use for plugin admin tokens. */
-const PLUGIN_JWT_INFO = "cloudcart:plugin-jwt:v1";
+const PLUGIN_JWT_INFO = "cartbase:plugin-jwt:v1";
 export const PLUGIN_JWT_TTL_SECONDS = 5 * 60;
 
 export interface PluginJwtClaims {
-  iss: "cloudcart";
+  iss: "cartbase";
   aud: string;
   plugin_id: string;
   store_id: string;
@@ -49,7 +49,7 @@ export async function createPluginJwt(
   const now = input.now ?? Math.floor(Date.now() / 1000);
   const ttl = Math.min(Math.max(input.ttlSeconds ?? PLUGIN_JWT_TTL_SECONDS, 30), 3600);
   const claims: PluginJwtClaims = {
-    iss: "cloudcart",
+    iss: "cartbase",
     aud: input.pluginId,
     plugin_id: input.pluginId,
     store_id: input.storeId,
@@ -81,7 +81,7 @@ export async function verifyPluginJwt(
   if (!constantTimeEqual(signaturePart, expected)) return { valid: false, reason: "signature" };
 
   const claims = decodeJson<PluginJwtClaims>(payloadPart);
-  if (!claims || claims.iss !== "cloudcart" ||
+  if (!claims || claims.iss !== "cartbase" ||
       typeof claims.aud !== "string" || typeof claims.plugin_id !== "string" ||
       typeof claims.store_id !== "string" || typeof claims.admin_id !== "string" ||
       !Array.isArray(claims.permissions) || typeof claims.jti !== "string" ||

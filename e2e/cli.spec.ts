@@ -7,13 +7,13 @@ import { expect, test } from "@playwright/test";
 
 const run = promisify(execFile);
 const BASE = "http://127.0.0.1:8787";
-const CLI = path.resolve("apps/cli/bin/cloudcart.mjs");
+const CLI = path.resolve("apps/cli/bin/cartbase.mjs");
 
 async function cli(configPath: string, args: string[]) {
   try {
     const result = await run(process.execPath, [CLI, ...args], {
       cwd: process.cwd(),
-      env: { ...process.env, CLOUDCART_CONFIG: configPath },
+      env: { ...process.env, CARTBASE_CONFIG: configPath },
       maxBuffer: 10 * 1024 * 1024,
     });
     return { code: 0, stdout: result.stdout, stderr: result.stderr };
@@ -27,9 +27,9 @@ async function cli(configPath: string, args: string[]) {
   }
 }
 
-test.describe("CloudCart CLI", () => {
+test.describe("CartBase CLI", () => {
   test("logs in, creates a product and blog page, then logs out", async ({ request }) => {
-    const directory = fs.mkdtempSync(path.join(os.tmpdir(), "cloudcart-e2e-cli-"));
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), "cartbase-e2e-cli-"));
     const config = path.join(directory, "config.json");
     const postFile = path.join(directory, "post.html");
     const imageFile = path.join(directory, "image.png");

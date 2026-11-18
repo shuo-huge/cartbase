@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import type { PluginRow } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
+import type { PluginRow } from "@cartbase/database";
 import {
   getOrCreateStoreId,
   getRemotePluginRow,
@@ -8,16 +8,16 @@ import {
   uninstallRemotePlugin,
   updateRemotePlugin,
   type InstallRemotePluginResult,
-} from "@cloudcart/core";
+} from "@cartbase/core";
 import {
   parseRemotePluginManifest,
   RemoteManifestValidationError,
   validateRemoteUrl,
   type RemotePluginManifest,
   type RemotePluginPreview,
-} from "@cloudcart/plugin-sdk";
-import { createPluginJwt, sha256Hex } from "@cloudcart/security";
-import { HttpError } from "@cloudcart/shared";
+} from "@cartbase/plugin-sdk";
+import { createPluginJwt, sha256Hex } from "@cartbase/security";
+import { HttpError } from "@cartbase/shared";
 import type { Env } from "./env";
 import { checkRemotePluginHealth } from "./remote-plugin-client";
 

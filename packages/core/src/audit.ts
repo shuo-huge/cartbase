@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import { newId, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import { newId, nowIso } from "@cartbase/shared";
 
 export interface AuditEntry {
   adminId?: string | null;

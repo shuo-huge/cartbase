@@ -5,7 +5,7 @@ description: How Manual, Stripe, PayPal and remote payment plugins work.
 
 ## Payment methods
 
-CloudCart includes:
+CartBase includes:
 
 - **Manual**: bank transfer, cash on delivery, custom instructions
 - **Stripe Checkout**
@@ -76,7 +76,7 @@ captureOrder?
 refund?
 ```
 
-Actual calls are made over HMAC-signed HTTPS requests. CloudCart always retains the right to validate amounts; remote plugins cannot change order status directly.
+Actual calls are made over HMAC-signed HTTPS requests. CartBase always retains the right to validate amounts; remote plugins cannot change order status directly.
 
 ## Testing
 

@@ -124,7 +124,7 @@ export function MediaStorageSettings() {
               <input value={owner} onInput={(event) => setOwner((event.target as HTMLInputElement).value)} placeholder="your-github-user" />
             </Field>
             <Field label="Repository name">
-              <input value={repo} onInput={(event) => setRepo((event.target as HTMLInputElement).value)} placeholder="cloudcart-media" />
+              <input value={repo} onInput={(event) => setRepo((event.target as HTMLInputElement).value)} placeholder="cartbase-media" />
             </Field>
             <Field label="Branch">
               <input value={branch} onInput={(event) => setBranch((event.target as HTMLInputElement).value)} placeholder="main" />

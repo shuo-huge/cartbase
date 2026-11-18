@@ -1,8 +1,8 @@
-import type { Database } from "@cloudcart/database";
-import type { AdminApiKeyRow, AdminRow } from "@cloudcart/database";
-import { constantTimeEqual, sha256Hex } from "@cloudcart/security";
-import { HttpError } from "@cloudcart/shared";
-import { nowIso, randomToken } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { AdminApiKeyRow, AdminRow } from "@cartbase/database";
+import { constantTimeEqual, sha256Hex } from "@cartbase/security";
+import { HttpError } from "@cartbase/shared";
+import { nowIso, randomToken } from "@cartbase/shared";
 
 /**
  * Long-lived API keys are scoped to one administrator and one store (the
@@ -79,7 +79,7 @@ export const DEFAULT_API_KEY_SCOPES: readonly ApiKeyScope[] = [
 
 const MAX_KEYS_PER_ADMIN = 20;
 const LAST_USED_THROTTLE_MS = 60_000;
-const TOKEN_PATTERN = /^cck_([a-f0-9]{32})\.([A-Za-z0-9_-]{20,})$/;
+const TOKEN_PATTERN = /^cbk_([a-f0-9]{32})\.([A-Za-z0-9_-]{20,})$/;
 
 export interface ApiKeyView {
   id: string;
@@ -99,7 +99,7 @@ export interface ApiKeyPrincipal {
 
 export function generateApiKey(): { id: string; token: string; tokenHash: Promise<string> } {
   const raw = crypto.randomUUID().replace(/-/g, "");
-  const token = `cck_${raw}.${randomToken(32)}`;
+  const token = `cbk_${raw}.${randomToken(32)}`;
   return { id: `apk_${raw}`, token, tokenHash: sha256Hex(token) };
 }
 
@@ -204,7 +204,7 @@ function toView(row: AdminApiKeyRow): ApiKeyView {
   return {
     id: row.id,
     name: row.name,
-    prefix: `cck_${row.id.slice(4, 12)}…`,
+    prefix: `cbk_${row.id.slice(4, 12)}…`,
     scopes: parseApiKeyScopes(row.scopes_json),
     createdAt: row.created_at,
     lastUsedAt: row.last_used_at,
@@ -249,7 +249,7 @@ export async function createApiKey(
   return {
     id: generated.id,
     name,
-    prefix: `cck_${generated.id.slice(4, 12)}…`,
+    prefix: `cbk_${generated.id.slice(4, 12)}…`,
     scopes,
     createdAt: now,
     lastUsedAt: null,

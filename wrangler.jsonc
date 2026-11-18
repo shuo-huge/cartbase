@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "cloudcart",
+  "name": "cartbase",
   "main": "apps/worker/src/index.ts",
   "compatibility_date": "2026-10-29",
   "workers_dev": true,
@@ -23,7 +23,7 @@
   },
   "vars": {
     "APP_ENV": "production",
-    "STORE_NAME": "CloudCart",
+    "STORE_NAME": "CartBase",
     "STORE_CURRENCY": "USD",
     "STORE_TIMEZONE": "UTC"
   },

@@ -1,5 +1,5 @@
 /**
- * Regenerates the CloudCart favicon/app icon set from the SVG masters in
+ * Regenerates the CartBase favicon/app icon set from the SVG masters in
  * `brand/`. The generated PNG/ICO files are committed so a normal build does
  * not need a browser; run this script only when the master artwork changes.
  *

@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/plugin-sdk",
+  "name": "@cartbase/plugin-sdk",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/shared": "workspace:*",
+    "@cartbase/shared": "workspace:*",
     "zod": "4.6.7"
   }
 }

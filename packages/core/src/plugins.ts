@@ -1,8 +1,8 @@
-import type { Database } from "@cloudcart/database";
-import type { PluginHealthStatus, PluginRow, PluginRuntime } from "@cloudcart/database";
-import { decryptSecret, encryptSecret } from "@cloudcart/security";
-import { HttpError, nowIso } from "@cloudcart/shared";
-import type { PluginManifest, RemotePluginAdminPage } from "@cloudcart/plugin-sdk";
+import type { Database } from "@cartbase/database";
+import type { PluginHealthStatus, PluginRow, PluginRuntime } from "@cartbase/database";
+import { decryptSecret, encryptSecret } from "@cartbase/security";
+import { HttpError, nowIso } from "@cartbase/shared";
+import type { PluginManifest, RemotePluginAdminPage } from "@cartbase/plugin-sdk";
 import { getRemotePluginRow, storedRemoteManifest } from "./remote-plugins";
 
 export interface PluginView extends PluginRow {

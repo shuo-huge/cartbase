@@ -26,7 +26,7 @@ interface I18nValue {
   setLocale: (code: string) => void;
 }
 
-const STORAGE_KEY = "cloudcart.admin.locale";
+const STORAGE_KEY = "cartbase.admin.locale";
 
 const I18nContext = createContext<I18nValue>({
   ready: false,

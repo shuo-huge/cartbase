@@ -1,4 +1,4 @@
-import { escapeAttr, escapeHtml, formatMoney } from "@cloudcart/shared";
+import { escapeAttr, escapeHtml, formatMoney } from "@cartbase/shared";
 import type { StorefrontProduct } from "./types";
 
 export function money(cents: number, currency: string): string {

@@ -8,9 +8,9 @@ import type {
   RefundInput,
   RefundResult,
   ValidationResult,
-} from "@cloudcart/plugin-sdk";
-import { constantTimeEqual } from "@cloudcart/security";
-import { formatMoney, moneyToInput } from "@cloudcart/shared";
+} from "@cartbase/plugin-sdk";
+import { constantTimeEqual } from "@cartbase/security";
+import { formatMoney, moneyToInput } from "@cartbase/shared";
 
 export const manifest = {
   id: "stripe",

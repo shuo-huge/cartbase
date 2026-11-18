@@ -1,9 +1,9 @@
 ---
 title: 项目介绍
-description: CloudCart 的定位、功能范围和运行模型。
+description: CartBase 的定位、功能范围和运行模型。
 ---
 
-CloudCart 是一个免费、开源、插件化的电商系统，原生运行在 Cloudflare Workers 上。它适合想低成本运营独立商店、又不想维护服务器和数据库的商家与开发者。
+CartBase 是一个免费、开源、插件化的电商系统，原生运行在 Cloudflare Workers 上。它适合想低成本运营独立商店、又不想维护服务器和数据库的商家与开发者。
 
 ## 运行模型
 

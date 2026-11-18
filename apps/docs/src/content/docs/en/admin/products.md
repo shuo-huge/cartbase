@@ -20,7 +20,7 @@ After saving, the product appears in the admin list and on the storefront produc
 
 ## Product images
 
-CloudCart uses **external HTTPS image URLs** by default; R2 is not required.
+CartBase uses **external HTTPS image URLs** by default; R2 is not required.
 
 In the **Media** section of the product editor:
 
@@ -56,7 +56,7 @@ Categories appear in storefront navigation and on category pages.
 
 ## Inventory
 
-If inventory management is enabled, CloudCart reserves inventory at checkout using a conditional update on the server to prevent overselling; the inventory is restored if order creation fails.
+If inventory management is enabled, CartBase reserves inventory at checkout using a conditional update on the server to prevent overselling; the inventory is restored if order creation fails.
 
 ## Bulk management
 

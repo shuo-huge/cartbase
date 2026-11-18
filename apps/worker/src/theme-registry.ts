@@ -1,12 +1,12 @@
-import type { ThemeDefinition } from "@cloudcart/theme-sdk";
-import defaultTheme from "@cloudcart/theme-default";
-import fashionTheme from "@cloudcart/theme-fashion";
-import beautyTheme from "@cloudcart/theme-beauty";
-import electronicsTheme from "@cloudcart/theme-electronics";
-import jewelryTheme from "@cloudcart/theme-jewelry";
-import homeTheme from "@cloudcart/theme-home";
-import sportsTheme from "@cloudcart/theme-sports";
-import singleProductTheme from "@cloudcart/theme-single-product";
+import type { ThemeDefinition } from "@cartbase/theme-sdk";
+import defaultTheme from "@cartbase/theme-default";
+import fashionTheme from "@cartbase/theme-fashion";
+import beautyTheme from "@cartbase/theme-beauty";
+import electronicsTheme from "@cartbase/theme-electronics";
+import jewelryTheme from "@cartbase/theme-jewelry";
+import homeTheme from "@cartbase/theme-home";
+import sportsTheme from "@cartbase/theme-sports";
+import singleProductTheme from "@cartbase/theme-single-product";
 
 /**
  * Themes are bundled at build time. Adding a theme requires a rebuild; the

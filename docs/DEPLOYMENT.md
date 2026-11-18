@@ -9,11 +9,11 @@
 
 ## 2. One-click deployment (Cloudflare button)
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cloudcart)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/shuo-huge/cartbase)
 
 Cloudflare clones the repository into your account, provisions the D1 database declared in `wrangler.jsonc`, then runs the build and deploy commands. R2 is optional. **You do not need to create or paste any secrets.**
 
-The `deploy` script runs the CloudCart deployment CLI. It automatically:
+The `deploy` script runs the CartBase deployment CLI. It automatically:
 
 1. checks Cloudflare authentication and finds the D1 database;
 2. applies remote database migrations;
@@ -36,7 +36,7 @@ pnpm run deploy:cloudflare
 Optional:
 
 ```bash
-pnpm run deploy:cloudflare -- --name cloudcart-fashion
+pnpm run deploy:cloudflare -- --name cartbase-fashion
 pnpm run deploy:cloudflare -- --check        # environment check only
 pnpm run deploy:cloudflare -- --skip-build   # reuse existing dist/
 ```
@@ -51,7 +51,7 @@ The script (`scripts/deploy.mjs`):
 7. preserves the existing `APP_MASTER_KEY`; it reuses or refreshes the setup token according to installation state;
 8. prints the store URL, admin URL and one-time setup link.
 
-State (including generated secrets) is written to `.cloudcart/deploy.json`, which is gitignored. **Keep it private and back it up**; rotating `APP_MASTER_KEY` invalidates sessions and prevents previously encrypted payment credentials from being decrypted.
+State (including generated secrets) is written to `.cartbase/deploy.json`, which is gitignored. **Keep it private and back it up**; rotating `APP_MASTER_KEY` invalidates sessions and prevents previously encrypted payment credentials from being decrypted.
 
 Re-running the script is safe: it reuses resources and secrets and does not overwrite data. It never
 changes your Cloudflare plan.
@@ -69,7 +69,7 @@ registers or updates the trigger.
 
 ### What “one-time setup link” means
 
-The deployment log prints a private URL such as `https://<worker>/setup?token=<one-time-token>`. Open that link directly. CloudCart fills the hidden setup token automatically, so the installer only enters the administrator name, email and password. The token is never displayed as a separate field.
+The deployment log prints a private URL such as `https://<worker>/setup?token=<one-time-token>`. Open that link directly. CartBase fills the hidden setup token automatically, so the installer only enters the administrator name, email and password. The token is never displayed as a separate field.
 
 The setup page is no-store/no-referrer and closes permanently after the first owner account is created. If a deployment is run again before installation, use the refreshed link printed by that deployment.
 
@@ -102,9 +102,9 @@ DOCS_SITE_URL=https://docs.example.com pnpm docs:deploy
 ```
 
 This builds `apps/docs/dist` and deploys the static-assets Worker defined by `wrangler.docs.jsonc`
-(`cloudcart-docs`). Alternatively, connect the repository to Cloudflare Pages with:
+(`cartbase-docs`). Alternatively, connect the repository to Cloudflare Pages with:
 
-- Build command: `pnpm --filter @cloudcart/docs build`
+- Build command: `pnpm --filter @cartbase/docs build`
 - Output directory: `apps/docs/dist`
 
 Set `DOCS_SITE_URL` in CI when using a custom domain so canonical URLs and the sitemap are correct.
@@ -126,15 +126,15 @@ pnpm run deploy:cloudflare
 
 ```bash
 # Database
-npx wrangler d1 export cloudcart --remote --output backup-YYYYMMDD.sql
+npx wrangler d1 export DB --remote --output backup-YYYYMMDD.sql
 ```
 
-Back up `.cloudcart/deploy.json` separately and securely.
+Back up `.cartbase/deploy.json` separately and securely.
 
 ## 8. Restore
 
 ```bash
-npx wrangler d1 execute cloudcart --remote --file backup-YYYYMMDD.sql
+npx wrangler d1 execute DB --remote --file backup-YYYYMMDD.sql
 ```
 
 R2 is optional. If you enable it later, back up and restore its objects separately.
@@ -152,8 +152,8 @@ Without either configuration, orders still work and the outbox remains empty.
 ## 9. Multiple independent stores
 
 Each deployment should use distinct resource names, e.g.:
-- Worker `cloudcart-fashion`
-- D1 `cloudcart-fashion`
+- Worker `cartbase-fashion`
+- D1 `cartbase-fashion`
 
 R2 can be added later for direct file uploads; alternatively configure a public GitHub repository and
 PAT in **Settings → Media storage** to upload through jsDelivr. Never point two stores at the same D1

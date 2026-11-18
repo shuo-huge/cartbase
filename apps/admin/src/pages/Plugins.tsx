@@ -322,7 +322,7 @@ export function PluginsPage() {
         <h2>Plugin safety</h2>
         <ul class="plain-list">
           <li>Bundled plugins are compiled into the Worker; enabling one never downloads code.</li>
-          <li>Remote plugins run on their own HTTPS service. CloudCart only stores their manifest and calls signed APIs.</li>
+          <li>Remote plugins run on their own HTTPS service. CartBase only stores their manifest and calls signed APIs.</li>
           <li>Disabling a plugin hides its storefront entry points and admin menu. Historical orders and payment data are retained.</li>
           <li>Uninstalling a remote plugin keeps orders and payment transactions; finish pending payments first.</li>
         </ul>
@@ -341,7 +341,7 @@ export function PluginsPage() {
                   <input
                     type="url"
                     value={manifestUrl}
-                    placeholder="https://plugin.example.com/cloudcart-plugin.json"
+                    placeholder="https://plugin.example.com/cartbase-plugin.json"
                     onInput={(event) => setManifestUrl((event.target as HTMLInputElement).value)}
                   />
                 </Field>

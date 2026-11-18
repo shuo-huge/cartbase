@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * CloudCart deployment CLI.
+ * CartBase deployment CLI.
  *
  * Idempotent: re-running reuses the Worker, D1 database and
  * existing secrets instead of creating new resources or overwriting data.
  *
  * Usage:
  *   node scripts/deploy.mjs
- *   node scripts/deploy.mjs --name cloudcart-fashion
+ *   node scripts/deploy.mjs --name cartbase-fashion
  *   node scripts/deploy.mjs --check          # non-mutating environment check
  *   node scripts/deploy.mjs --skip-build
  *   node scripts/deploy.mjs --no-open        # do not open the browser
@@ -21,7 +21,7 @@ import readline from "node:readline/promises";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "wrangler.jsonc");
-const STATE_DIR = path.join(ROOT, ".cloudcart");
+const STATE_DIR = path.join(ROOT, ".cartbase");
 const STATE_PATH = path.join(STATE_DIR, "deploy.json");
 const args = process.argv.slice(2);
 
@@ -130,7 +130,7 @@ function saveState(state) {
 
 function sanitizeName(value) {
   const cleaned = String(value || "").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 52);
-  return cleaned || "cloudcart";
+  return cleaned || "cartbase";
 }
 
 function randomSecret(bytes) {
@@ -144,7 +144,7 @@ function randomSecret(bytes) {
  * dashboard's Visit link instead.
  */
 function shouldOpenBrowser() {
-  if (flags.has("--no-open") || process.env.CLOUDCART_NO_OPEN) return false;
+  if (flags.has("--no-open") || process.env.CARTBASE_NO_OPEN) return false;
   if (process.env.CI || process.env.WORKERS_CI || process.env.GITHUB_ACTIONS) return false;
   if (!process.stdin.isTTY || !process.stdout.isTTY) return false;
   if (process.platform === "win32" || process.platform === "darwin") return true;
@@ -176,7 +176,7 @@ async function askStoreName(defaultName) {
 }
 
 async function main() {
-  log("CloudCart → Cloudflare Workers deployment");
+  log("CartBase → Cloudflare Workers deployment");
 
   step("Checking Node.js");
   const major = Number(process.versions.node.split(".")[0]);
@@ -197,8 +197,8 @@ async function main() {
 
   const state = loadState();
   const config = readConfig();
-  const defaultName = state.workerName || config.name || "cloudcart";
-  const requested = nameArg || process.env.CLOUDCART_NAME || state.workerName;
+  const defaultName = config.name || state.workerName || "cartbase";
+  const requested = nameArg || process.env.CARTBASE_NAME || config.name || state.workerName;
   const workerName = sanitizeName(requested || (flags.has("--check") ? defaultName : await askStoreName(defaultName)));
   if (workerName !== (config.name || "")) {
     log(`  Worker name: ${config.name} → ${workerName}`);
@@ -217,7 +217,7 @@ async function main() {
   // The Deploy to Cloudflare button provisions D1 from wrangler.jsonc and
   // writes a real database_id back before this script runs. Prefer that
   // binding when it belongs to the current account; otherwise fall back to
-  // the CloudCart-managed database name. This avoids creating a second
+  // the CartBase-managed database name. This avoids creating a second
   // database when a one-click deployment picks a different name.
   const configuredDatabase = Array.isArray(config.d1_databases) ? config.d1_databases[0] : null;
   const d1List = wrangler(["d1", "list", "--json"], { capture: true, allowFailure: true });

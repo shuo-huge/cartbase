@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { StoreIdentityRow } from "@cloudcart/database";
-import { nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { StoreIdentityRow } from "@cartbase/database";
+import { nowIso } from "@cartbase/shared";
 
 function newStoreId(): string {
   return `store_${crypto.randomUUID().replace(/-/g, "")}`;

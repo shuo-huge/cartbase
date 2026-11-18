@@ -32,7 +32,7 @@ setup("seeds a deterministic store", async ({ request }) => {
 
   const state = await request.storageState();
   fs.writeFileSync(AUTH, JSON.stringify(state, null, 2));
-  const csrf = state.cookies.find((cookie) => cookie.name === "cc_csrf")?.value ?? "";
+  const csrf = state.cookies.find((cookie) => cookie.name === "cb_csrf")?.value ?? "";
   const csrfHeaders = { "X-CSRF-Token": csrf };
 
   async function put(pathName: string, data: unknown): Promise<void> {

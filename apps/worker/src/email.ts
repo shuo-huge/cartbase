@@ -1,5 +1,5 @@
 import type { Context } from "hono";
-import type { Database } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
 import {
   dispatchEmailOutbox,
   enqueueOrderEventEmails,
@@ -7,15 +7,15 @@ import {
   loadPluginRuntimeConfig,
   type DispatchSummary,
   type OrderEmailEvent,
-} from "@cloudcart/core";
+} from "@cartbase/core";
 import {
   EMAIL_PLUGIN_ID,
   createEmailTransport,
   emailFromAddress,
   normalizeEmailConfig,
   validateEmailConfig,
-} from "@cloudcart/plugin-email-notifications";
-import { HttpError } from "@cloudcart/shared";
+} from "@cartbase/plugin-email-notifications";
+import { HttpError } from "@cartbase/shared";
 import type { AppContext, Env } from "./env";
 import { db } from "./lib";
 

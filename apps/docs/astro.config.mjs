@@ -8,13 +8,13 @@ export default defineConfig({
   integrations: [
     starlight({
       title: {
-        "zh-CN": "CloudCart 文档",
-        en: "CloudCart Docs",
+        "zh-CN": "CartBase 文档",
+        en: "CartBase Docs",
       },
-      description: "CloudCart 使用、部署、主题与插件开发文档 / Documentation for running, deploying and extending CloudCart.",
+      description: "CartBase 使用、部署、主题与插件开发文档 / Documentation for running, deploying and extending CartBase.",
       logo: {
         src: "./src/assets/logo.svg",
-        alt: "CloudCart",
+        alt: "CartBase",
       },
       favicon: "/favicon.svg",
       head: [
@@ -29,10 +29,10 @@ export default defineConfig({
         en: { label: "English", lang: "en" },
       },
       social: [
-        { icon: "github", label: "GitHub", href: "https://github.com/shuo-huge/cloudcart" },
+        { icon: "github", label: "GitHub", href: "https://github.com/shuo-huge/cartbase" },
       ],
       editLink: {
-        baseUrl: "https://github.com/shuo-huge/cloudcart/edit/main/apps/docs/",
+        baseUrl: "https://github.com/shuo-huge/cartbase/edit/main/apps/docs/",
       },
       lastUpdated: true,
       pagination: true,

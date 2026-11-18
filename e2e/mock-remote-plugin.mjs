@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Minimal remote plugin used by Playwright. It is HTTP-only on purpose and
- * only works when CloudCart is started with the E2E insecure-origin flag.
+ * only works when CartBase is started with the E2E insecure-origin flag.
  */
 import crypto from "node:crypto";
 import http from "node:http";
@@ -18,8 +18,8 @@ const manifest = {
   apiVersion: "1",
   type: "analytics",
   runtime: "remote",
-  description: "Remote plugin used by the CloudCart browser test suite.",
-  author: "CloudCart Tests",
+  description: "Remote plugin used by the CartBase browser test suite.",
+  author: "CartBase Tests",
   capabilities: ["analytics.read"],
   permissions: ["store:read", "products:read"],
   service: { baseUrl: serviceBase, auth: "hmac-sha256" },
@@ -64,7 +64,7 @@ const adminHtml = `<!doctype html>
       window.addEventListener("message", async (event) => {
         if (!parentOrigin || event.origin !== parentOrigin) return;
         const data = event.data || {};
-        if (data.type === "cloudcart:token" && typeof data.token === "string") {
+        if (data.type === "cartbase:token" && typeof data.token === "string") {
           token = data.token;
           document.querySelector("[data-plugin-token-status]").textContent = "received";
           try {
@@ -83,7 +83,7 @@ const adminHtml = `<!doctype html>
         }
       });
       if (parentOrigin) {
-        window.parent.postMessage({ type: "cloudcart:ready", pageId }, parentOrigin);
+        window.parent.postMessage({ type: "cartbase:ready", pageId }, parentOrigin);
       } else {
         document.querySelector("[data-plugin-error]").textContent = "No parent origin";
       }
@@ -93,9 +93,9 @@ const adminHtml = `<!doctype html>
 </html>`;
 
 function verifySignature(req, body) {
-  const timestamp = req.headers["x-cloudcart-timestamp"];
-  const nonce = req.headers["x-cloudcart-nonce"];
-  const signature = req.headers["x-cloudcart-signature"];
+  const timestamp = req.headers["x-cartbase-timestamp"];
+  const nonce = req.headers["x-cartbase-nonce"];
+  const signature = req.headers["x-cartbase-signature"];
   if (!timestamp || !nonce || !signature) return false;
   const path = req.url || "/";
   const bodyHash = crypto.createHash("sha256").update(body).digest("hex");
@@ -107,7 +107,7 @@ function verifySignature(req, body) {
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url || "/", `http://127.0.0.1:${port}`);
-  if (req.method === "GET" && (url.pathname === "/cloudcart-plugin.json" || url.pathname === "/manifest.json")) {
+  if (req.method === "GET" && (url.pathname === "/cartbase-plugin.json" || url.pathname === "/manifest.json")) {
     res.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" });
     res.end(JSON.stringify(manifest));
     return;

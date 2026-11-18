@@ -12,12 +12,12 @@ Remote plugins are deployed independently by the plugin author. All you need is 
 3. Enter the Manifest URL, for example:
 
    ```text
-   https://plugin.example.com/cloudcart-plugin.json
+   https://plugin.example.com/cartbase-plugin.json
    ```
 
 4. Click **Preview**
 5. Check the plugin name, author, version, permissions, admin menu, and service address
-6. If the plugin service already has a secret configured, paste it into **Service secret**; leave it empty and CloudCart will generate one
+6. If the plugin service already has a secret configured, paste it into **Service secret**; leave it empty and CartBase will generate one
 7. Click **Install plugin**
 
 After installation, the plugin is **disabled**.
@@ -34,10 +34,10 @@ Click the plugin menu, and the plugin page opens in the admin content area.
 
 ## Service secret
 
-If CloudCart generated the secret, it is **shown only once** after installation completes. You need to:
+If CartBase generated the secret, it is **shown only once** after installation completes. You need to:
 
 1. Copy it immediately
-2. Configure it as `CLOUDCART_SERVICE_SECRET` on the plugin server
+2. Configure it as `CARTBASE_SERVICE_SECRET` on the plugin server
 3. Click Done
 
 If the secret is lost, click **Update** on the plugin to reinstall and generate a new secret; the old secret configuration must be updated to match.

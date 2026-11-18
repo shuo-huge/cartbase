@@ -27,7 +27,7 @@ export function fromBase64Url(value: string): Uint8Array {
   return out;
 }
 
-/** Human-friendly order number: CC-20261106-7K3M2Q. */
+/** Human-friendly order number: CB-20261106-7K3M2Q. */
 export function newOrderNumber(date = new Date()): string {
   const y = date.getUTCFullYear();
   const m = String(date.getUTCMonth() + 1).padStart(2, "0");
@@ -36,7 +36,7 @@ export function newOrderNumber(date = new Date()): string {
   crypto.getRandomValues(bytes);
   let suffix = "";
   for (const b of bytes) suffix += BASE32[b % BASE32.length]!;
-  return `CC-${y}${m}${d}-${suffix}`;
+  return `CB-${y}${m}${d}-${suffix}`;
 }
 
 export function newSlugSuffix(length = 4): string {

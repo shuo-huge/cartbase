@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import { HttpError, newId, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import { HttpError, newId, nowIso } from "@cartbase/shared";
 
 export async function subscribeToNewsletter(db: Database, email: string, source: string): Promise<{ created: boolean }> {
   const normalized = email.trim().toLowerCase();

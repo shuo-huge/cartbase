@@ -1,12 +1,12 @@
 {
-  "name": "@cloudcart/plugin-paypal",
+  "name": "@cartbase/plugin-paypal",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "exports": { ".": "./src/index.ts" },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/plugin-sdk": "workspace:*",
-    "@cloudcart/shared": "workspace:*"
+    "@cartbase/plugin-sdk": "workspace:*",
+    "@cartbase/shared": "workspace:*"
   }
 }

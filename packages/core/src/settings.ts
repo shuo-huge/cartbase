@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import { nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import { nowIso } from "@cartbase/shared";
 
 export const SETTING_KEYS = {
   storeName: "store.name",
@@ -66,7 +66,7 @@ export interface StoreConfig {
 export async function loadStoreConfig(db: Database, env: { STORE_NAME?: string; STORE_CURRENCY?: string; STORE_TIMEZONE?: string }): Promise<StoreConfig> {
   const settings = await getSettings(db);
   return {
-    name: settings[SETTING_KEYS.storeName] || env.STORE_NAME || "CloudCart",
+    name: settings[SETTING_KEYS.storeName] || env.STORE_NAME || "CartBase",
     currency: (settings[SETTING_KEYS.storeCurrency] || env.STORE_CURRENCY || "USD").toUpperCase(),
     locale: settings[SETTING_KEYS.storeLocale] || "en-US",
     email: settings[SETTING_KEYS.storeEmail] || "",

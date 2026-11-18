@@ -1,4 +1,4 @@
-import { fromBase64Url, randomToken, toBase64Url } from "@cloudcart/shared";
+import { fromBase64Url, randomToken, toBase64Url } from "@cartbase/shared";
 import { constantTimeEqual, hashToken, hmacSha256Base64Url, newOpaqueToken, randomBytes, utf8 } from "./crypto";
 
 export interface SessionTokenParts {
@@ -14,7 +14,7 @@ export interface SessionTokenParts {
  */
 export async function createSessionToken(masterKey: string, sessionId: string): Promise<SessionTokenParts> {
   const secret = newOpaqueToken(32);
-  const signature = await hmacSha256Base64Url(masterKey, `${sessionId}.${secret}`, "cloudcart:session:v1");
+  const signature = await hmacSha256Base64Url(masterKey, `${sessionId}.${secret}`, "cartbase:session:v1");
   const token = `${sessionId}.${secret}.${signature}`;
   return { token, tokenHash: await hashToken(token), sessionId };
 }
@@ -24,7 +24,7 @@ export async function parseSessionToken(masterKey: string, token: string): Promi
   if (parts.length !== 3) return null;
   const [sessionId, secret, signature] = parts as [string, string, string];
   if (!sessionId || !secret || !signature) return null;
-  const expected = await hmacSha256Base64Url(masterKey, `${sessionId}.${secret}`, "cloudcart:session:v1");
+  const expected = await hmacSha256Base64Url(masterKey, `${sessionId}.${secret}`, "cartbase:session:v1");
   if (!constantTimeEqual(expected, signature)) return null;
   return { sessionId, tokenHash: await hashToken(token) };
 }

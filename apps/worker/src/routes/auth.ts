@@ -1,4 +1,4 @@
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import {
   getInstallation,
   isInstalled,
@@ -6,8 +6,8 @@ import {
   logoutAdmin,
   SESSION_TTL_SECONDS,
   setupStore,
-} from "@cloudcart/core";
-import { escapeHtml } from "@cloudcart/shared";
+} from "@cartbase/core";
+import { escapeHtml } from "@cartbase/shared";
 import { Hono, type Context } from "hono";
 import type { AppContext } from "../env";
 import {
@@ -139,9 +139,9 @@ export async function serverSetupPage(c: Context<AppContext>): Promise<Response>
   const tokenConfigured = Boolean(c.env.SETUP_TOKEN);
   const setupToken = tokenConfigured ? (c.req.query("token") ?? "") : "";
   const warning = !tokenConfigured
-    ? "The installation token has not been generated yet. Re-run the CloudCart deployment."
+    ? "The installation token has not been generated yet. Re-run the CartBase deployment."
     : !setupToken
-      ? "Open the one-time setup link printed in the CloudCart deployment log. You do not need to enter a token."
+      ? "Open the one-time setup link printed in the CartBase deployment log. You do not need to enter a token."
       : null;
 
   // The one-time token is carried in the setup URL. Never cache this page or
@@ -200,7 +200,7 @@ export function renderSetupHtml(error: string, warning: string | null, setupToke
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<title>Set up CloudCart</title>
+<title>Set up CartBase</title>
 <style>
   :root { color-scheme: light; }
   * { box-sizing: border-box; }
@@ -220,8 +220,8 @@ export function renderSetupHtml(error: string, warning: string | null, setupToke
 </head>
 <body>
 <main>
-  <div class="brand"><img src="/favicon.svg" alt="" width="28" height="28">CloudCart</div>
-  <h1>Set up CloudCart</h1>
+  <div class="brand"><img src="/favicon.svg" alt="" width="28" height="28">CartBase</div>
+  <h1>Set up CartBase</h1>
   <p class="lead">Create the store owner account. This screen closes permanently once setup is complete.</p>
   ${error ? `<div class="error">${escapeHtml(error)}</div>` : ""}
   ${warning ? `<div class="warning">${escapeHtml(warning)}</div>` : ""}

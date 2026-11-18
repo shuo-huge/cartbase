@@ -1,4 +1,4 @@
-import { formatMoney, moneyToInput, parseMoneyInput } from "@cloudcart/shared";
+import { formatMoney, moneyToInput, parseMoneyInput } from "@cartbase/shared";
 import { useState } from "preact/hooks";
 import { adminGet, adminSend } from "../api";
 import { DataTable, ErrorBox, Field, Loading, Modal, toast, useAsync } from "../components";

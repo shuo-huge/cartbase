@@ -1,6 +1,6 @@
 ---
 title: Theme development
-description: Create, register and test a CloudCart theme.
+description: Create, register and test a CartBase theme.
 ---
 
 Themes are bundled at build time. The admin can only switch themes and change design variables; theme code cannot be uploaded at runtime.

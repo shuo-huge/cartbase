@@ -1,4 +1,4 @@
-# CloudCart — 产品需求文档（PRD）
+# CartBase — 产品需求文档（PRD）
 
 **版本：** 1.0  
 **产品定位：** Cloudflare 原生、免费额度优先、插件化独立电商系统  
@@ -11,7 +11,7 @@
 
 ## 1. 产品目标
 
-CloudCart 是一套轻量、模块化、可扩展的开源电商系统。
+CartBase 是一套轻量、模块化、可扩展的开源电商系统。
 
 用户通过一键部署或一条安装命令，将完整商城部署到自己的 Cloudflare 账户。
 
@@ -26,7 +26,7 @@ CloudCart 是一套轻量、模块化、可扩展的开源电商系统。
 - 支付渠道配置
 - 商品图片和媒体文件
 
-CloudCart 不提供集中式 SaaS 服务，不要求用户购买 CloudCart 订阅，不要求租赁 VPS。
+CartBase 不提供集中式 SaaS 服务，不要求用户购买 CartBase 订阅，不要求租赁 VPS。
 
 ### 核心目标
 
@@ -97,15 +97,15 @@ Worker 同时处理：
 
 示例：
 
-- cloudcart-fashion Worker
-- cloudcart-fashion D1
-- cloudcart-fashion R2
+- cartbase-fashion Worker
+- cartbase-fashion D1
+- cartbase-fashion R2
 
 另一个网站：
 
-- cloudcart-beauty Worker
-- cloudcart-beauty D1
-- cloudcart-beauty R2
+- cartbase-beauty Worker
+- cartbase-beauty D1
+- cartbase-beauty R2
 
 禁止在默认部署模式下把不同商店的数据放进同一个数据库。
 
@@ -305,9 +305,9 @@ v1 不做复杂会员等级系统。
 
 ## 5. 插件系统
 
-插件采用混合架构：内置插件构建时打包、运行时启停；远程插件运行在插件作者独立部署的 HTTPS 服务上，CloudCart 只保存 Manifest 并通过 HMAC 签名 API 通信，后台通过 iframe 嵌入。
+插件采用混合架构：内置插件构建时打包、运行时启停；远程插件运行在插件作者独立部署的 HTTPS 服务上，CartBase 只保存 Manifest 并通过 HMAC 签名 API 通信，后台通过 iframe 嵌入。
 
-禁止运行时下载、`eval` 或执行任意插件 JavaScript。远程插件必须使用 HTTPS，安装需要管理员确认；插件代码永远不进入 CloudCart Worker。
+禁止运行时下载、`eval` 或执行任意插件 JavaScript。远程插件必须使用 HTTPS，安装需要管理员确认；插件代码永远不进入 CartBase Worker。
 
 ### 5.1 插件类型
 
@@ -789,7 +789,7 @@ P4 以后新增插件不得修改核心订单状态机。
 
 ## 17. 产品完成定义
 
-CloudCart v1.0 不是一个 UI Demo。
+CartBase v1.0 不是一个 UI Demo。
 
 必须是可以真实部署、真实管理商品、真实创建订单、通过 Stripe 和 PayPal Sandbox 测试付款、支持人工支付、支持多主题切换、支持页面编辑、能够在 Cloudflare 免费额度内运行的完整商城。
 

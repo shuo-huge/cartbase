@@ -10,7 +10,7 @@
   "capabilities": ["analytics.read"],
   "permissions": ["store:read", "products:read"],
   "service": {
-    "baseUrl": "https://plugin.example.com/api/cloudcart/v1",
+    "baseUrl": "https://plugin.example.com/api/cartbase/v1",
     "auth": "hmac-sha256"
   },
   "admin": {

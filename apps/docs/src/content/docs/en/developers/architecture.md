@@ -1,6 +1,6 @@
 ---
 title: Architecture overview
-description: CloudCart's runtime topology, code structure and request flow.
+description: CartBase's runtime topology, code structure and request flow.
 ---
 
 ## Topology
@@ -77,7 +77,7 @@ Admin iframe → postMessage(ready)
   → iframe calls /api/plugin/v1/*
 ```
 
-CloudCart → plugin service uses HMAC signatures; plugin → CloudCart uses a Bearer JWT.
+CartBase → plugin service uses HMAC signatures; plugin → CartBase uses a Bearer JWT.
 
 ## Data model
 

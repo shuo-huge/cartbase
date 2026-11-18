@@ -3,7 +3,7 @@ title: 邮件通知
 description: 配置 Resend 或 Cloudflare Email Workers，发送订单邮件。
 ---
 
-CloudCart 内置 **Email Notifications** 插件，默认关闭。
+CartBase 内置 **Email Notifications** 插件，默认关闭。
 
 ## 支持的事件
 
@@ -45,7 +45,7 @@ CloudCart 内置 **Email Notifications** 插件，默认关闭。
 
 ## 测试投递
 
-保存设置并启用插件后，在 **Emails → Test delivery** 填写收件地址，点击 **Send test email**。CloudCart 会使用当前 Resend 或 Cloudflare 通道真实发送一封测试邮件。
+保存设置并启用插件后，在 **Emails → Test delivery** 填写收件地址，点击 **Send test email**。CartBase 会使用当前 Resend 或 Cloudflare 通道真实发送一封测试邮件。
 
 ## 发件箱
 

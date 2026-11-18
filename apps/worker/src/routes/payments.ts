@@ -7,16 +7,16 @@ import {
   loadPaymentRuntimeConfig,
   parseOrderAccessToken,
   processPaymentEvent,
-} from "@cloudcart/core";
-import { HttpError } from "@cloudcart/shared";
-import type { PaymentOrderSnapshot } from "@cloudcart/plugin-sdk";
+} from "@cartbase/core";
+import { HttpError } from "@cartbase/shared";
+import type { PaymentOrderSnapshot } from "@cartbase/plugin-sdk";
 import { Hono } from "hono";
 import type { Context } from "hono";
 import type { AppContext } from "../env";
 import { db, jsonError } from "../lib";
 import { notifyOrderEvent } from "../email";
 import { resolvePaymentPlugin } from "../payment-plugin-resolver";
-import { getRemotePluginRow } from "@cloudcart/core";
+import { getRemotePluginRow } from "@cartbase/core";
 
 export const webhookRoutes = new Hono<AppContext>();
 export const paymentReturnRoutes = new Hono<AppContext>();

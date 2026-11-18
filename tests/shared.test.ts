@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { formatMoney, parseMoneyInput, percentageOf, slugify, safeRedirectPath } from "@cloudcart/shared";
-import { sanitizeHtml, securityHeaders } from "@cloudcart/security";
+import { formatMoney, parseMoneyInput, percentageOf, slugify, safeRedirectPath } from "@cartbase/shared";
+import { sanitizeHtml, securityHeaders } from "@cartbase/security";
 
 describe("money", () => {
   it("parses decimal input into integer minor units without floats", () => {

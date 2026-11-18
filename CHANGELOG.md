@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- `pnpm demo:seed` to populate a demo store with categories, products, a published home
+  page, and sample orders through the admin API. See [docs/DEMO.md](docs/DEMO.md).
+
 ## 0.5.1 — 2026-11-18
 
 ### Changed

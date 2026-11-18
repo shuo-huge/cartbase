@@ -318,6 +318,7 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 - [安全](docs/SECURITY.md)
 - [免费额度预算](docs/FREE_TIER_BUDGET.md)
 - [测试报告](docs/TEST_REPORT.md)
+- [Demo 数据](docs/DEMO.md)
 - [更新日志](CHANGELOG.md)
 
 ---

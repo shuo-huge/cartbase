@@ -318,6 +318,7 @@ See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the exact verification matrix
 - [Security](docs/SECURITY.md)
 - [Free-tier budget](docs/FREE_TIER_BUDGET.md)
 - [Test report](docs/TEST_REPORT.md)
+- [Demo store data](docs/DEMO.md)
 - [Changelog](CHANGELOG.md)
 
 ---

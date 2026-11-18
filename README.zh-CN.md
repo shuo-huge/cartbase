@@ -13,7 +13,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-171%20passing-brightgreen)](docs/TEST_REPORT.md)
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [架构文档](docs/ARCHITECTURE.md) · [部署文档](docs/DEPLOYMENT.md)
+[在线 Demo](https://cartbase-demo.cloudcart-shuo-preview.workers.dev) · [English](README.md) · [简体中文](README.zh-CN.md) · [架构文档](docs/ARCHITECTURE.md) · [部署文档](docs/DEPLOYMENT.md)
 
 </div>
 
@@ -23,6 +23,7 @@
 
 | | |
 |---|---|
+| **在线 Demo** | [cartbase-demo.cloudcart-shuo-preview.workers.dev](https://cartbase-demo.cloudcart-shuo-preview.workers.dev) — 仅前台，后台账号不公开 |
 | **部署** | [一键部署到 Cloudflare](#一键部署到-cloudflare) 或 `pnpm run deploy:cloudflare` |
 | **本地运行** | `pnpm install && pnpm demo`（带演示数据）· `pnpm dev`（空店铺） |
 | **文档** | [文档站](https://cartbase-docs.cloudcart-shuo-preview.workers.dev) · [CLI](docs/CLI.md) · [主题开发](docs/THEME_DEVELOPMENT.md) |

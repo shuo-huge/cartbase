@@ -21,3 +21,4 @@ deploy.config.json
 .cloudcart/
 .gstack/
 business/
+wrangler.demo.jsonc

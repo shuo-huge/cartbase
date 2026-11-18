@@ -13,7 +13,7 @@ One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional ext
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-171%20passing-brightgreen)](docs/TEST_REPORT.md)
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [Architecture](docs/ARCHITECTURE.md) · [Deployment](docs/DEPLOYMENT.md)
+[Live demo](https://cartbase-demo.cloudcart-shuo-preview.workers.dev) · [English](README.md) · [简体中文](README.zh-CN.md) · [Architecture](docs/ARCHITECTURE.md) · [Deployment](docs/DEPLOYMENT.md)
 
 </div>
 
@@ -23,6 +23,7 @@ One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional ext
 
 | | |
 |---|---|
+| **Live demo** | [cartbase-demo.cloudcart-shuo-preview.workers.dev](https://cartbase-demo.cloudcart-shuo-preview.workers.dev) — storefront only; the admin account is private |
 | **Deploy** | [One-click Deploy to Cloudflare](#one-click-deploy) or `pnpm run deploy:cloudflare` |
 | **Run locally** | `pnpm install && pnpm demo` (seeded demo) · `pnpm dev` (empty store) |
 | **Documentation** | [docs site](https://cartbase-docs.cloudcart-shuo-preview.workers.dev) · [CLI](docs/CLI.md) · [Themes](docs/THEME_DEVELOPMENT.md) |

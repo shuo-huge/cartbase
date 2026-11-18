@@ -9,6 +9,16 @@ There are two ways to get a demo store:
 Both commands are intended for demo stores. Do not run the seed against a real merchant
 store.
 
+## Public demo
+
+A hosted demo is available at:
+
+https://cartbase-demo.cloudcart-shuo-preview.workers.dev
+
+It runs on a dedicated Worker and D1 database with the catalog from this page. The
+storefront is public; the admin account is kept private. To try the admin, run
+`pnpm demo` locally or deploy your own store.
+
 ## One-command local demo
 
 ```bash

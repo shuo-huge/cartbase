@@ -237,7 +237,7 @@ Dashboard、商品与规格、分类、本地上传到 R2 或 jsDelivr（外链�
 ### 8 套内置主题
 Default、Fashion、Beauty、Electronics、Jewelry、Home、Sports、Single Product。每套主题的布局、字体、商品卡片结构都不同，而不是只换颜色；全部接入同一套 Theme SDK 和设计变量。
 
-主题库预览来自一张 4×2 的 WebP 图集（`apps/storefront/public/themes/theme-previews-atlas.webp`），通过 CSS 裁切显示，并支持后台全屏预览弹窗。预览图是示意素材，不是运行中店铺的截图。
+主题库预览是 8 套主题分别渲染演示店铺后截取的真实截图，合成一张 4×2 的 WebP 图集（`apps/storefront/public/themes/theme-previews-atlas.webp`），后台可全屏预览。重新生成：`pnpm screenshots && pnpm theme:atlas`。
 
 ### 可视化页面编辑器
 三栏布局，SortableJS 拖拽排序，新增/删除/复制/隐藏模块，模块内容与样式配置，桌面/平板/手机实时预览，自动保存草稿，撤销/重做，发布并生成不可变版本快照，可把任意已发布版本恢复为草稿。页面 JSON 服务端校验，自定义 HTML 严格消毒。
@@ -312,7 +312,7 @@ docs/             架构、插件、主题、支付、部署、安全、测试�
 - 暂无公共插件市场、发布者签名、评分、付费或自动更新。
 - 不支持远程主题、远程店铺前端、远程运费/商品核心逻辑。
 - 暂无免税客户证明、按商品配置税类。
-- 主题预览是 WebP 图集中的示意素材，不是真实店铺截图。
+- 主题预览来自演示店铺的真实截图，使用演示商品数据，不是商家自己的目录。
 
 精确验证矩阵和已知缺口见 [docs/TEST_REPORT.md](docs/TEST_REPORT.md)。
 

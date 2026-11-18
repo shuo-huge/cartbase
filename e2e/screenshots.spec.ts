@@ -125,6 +125,41 @@ async function captureStorefront(browser: Browser): Promise<void> {
   await context.close();
 }
 
+async function captureThemePreviews(
+  browser: Browser,
+  request: APIRequestContext,
+  csrf: string,
+): Promise<void> {
+  const themes = ["default", "beauty", "electronics", "fashion", "home", "jewelry", "single-product", "sports"];
+  const dir = path.resolve("test-results/theme-previews");
+  fs.mkdirSync(dir, { recursive: true });
+  const context = await browser.newContext({
+    viewport: { width: 1200, height: 900 },
+    locale: "en-US",
+  });
+  await context.route("https://picsum.photos/**", routeDemoArt);
+  const page = await context.newPage();
+
+  for (const theme of themes) {
+    await call(request, csrf, "POST", `/api/admin/themes/${theme}/activate`, {});
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.locator(".cc-header, header").first().waitFor({ state: "visible" });
+    await settle(page);
+    const file = path.join(dir, `${theme}.jpg`);
+    await page.screenshot({
+      path: file,
+      type: "jpeg",
+      quality: 90,
+      animations: "disabled",
+      caret: "hide",
+    });
+    console.log(`[theme-preview] ${path.relative(process.cwd(), file)}`);
+  }
+
+  await call(request, csrf, "POST", "/api/admin/themes/default/activate", {});
+  await context.close();
+}
+
 test("captures README screenshots in English and Simplified Chinese", async ({
   request,
   browser,
@@ -414,6 +449,7 @@ test("captures README screenshots in English and Simplified Chinese", async ({
   /* ------------------------------------------------------------------ */
 
   await captureStorefront(browser);
+  await captureThemePreviews(browser, request, csrf);
 
   /* ------------------------------------------------------------------ */
   /* Capture both locales                                                */

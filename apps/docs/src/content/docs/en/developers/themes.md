@@ -49,7 +49,7 @@ Preview images come from:
 apps/storefront/public/themes/theme-previews-atlas.webp
 ```
 
-The admin crops a 4×2 atlas using CSS `background-position`. When adding a theme, update the atlas and `admin.css` at the same time.
+The admin crops a 4×2 atlas using CSS `background-position`. The screenshots are captured from the demo storefront by `pnpm screenshots` and composed into the atlas by `pnpm theme:atlas`. When adding a theme, update the capture list, the atlas, and `admin.css` at the same time.
 
 ## Theme capabilities
 

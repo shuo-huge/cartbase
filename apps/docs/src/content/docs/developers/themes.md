@@ -49,7 +49,7 @@ interface ThemeDefinition {
 apps/storefront/public/themes/theme-previews-atlas.webp
 ```
 
-后台用 CSS `background-position` 裁剪 4×2 图集。新增主题时需要同步更新图集和 `admin.css`。
+后台用 CSS `background-position` 裁剪 4×2 图集。截图由 `pnpm screenshots` 从演示店铺抓取，再由 `pnpm theme:atlas` 合成图集。新增主题时需要同步更新截图列表、图集和 `admin.css`。
 
 ## 主题能力
 

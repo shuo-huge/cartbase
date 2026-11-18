@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Regenerates the 4x2 theme preview atlas from the committed theme SVGs.
- * The atlas is the preview image for every bundled theme; rebuilding it keeps
- * the visible wordmark in sync with the brand without hand-editing a WebP.
+ * Regenerates the 4x2 theme preview atlas.
+ *
+ * Prefers real storefront screenshots captured by `pnpm screenshots` in
+ * test-results/theme-previews/ and falls back to the committed theme SVGs.
  *
  * Usage: pnpm theme:atlas
  */
@@ -12,6 +13,7 @@ import { chromium } from "@playwright/test";
 
 const root = path.resolve(import.meta.dirname, "..");
 const themeDir = path.join(root, "apps", "storefront", "public", "themes");
+const photoDir = path.join(root, "test-results", "theme-previews");
 const output = path.join(themeDir, "theme-previews-atlas.webp");
 const themes = [
   "default",
@@ -25,32 +27,38 @@ const themes = [
 ];
 
 for (const theme of themes) {
-  const file = path.join(themeDir, `${theme}.svg`);
-  if (!fs.existsSync(file)) {
-    console.error(`Missing theme preview: ${file}`);
+  const photo = path.join(photoDir, `${theme}.jpg`);
+  const svg = path.join(themeDir, `${theme}.svg`);
+  if (!fs.existsSync(photo) && !fs.existsSync(svg)) {
+    console.error(`Missing theme preview for ${theme}: ${photo} or ${svg}`);
     process.exit(1);
   }
 }
 
 const cells = themes
   .map((theme) => {
+    const photo = path.join(photoDir, `${theme}.jpg`);
+    if (fs.existsSync(photo)) {
+      const data = fs.readFileSync(photo).toString("base64");
+      return `<div class="cell"><img class="photo" src="data:image/jpeg;base64,${data}" alt=""></div>`;
+    }
     const svg = fs.readFileSync(path.join(themeDir, `${theme}.svg`));
-    const url = `data:image/svg+xml;base64,${svg.toString("base64")}`;
-    return `<div class="cell"><img src="${url}" alt=""></div>`;
+    const data = svg.toString("base64");
+    return `<div class="cell"><img class="art" src="data:image/svg+xml;base64,${data}" alt=""></div>`;
   })
   .join("");
 
 const html = `<!doctype html>
 <html><head><meta charset="utf-8"><style>
-  html, body { margin: 0; padding: 0; width: 720px; height: 392px; background: #fff; }
-  .grid { display: grid; grid-template-columns: repeat(4, 180px); grid-template-rows: repeat(2, 196px); }
-  .cell { width: 180px; height: 196px; overflow: hidden; background: #f7f5f1; }
-  .cell img { display: block; width: 180px; height: 196px; object-fit: fill; }
+  html, body { margin: 0; padding: 0; width: 1920px; height: 720px; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(4, 480px); grid-template-rows: repeat(2, 360px); }
+  .cell { width: 480px; height: 360px; overflow: hidden; background: #f7f5f1; }
+  .cell img { display: block; width: 480px; height: 360px; object-fit: cover; }
 </style></head><body><div class="grid">${cells}</div></body></html>`;
 
 const browser = await chromium.launch();
 try {
-  const page = await browser.newPage({ viewport: { width: 720, height: 392 }, deviceScaleFactor: 1 });
+  const page = await browser.newPage({ viewport: { width: 1920, height: 720 }, deviceScaleFactor: 1 });
   await page.setContent(html, { waitUntil: "load" });
   await page.evaluate(() => Promise.all(
     Array.from(document.images).map((image) => (image.complete ? undefined : new Promise((resolve) => {

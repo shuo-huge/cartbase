@@ -11,7 +11,7 @@ Default、Fashion、Beauty、Electronics、Jewelry、Home、Sports、Single Prod
 
 每套主题的布局、字体和商品卡片结构都不同。切换主题不会影响商品、订单和页面内容。
 
-主题预览来自一张 4×2 的 WebP 图集，点击预览可以全屏查看。
+主题预览是各主题渲染演示店铺后的真实截图，合成一张 4×2 的 WebP 图集，点击预览可以全屏查看。
 
 ## 页面编辑器
 

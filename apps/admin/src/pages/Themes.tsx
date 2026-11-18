@@ -133,7 +133,7 @@ export function ThemesPage() {
             )}
           </div>
           <p class="muted small theme-preview-caption">
-            Preview content is illustrative. Your live storefront will use your own branding, products, prices and store settings.
+            Preview uses the bundled demo catalog. Your live storefront will use your own branding, products, prices and store settings.
           </p>
         </Modal>
       )}

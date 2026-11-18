@@ -237,7 +237,7 @@ Server-side revalidation of prices, stock, coupons, shipping and tax on every ch
 ### 8 bundled themes
 Default, Fashion, Beauty, Electronics, Jewelry, Home, Sports, and Single Product. Each has a different layout, typography and card structure, not just a colour swap. All support the same Theme SDK and design tokens.
 
-Theme gallery previews come from a single 4×2 WebP atlas (`apps/storefront/public/themes/theme-previews-atlas.webp`) cropped with CSS, plus a full-size preview modal in Admin → Themes. They are illustrative artwork, not screenshots of a running store.
+Theme gallery previews are real screenshots of the bundled demo storefront, captured once per theme and composed into a 4×2 WebP atlas (`apps/storefront/public/themes/theme-previews-atlas.webp`). Admin → Themes shows the same image in a full-size preview modal. Regenerate them with `pnpm screenshots && pnpm theme:atlas`.
 
 ### Visual page editor
 Three-column editor with SortableJS drag ordering, add/remove/duplicate/hide sections, per-section content and style fields, live preview at desktop/tablet/mobile widths, autosaved drafts, undo/redo, publish, immutable version snapshots, and restore-into-draft from any published version. Page JSON is schema-validated and custom HTML is sanitised.
@@ -312,7 +312,7 @@ Not yet verified or missing:
 - No public plugin marketplace, publisher signatures, ratings, billing, or automatic plugin updates.
 - Remote themes, remote storefront code, and remote shipping/product logic are not supported.
 - No tax-exempt customer certificates or per-product tax classes.
-- Theme previews are illustrative raster tiles in a WebP atlas, not screenshots of a running store.
+- Theme previews are captured from the bundled demo storefront. They use demo content, not a merchant's catalog.
 
 See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the exact verification matrix and known gaps.
 

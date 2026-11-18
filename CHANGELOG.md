@@ -7,6 +7,12 @@
 - `pnpm demo:seed` to populate a demo store with categories, products, a published home
   page, and sample orders through the admin API. See [docs/DEMO.md](docs/DEMO.md).
 
+### Changed
+
+- Theme gallery previews are now real screenshots of the bundled demo storefront. The
+  screenshots are captured by `pnpm screenshots` and composed into the 4×2 atlas by
+  `pnpm theme:atlas`; the gallery cards use a 4:3 layout.
+
 ## 0.5.1 — 2026-11-18
 
 ### Changed

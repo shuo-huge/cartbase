@@ -11,7 +11,7 @@ Default, Fashion, Beauty, Electronics, Jewelry, Home, Sports, Single Product.
 
 Each theme has a different layout, typography and product card structure. Switching themes does not affect products, orders or page content.
 
-Theme previews come from a 4×2 WebP sprite sheet; click a preview to view it full screen.
+Theme previews are real screenshots of the demo storefront, composed into a 4×2 WebP atlas; click a preview to view it full screen.
 
 ## Page editor
 

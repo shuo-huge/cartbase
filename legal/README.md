@@ -13,6 +13,8 @@ commercial licenses alongside the MIT open-source release.
 |---|---|
 | [`CLA.md`](CLA.md) | Contributor License Agreement. Every contributor must accept it before a pull request can be merged. It lets the project distribute contributions under MIT and under commercial terms. |
 | [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) | Commercial license template and order form for customers who buy commercial components, commercial support, warranties, or indemnification. |
+| [`zh-CN/CLA.md`](zh-CN/CLA.md) | Simplified Chinese reference translation of the CLA. The English text controls. |
+| [`zh-CN/COMMERCIAL-LICENSE.md`](zh-CN/COMMERCIAL-LICENSE.md) | Simplified Chinese reference translation of the commercial license. The English text controls. |
 
 ## What MIT means for the business model
 

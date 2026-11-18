@@ -1,13 +1,13 @@
 ---
 title: CLI 部署
-description: 使用本地命令行完整部署 CloudCart，部署完成后自动打开安装页。
+description: 使用本地命令行完整部署 CartBase，部署完成后自动打开安装页。
 ---
 
 如果你希望部署完成后**自动打开**商城/安装页面，推荐使用 CLI 部署。
 
 ```bash
-git clone https://github.com/shuo-huge/cloudcart.git
-cd cloudcart
+git clone https://github.com/shuo-huge/cartbase.git
+cd cartbase
 pnpm install
 pnpm run deploy:cloudflare
 ```
@@ -33,7 +33,7 @@ pnpm run deploy:cloudflare -- --check           # 只检查环境，不修改资
 pnpm run deploy:cloudflare -- --no-open         # 不自动打开浏览器
 ```
 
-也可以设置环境变量 `CLOUDCART_NO_OPEN=1` 关闭自动打开。
+也可以设置环境变量 `CARTBASE_NO_OPEN=1` 关闭自动打开。
 
 ## 重复部署
 

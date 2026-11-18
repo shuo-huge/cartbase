@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { MediaRow } from "@cloudcart/database";
-import { HttpError, newId, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { MediaRow } from "@cartbase/database";
+import { HttpError, newId, nowIso } from "@cartbase/shared";
 
 export const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 

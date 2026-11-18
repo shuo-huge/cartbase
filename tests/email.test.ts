@@ -1,9 +1,9 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
-import { dispatchEmailOutbox, enqueueOrderEventEmails } from "@cloudcart/core";
-import type { EmailTransport, OutgoingEmail } from "@cloudcart/plugin-sdk";
-import { createEmailTransport, normalizeEmailConfig } from "@cloudcart/plugin-email-notifications";
+import { Database } from "@cartbase/database";
+import { dispatchEmailOutbox, enqueueOrderEventEmails } from "@cartbase/core";
+import type { EmailTransport, OutgoingEmail } from "@cartbase/plugin-sdk";
+import { createEmailTransport, normalizeEmailConfig } from "@cartbase/plugin-email-notifications";
 import { addToCart, checkoutForm, createClient, createProduct } from "./support";
 
 function database(): Database {

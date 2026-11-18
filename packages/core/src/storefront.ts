@@ -1,12 +1,12 @@
-import type { Database } from "@cloudcart/database";
-import { sanitizeHtml } from "@cloudcart/security";
+import type { Database } from "@cartbase/database";
+import { sanitizeHtml } from "@cartbase/security";
 import {
   COUNTRIES,
   escapeHtml,
   formatMoney,
   stripTags,
   type PageDocument,
-} from "@cloudcart/shared";
+} from "@cartbase/shared";
 import type {
   CartData,
   CheckoutData,
@@ -19,7 +19,7 @@ import type {
   StorefrontProduct,
   ThemeDefinition,
   ThemeRenderContext,
-} from "@cloudcart/theme-sdk";
+} from "@cartbase/theme-sdk";
 import { getOrCreateCart, loadCart } from "./cart";
 import { getCategoryBySlug, listCategories } from "./categories";
 import { getPage, getPublishedDocument } from "./pages";
@@ -28,7 +28,7 @@ import { getPublicProductBySlug, listPublicProducts, toPublicVariants, type Publ
 import { breadcrumbJsonLd, productJsonLd, websiteJsonLd } from "./seo";
 import { getShippingOptions } from "./shipping";
 import type { StoreConfig } from "./settings";
-import type { CartRow } from "@cloudcart/database";
+import type { CartRow } from "@cartbase/database";
 
 export interface StorefrontDeps {
   db: Database;

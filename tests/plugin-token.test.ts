@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createPluginJwt, verifyPluginJwt } from "@cloudcart/security";
+import { createPluginJwt, verifyPluginJwt } from "@cartbase/security";
 
 const MASTER = "test-master-key-0123456789abcdef";
 const INPUT = {
@@ -13,6 +13,7 @@ describe("plugin JWTs", () => {
   it("signs and verifies a short-lived plugin token", async () => {
     const { token, claims } = await createPluginJwt(MASTER, INPUT);
     expect(claims.permissions).toEqual(["orders:read", "products:read"]);
+    expect(claims.iss).toBe("cartbase");
     expect(claims.exp - claims.iat).toBe(300);
     const result = await verifyPluginJwt(MASTER, token, { pluginId: "example-analytics" });
     expect(result.valid).toBe(true);

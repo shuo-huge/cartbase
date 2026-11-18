@@ -4,7 +4,7 @@ import {
   parseRemotePluginManifest,
   remoteAdminOrigin,
   validateRemoteUrl,
-} from "@cloudcart/plugin-sdk";
+} from "@cartbase/plugin-sdk";
 
 function manifest(overrides: Record<string, unknown> = {}): Record<string, unknown> {
   return {
@@ -18,7 +18,7 @@ function manifest(overrides: Record<string, unknown> = {}): Record<string, unkno
     author: "Example Developer",
     capabilities: ["analytics.read"],
     permissions: ["orders:read", "products:read"],
-    service: { baseUrl: "https://plugin.example.com/api/cloudcart/v1", auth: "hmac-sha256" },
+    service: { baseUrl: "https://plugin.example.com/api/cartbase/v1", auth: "hmac-sha256" },
     admin: {
       entryUrl: "https://plugin.example.com/admin",
       pages: [{ id: "overview", label: "Overview", icon: "chart" }],
@@ -31,7 +31,7 @@ describe("remote plugin manifest", () => {
   it("parses a valid manifest and normalizes URLs", () => {
     const parsed = parseRemotePluginManifest(manifest());
     expect(parsed.runtime).toBe("remote");
-    expect(parsed.service.baseUrl).toBe("https://plugin.example.com/api/cloudcart/v1");
+    expect(parsed.service.baseUrl).toBe("https://plugin.example.com/api/cartbase/v1");
     expect(remoteAdminOrigin(parsed)).toBe("https://plugin.example.com");
     expect(parsed.permissions).toEqual(["orders:read", "products:read"]);
   });

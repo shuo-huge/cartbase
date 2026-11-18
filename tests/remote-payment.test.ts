@@ -1,8 +1,8 @@
 import { env } from "cloudflare:test";
 import { beforeAll, describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
-import { installRemotePlugin } from "@cloudcart/core";
-import { parseRemotePluginManifest } from "@cloudcart/plugin-sdk";
+import { Database } from "@cartbase/database";
+import { installRemotePlugin } from "@cartbase/core";
+import { parseRemotePluginManifest } from "@cartbase/plugin-sdk";
 import { addToCart, checkoutForm, createClient, createProduct, type TestClient } from "./support";
 import { resolvePaymentPlugin } from "../apps/worker/src/payment-plugin-resolver";
 
@@ -47,7 +47,7 @@ beforeAll(async () => {
   await client.ensureSession();
   await installRemotePlugin(database(), {
     manifest,
-    manifestUrl: "https://pay.example.com/cloudcart-plugin.json",
+    manifestUrl: "https://pay.example.com/cartbase-plugin.json",
     manifestHash: "hash-pay",
     serviceSecret: "test-remote-pay-secret-123456",
     masterKey: MASTER,

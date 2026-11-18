@@ -1,5 +1,5 @@
-import { escapeAttr, escapeHtml, formatMoney, type PageSection } from "@cloudcart/shared";
-import { sanitizeHtml } from "@cloudcart/security";
+import { escapeAttr, escapeHtml, formatMoney, type PageSection } from "@cartbase/shared";
+import { sanitizeHtml } from "@cartbase/security";
 import { frameSection } from "./html";
 import type { ThemeManifest } from "./manifest";
 import type {
@@ -289,7 +289,7 @@ p { margin: 0 0 1em; }
 .tk-footer--statement .tk-footer-brand { font-family: var(--tk-heading-font); font-size: clamp(2rem, 6vw, 4rem); }
 .tk-footer-bottom { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-top: 1px solid var(--tk-border); margin-top: 36px; padding-top: 18px; font-size: .74rem; color: var(--tk-muted); }
 .tk-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-/* CloudCart storefront quality layer: accessible controls, responsive navigation and
+/* CartBase storefront quality layer: accessible controls, responsive navigation and
    conversion-focused mobile layouts shared by every theme built with createTheme. */
 :focus-visible { outline: 2px solid var(--tk-accent); outline-offset: 3px; }
 button, input, select, textarea { font: inherit; }
@@ -537,7 +537,7 @@ export function createTheme(config: ThemeKitConfig): ThemeDefinition {
     const serviceColumn = "<div><h3>Customer Service</h3>" + service + "</div>";
     const policyColumn = policies ? "<div><h3>Policies</h3>" + policies + "</div>" : "";
     const bottom = "<div class=\"tk-footer-bottom\"><span>© " + new Date().getUTCFullYear() + " " +
-      escapeHtml(ctx.branding.name) + "</span><span>Powered by CloudCart</span></div>";
+      escapeHtml(ctx.branding.name) + "</span><span>Powered by CartBase</span></div>";
     if (style === "minimal") {
       const allLinks = pages.map((item) => "<a href=\"" + escapeAttr(item.href) + "\">" + escapeHtml(item.label) + "</a>").join("");
       return "<footer class=\"tk-footer tk-footer--minimal\"><div class=\"tk-container\">" +

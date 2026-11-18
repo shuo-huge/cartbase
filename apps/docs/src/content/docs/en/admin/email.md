@@ -3,7 +3,7 @@ title: Email notifications
 description: Configure Resend or Cloudflare Email Workers to send order emails.
 ---
 
-CloudCart includes a built-in **Email Notifications** plugin, disabled by default.
+CartBase includes a built-in **Email Notifications** plugin, disabled by default.
 
 ## Supported events
 
@@ -45,7 +45,7 @@ Then select `Cloudflare Email Workers` in the Email settings.
 
 ## Test delivery
 
-After saving and enabling the plugin, enter a recipient under **Emails → Test delivery** and click **Send test email**. CloudCart sends a real message through the configured Resend or Cloudflare transport.
+After saving and enabling the plugin, enter a recipient under **Emails → Test delivery** and click **Send test email**. CartBase sends a real message through the configured Resend or Cloudflare transport.
 
 ## Outbox
 

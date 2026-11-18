@@ -16,7 +16,7 @@ export function getCookie(name: string): string {
 }
 
 function authExpired(): void {
-  window.dispatchEvent(new CustomEvent("cloudcart:auth-expired"));
+  window.dispatchEvent(new CustomEvent("cartbase:auth-expired"));
 }
 
 async function parseResponse<T>(response: Response): Promise<T> {
@@ -46,7 +46,7 @@ export async function adminGet<T>(path: string): Promise<T> {
 export async function adminSend<T>(path: string, method: string, body?: unknown): Promise<T> {
   const headers: Record<string, string> = {
     Accept: "application/json",
-    "X-CSRF-Token": getCookie("cc_csrf"),
+    "X-CSRF-Token": getCookie("cb_csrf"),
   };
   if (body !== undefined) headers["Content-Type"] = "application/json";
   const response = await fetch(`/api/admin${path}`, {
@@ -61,7 +61,7 @@ export async function adminSend<T>(path: string, method: string, body?: unknown)
 export async function adminUpload<T>(path: string, form: FormData): Promise<T> {
   const response = await fetch(`/api/admin${path}`, {
     method: "POST",
-    headers: { Accept: "application/json", "X-CSRF-Token": getCookie("cc_csrf") },
+    headers: { Accept: "application/json", "X-CSRF-Token": getCookie("cb_csrf") },
     credentials: "same-origin",
     body: form,
   });

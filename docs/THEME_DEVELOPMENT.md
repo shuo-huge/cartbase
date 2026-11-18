@@ -40,11 +40,11 @@ theme CSS and the hashed script/stylesheet.
 
 ## 3. Use the Theme Kit (recommended)
 
-`createTheme` in `@cloudcart/theme-sdk` provides a complete accessible storefront with structural
+`createTheme` in `@cartbase/theme-sdk` provides a complete accessible storefront with structural
 variants:
 
 ```ts
-import { createTheme, type ThemeManifest } from "@cloudcart/theme-sdk";
+import { createTheme, type ThemeManifest } from "@cartbase/theme-sdk";
 
 export const theme = createTheme({
   manifest,

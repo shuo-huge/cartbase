@@ -9,7 +9,7 @@ Cloudflare changes limits from time to time; re-check before assuming these valu
 
 ## 1. Limits this project targets
 
-| Resource | Free limit used by CloudCart |
+| Resource | Free limit used by CartBase |
 |---|---|
 | Workers requests | 100,000 / day |
 | Worker CPU time | 10 ms per HTTP request |
@@ -57,14 +57,14 @@ All of these are **shared across the whole Cloudflare account**, not per store.
 
 ## 3. Local estimates vs official metrics
 
-`resource_usage` and the admin **Usage** panel are CloudCart’s own estimates:
+`resource_usage` and the admin **Usage** panel are CartBase’s own estimates:
 - API requests handled by the Worker;
-- R2 Class A operations performed by CloudCart (uploads);
+- R2 Class A operations performed by CartBase (uploads);
 - media storage from `media.size_bytes`.
 
 Cloudflare does **not** expose exact per-request quota counters to the application. The application
 therefore cannot guarantee remaining account-wide quota. The admin labels local numbers as
-estimates, and the Cloudflare dashboard is the source of truth. CloudCart never auto-upgrades the
+estimates, and the Cloudflare dashboard is the source of truth. CartBase never auto-upgrades the
 plan.
 
 ## 4. Capacity guidance per store
@@ -86,4 +86,4 @@ These are estimates, not guarantees.
   inside the Worker).
 - Per-IP rate limiting for public endpoints.
 - Automatic cleanup of unreferenced media.
-- Paid overage prevention beyond Cloudflare’s own enforcement. CloudCart never purchases capacity.
+- Paid overage prevention beyond Cloudflare’s own enforcement. CartBase never purchases capacity.

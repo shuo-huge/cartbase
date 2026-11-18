@@ -15,10 +15,10 @@ import {
   Storefront,
   type OrderDetail,
   type StorefrontPage,
-} from "@cloudcart/core";
-import { renderDocument } from "@cloudcart/core";
-import { loadManualSettings, renderManualInstructions } from "@cloudcart/plugin-manual-payment";
-import { escapeHtml, formatDate, formatMoney, HttpError, newId, nowIso } from "@cloudcart/shared";
+} from "@cartbase/core";
+import { renderDocument } from "@cartbase/core";
+import { loadManualSettings, renderManualInstructions } from "@cartbase/plugin-manual-payment";
+import { escapeHtml, formatDate, formatMoney, HttpError, newId, nowIso } from "@cartbase/shared";
 import { Hono } from "hono";
 import type { Context } from "hono";
 import type { AppContext } from "../env";

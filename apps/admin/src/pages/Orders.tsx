@@ -1,4 +1,4 @@
-import { formatDate } from "@cloudcart/shared";
+import { formatDate } from "@cartbase/shared";
 import { useEffect, useState } from "preact/hooks";
 import { adminGet, adminSend } from "../api";
 import {
@@ -409,7 +409,7 @@ export function OrderDetailPage({ id }: { id: string }) {
           <p class="muted">
             {onlineRefund
               ? <>This sends a refund through <strong>{providerName}</strong>. The payment provider moves the money back to the customer.</>
-              : "This records an offline refund in CloudCart. It does not move money at a payment provider."}
+              : "This records an offline refund in CartBase. It does not move money at a payment provider."}
           </p>
           <Field label={`Amount (${order.currency})`}>
             <input inputMode="decimal" value={refundAmount} onInput={(event) => setRefundAmount((event.target as HTMLInputElement).value)} />

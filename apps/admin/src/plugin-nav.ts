@@ -2,7 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { adminGet } from "./api";
 import type { PluginRow } from "./types";
 
-export const PLUGINS_CHANGED_EVENT = "cloudcart:plugins-changed";
+export const PLUGINS_CHANGED_EVENT = "cartbase:plugins-changed";
 
 export interface PluginNavItem {
   pluginId: string;

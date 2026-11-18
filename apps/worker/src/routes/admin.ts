@@ -98,16 +98,16 @@ import {
   updatePageTitle,
   deleteContentPage,
   writeAuditLog,
-} from "@cloudcart/core";
+} from "@cartbase/core";
 import {
   EMAIL_PLUGIN_ID,
   createEmailTransport,
   emailFromAddress,
   normalizeEmailConfig,
   validateEmailConfig,
-} from "@cloudcart/plugin-email-notifications";
-import { FREE_TIER_LIMITS, ResourceGuard } from "@cloudcart/database";
-import { HttpError, newId, normalizeOrderStatus, nowIso, parseMoneyInput } from "@cloudcart/shared";
+} from "@cartbase/plugin-email-notifications";
+import { FREE_TIER_LIMITS, ResourceGuard } from "@cartbase/database";
+import { HttpError, newId, normalizeOrderStatus, nowIso, parseMoneyInput } from "@cartbase/shared";
 import { Hono, type Context } from "hono";
 import { z } from "zod";
 import type { AppContext } from "../env";
@@ -513,7 +513,7 @@ adminRoutes.post("/media", async (c) => {
         throw new HttpError(
           507,
           "storage_guard",
-          "The local image-storage safety threshold is reached. Delete unused media or raise the threshold deliberately; CloudCart never upgrades your plan automatically.",
+          "The local image-storage safety threshold is reached. Delete unused media or raise the threshold deliberately; CartBase never upgrades your plan automatically.",
         );
       }
       media = await storeR2Media(db(c), bucket, image, c.get("adminId"), alt);
@@ -1385,9 +1385,9 @@ adminRoutes.post("/plugins/email-notifications/test", async (c) => {
     const result = await transport.send({
       from: emailFromAddress(config),
       to: body.to,
-      subject: "CloudCart test email",
-      html: "<p>CloudCart email delivery is working.</p>",
-      text: "CloudCart email delivery is working.",
+      subject: "CartBase test email",
+      html: "<p>CartBase email delivery is working.</p>",
+      text: "CartBase email delivery is working.",
     });
     if (!result.ok) {
       throw new HttpError(502, "email_test_failed", result.error ?? "The email provider rejected the test.");
@@ -1583,7 +1583,7 @@ adminRoutes.get("/usage", async (c) => {
         },
         storage,
         freeTierLimits: FREE_TIER_LIMITS,
-        notice: "These counters are CloudCart local estimates. Cloudflare dashboard metrics are authoritative.",
+        notice: "These counters are CartBase local estimates. Cloudflare dashboard metrics are authoritative.",
       },
     });
   } catch (error) {

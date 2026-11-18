@@ -238,7 +238,7 @@ export async function couponsCreate(ctx) {
 export async function couponsUpdate(ctx) {
   const id = requirePositional(ctx.args, 0, "coupon id");
   if (ctx.flags.data === undefined) {
-    throw usageError("Coupon updates replace the full resource. Pass --data with the complete coupon JSON (see `cloudcart coupons get`).");
+    throw usageError("Coupon updates replace the full resource. Pass --data with the complete coupon JSON (see `cartbase coupons get`).");
   }
   const payload = await readJsonInput(ctx.flags.data, "coupon JSON");
   const client = ctx.requireClient();

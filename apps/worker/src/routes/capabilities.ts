@@ -1,7 +1,7 @@
-import { getMediaStorageStatus } from "@cloudcart/core";
+import { getMediaStorageStatus } from "@cartbase/core";
 import { Hono } from "hono";
 import type { AppContext } from "../env";
-import { CLOUDCART_VERSION } from "../env";
+import { CARTBASE_VERSION } from "../env";
 import { db } from "../lib";
 
 export const capabilityRoutes = new Hono<AppContext>();
@@ -22,7 +22,7 @@ capabilityRoutes.get("/capabilities", async (c) => {
   return c.json({
     ok: true,
     data: {
-      version: CLOUDCART_VERSION,
+      version: CARTBASE_VERSION,
       authMethod: c.get("authMethod"),
       scopes: c.get("apiKeyScopes") ?? [],
       uploads: mediaStorage.providers.r2.available || mediaStorage.providers.jsdelivr.available,

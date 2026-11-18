@@ -1,6 +1,6 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import { addToCart, checkoutForm, createClient, createProduct } from "./support";
 
 function database(): Database {

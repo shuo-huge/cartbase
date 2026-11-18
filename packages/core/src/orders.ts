@@ -1,12 +1,12 @@
-import type { Database } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
 import type {
   CartRow,
   OrderAddressRow,
   OrderItemRow,
   OrderRow,
   PaymentTransactionRow,
-} from "@cloudcart/database";
-import { constantTimeEqual, hmacSha256Base64Url, utf8 } from "@cloudcart/security";
+} from "@cartbase/database";
+import { constantTimeEqual, hmacSha256Base64Url, utf8 } from "@cartbase/security";
 import {
   HttpError,
   fromBase64Url,
@@ -16,7 +16,7 @@ import {
   ORDER_STATUSES,
   toBase64Url,
   type OrderStatus,
-} from "@cloudcart/shared";
+} from "@cartbase/shared";
 import { z } from "zod";
 import { loadCart } from "./cart";
 import { applyRefund } from "./refunds";
@@ -78,6 +78,8 @@ export function isOrderPayable(
 
 export async function createOrderAccessToken(masterKey: string, orderId: string): Promise<string> {
   const encoded = toBase64Url(utf8(orderId));
+  // Legacy signature domain: changing it invalidates order links already sent
+  // to customers by email.
   const signature = await hmacSha256Base64Url(masterKey, orderId, "cloudcart:order-access:v1");
   return `${encoded}.${signature}`;
 }

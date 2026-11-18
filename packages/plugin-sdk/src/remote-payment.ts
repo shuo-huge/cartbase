@@ -6,7 +6,7 @@ import type {
 } from "./payment";
 
 /**
- * HTTP contract between CloudCart and a remote payment plugin. All requests are
+ * HTTP contract between CartBase and a remote payment plugin. All requests are
  * signed with the plugin's `_serviceSecret`; responses are JSON.
  */
 export interface RemotePaymentValidateRequest {

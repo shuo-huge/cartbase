@@ -1,6 +1,6 @@
 ---
 title: 架构概览
-description: CloudCart 的运行时拓扑、代码结构和请求流程。
+description: CartBase 的运行时拓扑、代码结构和请求流程。
 ---
 
 ## 拓扑
@@ -77,7 +77,7 @@ description: CloudCart 的运行时拓扑、代码结构和请求流程。
   → iframe 调用 /api/plugin/v1/*
 ```
 
-CloudCart → 插件服务使用 HMAC 签名；插件 → CloudCart 使用 Bearer JWT。
+CartBase → 插件服务使用 HMAC 签名；插件 → CartBase 使用 Bearer JWT。
 
 ## 数据模型
 

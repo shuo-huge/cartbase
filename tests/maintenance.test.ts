@@ -1,7 +1,7 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
-import { expireStaleOrders } from "@cloudcart/core";
+import { Database } from "@cartbase/database";
+import { expireStaleOrders } from "@cartbase/core";
 import { runScheduledTasks } from "../apps/worker/src/scheduled";
 import { addToCart, checkoutForm, createClient, createProduct } from "./support";
 

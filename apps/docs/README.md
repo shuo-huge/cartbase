@@ -1,11 +1,11 @@
-# CloudCart 文档站
+# CartBase 文档站
 
 使用 [Astro Starlight](https://starlight.astro.build/) 构建的公开文档站，独立于商城 Worker 部署。
 
 ## 本地开发
 
 ```bash
-pnpm --filter @cloudcart/docs dev
+pnpm --filter @cartbase/docs dev
 ```
 
 默认地址：`http://localhost:4321`
@@ -13,7 +13,7 @@ pnpm --filter @cloudcart/docs dev
 ## 构建
 
 ```bash
-pnpm --filter @cloudcart/docs build
+pnpm --filter @cartbase/docs build
 ```
 
 产物：`apps/docs/dist`
@@ -51,17 +51,17 @@ pnpm --filter @cloudcart/docs build
 
 ### 方式一：Cloudflare Pages
 
-- Build command：`pnpm --filter @cloudcart/docs build`
+- Build command：`pnpm --filter @cartbase/docs build`
 - Output directory：`apps/docs/dist`
 - 根目录：仓库根目录
 
 ### 方式二：Workers Static Assets
 
 ```bash
-DOCS_SITE_URL=https://cloudcart-docs.cloudcart-shuo-preview.workers.dev pnpm run docs:deploy
+DOCS_SITE_URL=https://cartbase-docs.cloudcart-shuo-preview.workers.dev pnpm run docs:deploy
 ```
 
-该命令会构建文档并使用 `wrangler.docs.jsonc` 部署独立的 `cloudcart-docs` Worker。设置 `DOCS_SITE_URL` 后，中英文页面的 canonical URL 和 sitemap 都会使用正式域名。
+该命令会构建文档并使用 `wrangler.docs.jsonc` 部署独立的 `cartbase-docs` Worker。设置 `DOCS_SITE_URL` 后，中英文页面的 canonical URL 和 sitemap 都会使用正式域名。
 
 自定义域名在 Cloudflare Dashboard 的 Worker/Pages 设置中添加。
 

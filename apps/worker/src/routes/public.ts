@@ -6,9 +6,9 @@ import {
   removeCartItem,
   subscribeToNewsletter,
   updateCartItem,
-} from "@cloudcart/core";
-import { HttpError, nowIso } from "@cloudcart/shared";
-import { getAdminI18nState } from "@cloudcart/plugin-admin-i18n";
+} from "@cartbase/core";
+import { HttpError, nowIso } from "@cartbase/shared";
+import { getAdminI18nState } from "@cartbase/plugin-admin-i18n";
 import { Hono, type Context } from "hono";
 import { z } from "zod";
 import type { AppContext } from "../env";

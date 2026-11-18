@@ -1,4 +1,4 @@
-import { formatDate } from "@cloudcart/shared";
+import { formatDate } from "@cartbase/shared";
 import { useState } from "preact/hooks";
 import { adminGet, adminSend } from "../api";
 import { DataTable, ErrorBox, Loading, useAsync, toast } from "../components";

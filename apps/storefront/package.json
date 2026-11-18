@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/storefront",
+  "name": "@cartbase/storefront",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "dev": "vite"
   },
   "dependencies": {
-    "@cloudcart/shared": "workspace:*",
+    "@cartbase/shared": "workspace:*",
     "preact": "11.1.1"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import type { PluginManifest } from "@cloudcart/plugin-sdk";
+import type { Database } from "@cartbase/database";
+import type { PluginManifest } from "@cartbase/plugin-sdk";
 import { ADMIN_LOCALES, ZH_CN_MESSAGES, type AdminLocale } from "./translations";
 
 export { ADMIN_LOCALES, ZH_CN_MESSAGES };
@@ -11,7 +11,7 @@ export const manifest: PluginManifest = {
   version: "1.0.0",
   apiVersion: "1",
   type: "admin",
-  description: "Translate the CloudCart admin interface into English or Simplified Chinese. Ships with the Worker; enabling it never downloads code.",
+  description: "Translate the CartBase admin interface into English or Simplified Chinese. Ships with the Worker; enabling it never downloads code.",
   capabilities: ["admin.i18n"],
   permissions: ["admin:ui"],
   dependencies: [],

@@ -1,4 +1,4 @@
-import type { OrderStatus, PaymentStatus, ProductStatus, ProductType, PluginType } from "@cloudcart/shared";
+import type { OrderStatus, PaymentStatus, ProductStatus, ProductType, PluginType } from "@cartbase/shared";
 
 export interface AdminRow {
   id: string;

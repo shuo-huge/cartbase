@@ -1,7 +1,7 @@
-import type { Database } from "@cloudcart/database";
-import type { EmailOutboxRow, OrderAddressRow, OrderItemRow, OrderRow } from "@cloudcart/database";
-import type { EmailTransport, OutgoingEmail } from "@cloudcart/plugin-sdk";
-import { escapeHtml, formatMoney, newId, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { EmailOutboxRow, OrderAddressRow, OrderItemRow, OrderRow } from "@cartbase/database";
+import type { EmailTransport, OutgoingEmail } from "@cartbase/plugin-sdk";
+import { escapeHtml, formatMoney, newId, nowIso } from "@cartbase/shared";
 import { createOrderAccessToken, getOrderDetail } from "./orders";
 import { orderStatusLabel } from "./storefront";
 import { getSetting, SETTING_KEYS } from "./settings";
@@ -199,7 +199,7 @@ export async function enqueueOrderEventEmails(
   const { order, items, addresses } = detail;
   const token = await createOrderAccessToken(options.masterKey, order.id);
   const privateUrl = `${options.origin.replace(/\/$/, "")}/orders/${token}`;
-  const storeName = (await getSetting(db, SETTING_KEYS.storeName, "CloudCart")) || "CloudCart";
+  const storeName = (await getSetting(db, SETTING_KEYS.storeName, "CartBase")) || "CartBase";
   const storeEmail = (await getSetting(db, SETTING_KEYS.storeEmail, "")).trim();
   const notifyAdminRow = await db.first<{ value: string }>(
     "SELECT value FROM plugin_settings WHERE plugin_id = ? AND key = 'notifyAdmin'",

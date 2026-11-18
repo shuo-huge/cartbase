@@ -1,8 +1,8 @@
-import type { Database } from "@cloudcart/database";
-import type { PluginRow } from "@cloudcart/database";
-import { getOrCreateStoreId, getRemoteServiceSecret, updateRemotePluginHealth } from "@cloudcart/core";
-import { hmacSha256RawBase64Url, sha256Hex } from "@cloudcart/security";
-import { newOpaqueToken } from "@cloudcart/security";
+import type { Database } from "@cartbase/database";
+import type { PluginRow } from "@cartbase/database";
+import { getOrCreateStoreId, getRemoteServiceSecret, updateRemotePluginHealth } from "@cartbase/core";
+import { hmacSha256RawBase64Url, sha256Hex } from "@cartbase/security";
+import { newOpaqueToken } from "@cartbase/security";
 
 const MAX_RESPONSE_BYTES = 1024 * 1024;
 const DEFAULT_TIMEOUT_MS = 8000;
@@ -48,7 +48,7 @@ function headerRecord(headers: Headers): Record<string, string> {
 export { headerRecord };
 
 /**
- * Signs and sends one request from CloudCart to a remote plugin service.
+ * Signs and sends one request from CartBase to a remote plugin service.
  * Canonical string: timestamp \n nonce \n METHOD \n path+query \n bodyHash.
  */
 export async function remotePluginRequest<T = unknown>(
@@ -77,11 +77,11 @@ export async function remotePluginRequest<T = unknown>(
 
   const headers: Record<string, string> = {
     Accept: "application/json",
-    "X-CloudCart-Plugin": plugin.id,
-    "X-CloudCart-Store-Id": storeId,
-    "X-CloudCart-Timestamp": timestamp,
-    "X-CloudCart-Nonce": nonce,
-    "X-CloudCart-Signature": signature,
+    "X-CartBase-Plugin": plugin.id,
+    "X-CartBase-Store-Id": storeId,
+    "X-CartBase-Timestamp": timestamp,
+    "X-CartBase-Nonce": nonce,
+    "X-CartBase-Signature": signature,
   };
   if (body) headers["Content-Type"] = "application/json";
 

@@ -12,7 +12,7 @@ test("uploads local images through the configured jsDelivr provider", async ({ p
     body: PNG,
   }));
 
-  const csrf = (await context.cookies()).find((cookie) => cookie.name === "cc_csrf")?.value ?? "";
+  const csrf = (await context.cookies()).find((cookie) => cookie.name === "cb_csrf")?.value ?? "";
   const created = await request.post("/api/admin/products", {
     headers: { "X-CSRF-Token": csrf },
     data: {

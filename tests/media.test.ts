@@ -1,7 +1,7 @@
 import { env, SELF } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
-import { prepareImageUpload, storeR2Media } from "@cloudcart/core";
+import { Database } from "@cartbase/database";
+import { prepareImageUpload, storeR2Media } from "@cartbase/core";
 import { createClient } from "./support";
 
 const testEnv = env as unknown as { DB: D1Database; APP_MASTER_KEY: string };

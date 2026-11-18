@@ -1,4 +1,4 @@
-import { escapeAttr, escapeHtml } from "@cloudcart/shared";
+import { escapeAttr, escapeHtml } from "@cartbase/shared";
 
 const RICH_TEXT_TAGS = new Set([
   "p", "br", "strong", "b", "em", "i", "u", "s", "ul", "ol", "li",

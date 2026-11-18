@@ -3,8 +3,8 @@ import {
   escapeHtml,
   formatMoney,
   type PageSection,
-} from "@cloudcart/shared";
-import { sanitizeHtml } from "@cloudcart/security";
+} from "@cartbase/shared";
+import { sanitizeHtml } from "@cartbase/security";
 import {
   frameSection,
   paginationLinks,
@@ -21,7 +21,7 @@ import {
   type StorefrontProduct,
   type ThemeDefinition,
   type ThemeRenderContext,
-} from "@cloudcart/theme-sdk";
+} from "@cartbase/theme-sdk";
 
 export const manifest = {
   id: "default",
@@ -416,7 +416,7 @@ function footer(ctx: ThemeRenderContext): string {
     (policies ? "<div><h3>Policies</h3>" + policies + "</div>" : "");
   return "<footer class=\"cc-footer\"><div class=\"cc-container\"><div class=\"cc-footer-grid\">" + body + "</div>" +
     "<div class=\"cc-footer-bottom\"><span>© " + new Date().getUTCFullYear() + " " + escapeHtml(ctx.branding.name) +
-    ". All rights reserved.</span><span>Powered by CloudCart</span></div></div></footer>";
+    ". All rights reserved.</span><span>Powered by CartBase</span></div></div></footer>";
 }
 
 function layout(ctx: ThemeRenderContext, body: string, options: { announcement?: string } = {}): string {

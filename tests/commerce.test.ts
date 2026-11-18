@@ -1,6 +1,6 @@
 import { env, SELF } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 
 const BASE = "https://example.com";
 const OWNER = {
@@ -47,7 +47,7 @@ async function json(path: string, method: string, body: unknown, extraHeaders: R
 }
 
 function csrfHeaders(): Record<string, string> {
-  return { "X-CSRF-Token": jar.get("cc_csrf") ?? "" };
+  return { "X-CSRF-Token": jar.get("cb_csrf") ?? "" };
 }
 
 async function ensureSession(): Promise<void> {
@@ -88,7 +88,7 @@ async function createProduct(overrides: Record<string, unknown> = {}): Promise<s
   return body.data.id;
 }
 
-describe("CloudCart Milestone 1", () => {
+describe("CartBase Milestone 1", () => {
   it("initialises the store and authenticates the owner", async () => {
     await ensureSession();
     const me = await request("/api/admin/me");

@@ -1,6 +1,6 @@
-# CloudCart storefront upgrade (v0.2)
+# CartBase storefront upgrade (v0.2)
 
-This upgrade is merged into `main` through PR #1 and applies to existing single-store CloudCart deployments.
+This upgrade is merged into `main` through PR #1 and applies to existing single-store CartBase deployments.
 
 ## Included
 

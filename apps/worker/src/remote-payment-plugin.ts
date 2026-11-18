@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import type { PluginRow } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
+import type { PluginRow } from "@cartbase/database";
 import type {
   CaptureInput,
   CaptureResult,
@@ -12,9 +12,9 @@ import type {
   RefundInput,
   RefundResult,
   ValidationResult,
-} from "@cloudcart/plugin-sdk";
-import { validateRemoteUrl, type RemotePluginManifest } from "@cloudcart/plugin-sdk";
-import { HttpError } from "@cloudcart/shared";
+} from "@cartbase/plugin-sdk";
+import { validateRemoteUrl, type RemotePluginManifest } from "@cartbase/plugin-sdk";
+import { HttpError } from "@cartbase/shared";
 import { remotePluginRequest, RemotePluginError } from "./remote-plugin-client";
 import { headerRecord } from "./remote-plugin-client";
 

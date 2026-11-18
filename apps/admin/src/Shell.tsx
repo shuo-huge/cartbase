@@ -55,7 +55,7 @@ export function Shell({
       <aside class={`sidebar${open ? " sidebar--open" : ""}`}>
         <div class="sidebar-brand">
           <BrandMark />
-          <span>CloudCart</span>
+          <span>CartBase</span>
         </div>
         <nav class="sidebar-nav">
           {NAV.map((item) => {
@@ -109,7 +109,7 @@ export function Shell({
           >
             <Icon name={open ? "close" : "menu"} size={20} />
           </button>
-          <div class="topbar-title">CloudCart Admin</div>
+          <div class="topbar-title">CartBase Admin</div>
           <div class="topbar-user">
             {i18nEnabled && showSwitcher && locales.length > 1 && (
               <select

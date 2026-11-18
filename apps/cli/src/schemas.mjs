@@ -1,7 +1,7 @@
 export const SCHEMAS = {
   product: {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    title: "CloudCart product input",
+    title: "CartBase product input",
     type: "object",
     required: ["name", "price", "status", "type"],
     additionalProperties: false,
@@ -26,7 +26,7 @@ export const SCHEMAS = {
   },
   page: {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    title: "CloudCart page document",
+    title: "CartBase page document",
     type: "object",
     required: ["version", "page", "sections"],
     properties: {
@@ -51,7 +51,7 @@ export const SCHEMAS = {
   },
   coupon: {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    title: "CloudCart coupon input",
+    title: "CartBase coupon input",
     type: "object",
     required: ["code", "type", "value", "minSubtotal", "appliesTo", "status", "productIds", "categoryIds"],
     properties: {
@@ -70,7 +70,7 @@ export const SCHEMAS = {
   },
   shippingZone: {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    title: "CloudCart shipping zone",
+    title: "CartBase shipping zone",
     type: "object",
     required: ["name", "countries", "isDefault"],
     properties: {
@@ -81,7 +81,7 @@ export const SCHEMAS = {
   },
   shippingRate: {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    title: "CloudCart shipping rate",
+    title: "CartBase shipping rate",
     type: "object",
     required: ["zoneId", "name", "price"],
     properties: {
@@ -97,7 +97,7 @@ export const SCHEMAS = {
   },
   taxRate: {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    title: "CloudCart tax rate",
+    title: "CartBase tax rate",
     type: "object",
     required: ["name", "country", "rateBps", "active"],
     properties: {

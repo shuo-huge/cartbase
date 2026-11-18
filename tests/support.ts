@@ -54,7 +54,7 @@ export function createClient(owner = TEST_OWNER): TestClient {
   }
 
   function csrfHeaders(): Record<string, string> {
-    return { "X-CSRF-Token": jar.get("cc_csrf") ?? "" };
+    return { "X-CSRF-Token": jar.get("cb_csrf") ?? "" };
   }
 
   async function ensureSession(): Promise<void> {

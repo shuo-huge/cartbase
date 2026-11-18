@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import type { AdminRow, AdminSessionRow } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
+import type { AdminRow, AdminSessionRow } from "@cartbase/database";
 import {
   constantTimeEqual,
   createSessionToken,
@@ -8,8 +8,8 @@ import {
   parseSessionToken,
   validatePasswordStrength,
   verifyPassword,
-} from "@cloudcart/security";
-import { isoPlusSeconds, newId, nowIso } from "@cloudcart/shared";
+} from "@cartbase/security";
+import { isoPlusSeconds, newId, nowIso } from "@cartbase/shared";
 import { writeAuditLog } from "./audit";
 import { ensureDefaultContentPages } from "./pages";
 import { SETTING_KEYS, setSettings } from "./settings";
@@ -128,11 +128,11 @@ export async function setupStore(
       [now, email],
     ),
     ...Object.entries({
-      [SETTING_KEYS.storeName]: input.storeName?.trim() || "CloudCart",
+      [SETTING_KEYS.storeName]: input.storeName?.trim() || "CartBase",
       [SETTING_KEYS.storeCurrency]: currency,
       [SETTING_KEYS.storeLocale]: "en-US",
-      [SETTING_KEYS.seoTitle]: input.storeName?.trim() || "CloudCart",
-      [SETTING_KEYS.seoDescription]: "A CloudCart store.",
+      [SETTING_KEYS.seoTitle]: input.storeName?.trim() || "CartBase",
+      [SETTING_KEYS.seoDescription]: "A CartBase store.",
       [SETTING_KEYS.taxIncluded]: "0",
       [SETTING_KEYS.taxDefaultRateBps]: "0",
       [SETTING_KEYS.taxDefaultName]: "Tax",
@@ -368,7 +368,7 @@ export async function seedStoreDefaults(db: Database): Promise<void> {
     await db.run(
       `INSERT INTO plugins (id, name, version, type, description, icon, author, enabled, built_in, last_error, installed_at, updated_at)
        VALUES ('manual', 'Manual Payment', '1.0.0', 'payment',
-         'Bank transfer, cash on delivery or custom offline payment instructions.', NULL, 'CloudCart',
+         'Bank transfer, cash on delivery or custom offline payment instructions.', NULL, 'CartBase',
          1, 1, NULL, ?, ?)`,
       [now, now],
     );
@@ -391,7 +391,7 @@ export async function seedStoreDefaults(db: Database): Promise<void> {
     await db.run(
       `INSERT INTO plugins (id, name, version, type, description, icon, author, enabled, built_in, last_error, installed_at, updated_at)
        VALUES ('admin-i18n', 'Admin Language Pack', '1.0.0', 'admin',
-         'Translate the CloudCart admin interface into English or Simplified Chinese.', NULL, 'CloudCart',
+         'Translate the CartBase admin interface into English or Simplified Chinese.', NULL, 'CartBase',
          1, 1, NULL, ?, ?)`,
       [now, now],
     );

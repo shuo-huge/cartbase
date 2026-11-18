@@ -1,4 +1,4 @@
-import type { PluginType } from "@cloudcart/shared";
+import type { PluginType } from "@cartbase/shared";
 import type { RemotePluginAdminConfig, RemotePluginServiceConfig } from "./remote";
 
 export const PLUGIN_API_VERSION = "1";
@@ -28,7 +28,7 @@ export interface PluginHealth {
   message?: string;
 }
 
-export interface CloudCartPlugin {
+export interface CartBasePlugin {
   manifest: PluginManifest;
   register(context: PluginContext): void | Promise<void>;
   onEnable?(context: PluginContext): Promise<void>;

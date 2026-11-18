@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import { nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import { nowIso } from "@cartbase/shared";
 import { writeAuditLog } from "./audit";
 import { cancelOrderAndRestock } from "./orders";
 

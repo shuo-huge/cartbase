@@ -1,5 +1,5 @@
-import type { Database } from "@cloudcart/database";
-import type { ProductImageRow, ProductRow, ProductVariantRow } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
+import type { ProductImageRow, ProductRow, ProductVariantRow } from "@cartbase/database";
 import {
   HttpError,
   newId,
@@ -9,7 +9,7 @@ import {
   slugify,
   type ProductStatus,
   type ProductType,
-} from "@cloudcart/shared";
+} from "@cartbase/shared";
 import { z } from "zod";
 
 export const variantInputSchema = z.object({

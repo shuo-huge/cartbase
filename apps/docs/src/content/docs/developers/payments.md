@@ -5,7 +5,7 @@ description: Manual、Stripe、PayPal 和远程支付插件的工作方式。
 
 ## 支付方式
 
-CloudCart 内置：
+CartBase 内置：
 
 - **Manual**：银行转账、货到付款、自定义说明
 - **Stripe Checkout**
@@ -74,7 +74,7 @@ captureOrder?
 refund?
 ```
 
-实际调用通过 HMAC 签名的 HTTPS 请求完成。CloudCart 永远保留金额校验权，远程插件不能直接修改订单状态。
+实际调用通过 HMAC 签名的 HTTPS 请求完成。CartBase 永远保留金额校验权，远程插件不能直接修改订单状态。
 
 ## 测试
 

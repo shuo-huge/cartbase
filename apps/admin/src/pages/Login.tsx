@@ -62,14 +62,14 @@ export function LoginPage({ onAuthenticated }: { onAuthenticated: (admin: Admin)
   }
 
   if (installed === null) {
-    return <div class="boot-screen">Loading CloudCart…</div>;
+    return <div class="boot-screen">Loading CartBase…</div>;
   }
 
   return (
     <div class="auth-screen">
       <div class="auth-card">
         <div class="auth-brand">
-          <BrandMark /> CloudCart
+          <BrandMark /> CartBase
           {i18nEnabled && showSwitcher && locales.length > 1 && (
             <select
               class="locale-select locale-select--auth"

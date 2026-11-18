@@ -1,6 +1,6 @@
 # Plugin Development
 
-CloudCart plugins are **bundled at build time** and enabled/configured at runtime. The Worker never
+CartBase plugins are **bundled at build time** and enabled/configured at runtime. The Worker never
 downloads or `eval`s plugin code.
 
 ## 1. Plugin package layout
@@ -40,7 +40,7 @@ Requirements:
 1. Add the package to the worker’s dependencies.
 2. Import it in `apps/worker/src/plugin-registry.ts`:
    ```ts
-   import example from "@cloudcart/plugin-example";
+   import example from "@cartbase/plugin-example";
    export const pluginRegistry = new PluginRegistry([manualPaymentManifest, stripe.manifest, paypal.manifest, example.manifest]);
    const paymentPlugins = new Map([... , [example.manifest.id, example]]);
    ```
@@ -136,7 +136,7 @@ id `email-notifications`, disabled by default).
 
 ## 9. Remote plugin development
 
-Remote plugins run on **your own HTTPS server**. CloudCart never downloads or executes plugin
+Remote plugins run on **your own HTTPS server**. CartBase never downloads or executes plugin
 JavaScript. A complete runnable example is in [`examples/remote-plugin`](../examples/remote-plugin).
 
 ### Manifest
@@ -153,7 +153,7 @@ JavaScript. A complete runnable example is in [`examples/remote-plugin`](../exam
   "author": "Example Developer",
   "capabilities": ["analytics.read"],
   "permissions": ["store:read", "products:read"],
-  "service": { "baseUrl": "https://plugin.example.com/api/cloudcart/v1", "auth": "hmac-sha256" },
+  "service": { "baseUrl": "https://plugin.example.com/api/cartbase/v1", "auth": "hmac-sha256" },
   "admin": {
     "entryUrl": "https://plugin.example.com/admin",
     "pages": [{ "id": "overview", "label": "Analytics overview", "icon": "chart" }]
@@ -168,13 +168,13 @@ Rules:
 - Permissions are allow-listed: `store:read`, `products:read`, `orders:read`, `settings:read`,
   `settings:write`, `events:write`. Unknown or wildcard permissions are rejected.
 - Admin page ids use `[a-z0-9-]`, labels are 1–60 characters, and at most 10 pages are allowed.
-- CloudCart fetches the manifest with a 5-second timeout, 64 KiB limit, and validated HTTPS redirects.
+- CartBase fetches the manifest with a 5-second timeout, 64 KiB limit, and validated HTTPS redirects.
 
 ### Install and service secret
 
 In **Admin → Plugins → Install remote plugin**, the merchant previews the manifest and installs it.
-CloudCart stores the manifest (hash-pinned) and an encrypted per-plugin service secret
-(`plugin_settings._serviceSecret`). The secret is shown once if CloudCart generated it; otherwise the
+CartBase stores the manifest (hash-pinned) and an encrypted per-plugin service secret
+(`plugin_settings._serviceSecret`). The secret is shown once if CartBase generated it; otherwise the
 merchant can paste the secret already configured on the plugin server.
 
 The plugin is installed disabled. Enabling it runs a non-blocking health check against
@@ -182,14 +182,14 @@ The plugin is installed disabled. Enabling it runs a non-blocking health check a
 
 ### HMAC service requests
 
-Every CloudCart → plugin request includes:
+Every CartBase → plugin request includes:
 
 ```text
-x-cloudcart-plugin: <plugin id>
-x-cloudcart-store-id: <store id>
-x-cloudcart-timestamp: <ISO timestamp>
-x-cloudcart-nonce: <random>
-x-cloudcart-signature: <base64url HMAC-SHA256>
+x-cartbase-plugin: <plugin id>
+x-cartbase-store-id: <store id>
+x-cartbase-timestamp: <ISO timestamp>
+x-cartbase-nonce: <random>
+x-cartbase-signature: <base64url HMAC-SHA256>
 ```
 
 Canonical string (newline separated):
@@ -217,16 +217,16 @@ Content-Security-Policy: frame-ancestors https://your-store.workers.dev
 Protocol:
 
 1. The plugin derives the parent origin from `document.referrer` (never use `"*"`) and sends
-   `{ type: "cloudcart:ready", pageId }`.
-2. CloudCart verifies `event.origin` and `event.source`, then calls
+   `{ type: "cartbase:ready", pageId }`.
+2. CartBase verifies `event.origin` and `event.source`, then calls
    `POST /api/admin/plugins/:id/launch` (admin session + CSRF).
-3. CloudCart posts `{ type: "cloudcart:token", token, expiresAt, storeId, pluginId, pageId,
+3. CartBase posts `{ type: "cartbase:token", token, expiresAt, storeId, pluginId, pageId,
    permissions }` to the exact plugin origin.
 4. The plugin keeps the token in memory and calls `/api/plugin/v1/*` with
    `Authorization: Bearer <token>`.
-5. The plugin may send `{ type: "cloudcart:refresh-token" }`; CloudCart reissues a token.
+5. The plugin may send `{ type: "cartbase:refresh-token" }`; CartBase reissues a token.
 
-CloudCart's admin CSP adds the exact `frame-src` origin of each enabled remote plugin; it never uses a
+CartBase's admin CSP adds the exact `frame-src` origin of each enabled remote plugin; it never uses a
 wildcard. The admin itself is not frameable (`frame-ancestors 'none'`, `X-Frame-Options: DENY`).
 
 ### Token and API
@@ -255,18 +255,18 @@ Implement the `PaymentPlugin` contract over signed HTTPS endpoints:
 
 - `POST /payments/validate`
 - `POST /payments/checkout`
-- `POST /payments/verify-webhook` — verify the provider signature and return a CloudCart
+- `POST /payments/verify-webhook` — verify the provider signature and return a CartBase
   `PaymentEvent` including the internal `orderId`
 - `POST /payments/status`
 - `POST /payments/capture`
 - `POST /payments/refund`
 
-CloudCart forwards provider webhooks to `verify-webhook`, then runs the returned event through its
+CartBase forwards provider webhooks to `verify-webhook`, then runs the returned event through its
 existing amount/currency/idempotency checks. A remote plugin never marks an order paid directly.
 
 ### Local development
 
-Remote URLs must be HTTPS in production. For local development, CloudCart accepts
+Remote URLs must be HTTPS in production. For local development, CartBase accepts
 `http://127.0.0.1` / `http://localhost` only when `PLUGIN_ALLOW_INSECURE_ORIGINS=1` **and**
 `APP_ENV` is `development`, `test`, or `e2e`. Never enable this in production.
 

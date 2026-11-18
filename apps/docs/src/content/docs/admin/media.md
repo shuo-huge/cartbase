@@ -3,7 +3,7 @@ title: 图片与媒体
 description: 本地上传图片，并在 R2 与 jsDelivr 之间切换存储；商品图片排序与外链图片。
 ---
 
-CloudCart 支持三种图片来源：
+CartBase 支持三种图片来源：
 
 - **本地上传**：在商品编辑页或媒体库选择文件，自动写入当前存储
 - **R2**：部署配置了 `MEDIA` binding 时可用，图片由 Worker `/media/*` 提供
@@ -37,7 +37,7 @@ R2 只有在这个部署存在 `MEDIA` binding 时可用。启用方式：
 
 ```jsonc
 "r2_buckets": [
-  { "binding": "MEDIA", "bucket_name": "cloudcart-media" }
+  { "binding": "MEDIA", "bucket_name": "cartbase-media" }
 ]
 ```
 
@@ -47,7 +47,7 @@ R2 只有在这个部署存在 `MEDIA` binding 时可用。启用方式：
 
 ### jsDelivr（GitHub）
 
-1. 创建一个**公开** GitHub 仓库（例如 `your-name/cloudcart-media`）
+1. 创建一个**公开** GitHub 仓库（例如 `your-name/cartbase-media`）
 2. 创建 fine-grained PAT，只授权该仓库的 **Contents: Read and write**
 3. 后台 **Settings → Media storage** 填写：
    - Repository owner

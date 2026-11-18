@@ -1,10 +1,10 @@
 import { Hono, type Context } from "hono";
-import { Database } from "@cloudcart/database";
-import { isSafeMediaKey, listEnabledRemoteAdminOrigins } from "@cloudcart/core";
-import { HttpError } from "@cloudcart/shared";
-import { securityHeaders } from "@cloudcart/security";
+import { Database } from "@cartbase/database";
+import { isSafeMediaKey, listEnabledRemoteAdminOrigins } from "@cartbase/core";
+import { HttpError } from "@cartbase/shared";
+import { securityHeaders } from "@cartbase/security";
 import type { AppContext, Env } from "./env";
-import { CLOUDCART_VERSION } from "./env";
+import { CARTBASE_VERSION } from "./env";
 import { runScheduledTasks } from "./scheduled";
 import { adminAuth } from "./middleware";
 import { adminRoutes } from "./routes/admin";
@@ -32,7 +32,7 @@ app.use("*", async (c, next) => {
     // Do not overwrite route-specific policies (e.g. the sandboxed media CSP).
     if (!c.res.headers.has(key)) c.res.headers.set(key, value);
   }
-  c.res.headers.set("X-CloudCart-Version", CLOUDCART_VERSION);
+  c.res.headers.set("X-CartBase-Version", CARTBASE_VERSION);
   c.res.headers.set("X-Content-Type-Options", "nosniff");
 });
 
@@ -46,8 +46,8 @@ app.get("/api/health", async (c) => {
   }
   return c.json({
     status: database === "ok" ? "ok" : "degraded",
-    app: "cloudcart",
-    version: CLOUDCART_VERSION,
+    app: "cartbase",
+    version: CARTBASE_VERSION,
     database,
     time: new Date().toISOString(),
   });

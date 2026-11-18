@@ -24,7 +24,7 @@ examples/remote-plugin/
   "capabilities": ["analytics.read"],
   "permissions": ["store:read", "products:read"],
   "service": {
-    "baseUrl": "https://plugin.example.com/api/cloudcart/v1",
+    "baseUrl": "https://plugin.example.com/api/cartbase/v1",
     "auth": "hmac-sha256"
   },
   "admin": {
@@ -46,18 +46,18 @@ Requirements:
 
 ## Service secret
 
-At install time CloudCart generates or accepts a service secret. The plugin server must store the same secret to verify CloudCart's HMAC requests.
+At install time CartBase generates or accepts a service secret. The plugin server must store the same secret to verify CartBase's HMAC requests.
 
 ## HMAC requests
 
-When CloudCart calls the plugin service it sends:
+When CartBase calls the plugin service it sends:
 
 ```text
-x-cloudcart-plugin: <plugin id>
-x-cloudcart-store-id: <store id>
-x-cloudcart-timestamp: <ISO timestamp>
-x-cloudcart-nonce: <random>
-x-cloudcart-signature: <base64url HMAC-SHA256>
+x-cartbase-plugin: <plugin id>
+x-cartbase-store-id: <store id>
+x-cartbase-timestamp: <ISO timestamp>
+x-cartbase-nonce: <random>
+x-cartbase-signature: <base64url HMAC-SHA256>
 ```
 
 Canonical string to sign:
@@ -88,7 +88,7 @@ Recommendations:
 
 ## Admin iframe
 
-CloudCart opens it in a sandboxed iframe:
+CartBase opens it in a sandboxed iframe:
 
 ```html
 <iframe sandbox="allow-scripts allow-forms allow-same-origin"></iframe>
@@ -106,14 +106,14 @@ The plugin gets the parent window origin from `document.referrer`; do not use `"
 
 ```js
 const parentOrigin = new URL(document.referrer).origin;
-window.parent.postMessage({ type: "cloudcart:ready", pageId }, parentOrigin);
+window.parent.postMessage({ type: "cartbase:ready", pageId }, parentOrigin);
 ```
 
-CloudCart responds with:
+CartBase responds with:
 
 ```js
 {
-  type: "cloudcart:token",
+  type: "cartbase:token",
   token,
   expiresAt,
   storeId,
@@ -126,7 +126,7 @@ CloudCart responds with:
 To refresh, send:
 
 ```js
-window.parent.postMessage({ type: "cloudcart:refresh-token" }, parentOrigin);
+window.parent.postMessage({ type: "cartbase:refresh-token" }, parentOrigin);
 ```
 
 The token is kept in memory only; do not put it in URLs, localStorage, or logs.
@@ -153,7 +153,7 @@ The JWT is valid for 5 minutes, is scoped to the current plugin and current stor
 
 ## CORS
 
-CloudCart uses an exact origin allowlist, not `*`. The plugin admin origin must match the `admin.entryUrl` origin in the Manifest.
+CartBase uses an exact origin allowlist, not `*`. The plugin admin origin must match the `admin.entryUrl` origin in the Manifest.
 
 ## Payment plugins
 
@@ -166,7 +166,7 @@ A remote payment plugin implements:
 - `POST /payments/capture`
 - `POST /payments/refund`
 
-After webhook verification it returns a CloudCart `PaymentEvent` with the internal `orderId`. CloudCart still validates the amount, currency, and idempotency; the plugin cannot mark an order as paid directly.
+After webhook verification it returns a CartBase `PaymentEvent` with the internal `orderId`. CartBase still validates the amount, currency, and idempotency; the plugin cannot mark an order as paid directly.
 
 ## Local development
 

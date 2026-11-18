@@ -52,7 +52,7 @@ function ensureSecrets() {
   }
   if (changed) {
     const output = [
-      "# Generated automatically for the CloudCart E2E server.",
+      "# Generated automatically for the CartBase E2E server.",
       ...[...values.entries()].map(([key, value]) => `${key}=${value}`),
       "",
     ].join("\n");
@@ -123,7 +123,7 @@ async function main() {
       E2E_PLUGIN_SECRET: pluginSecret,
     },
   });
-  await waitForUrl(`http://${host}:${pluginPort}/cloudcart-plugin.json`);
+  await waitForUrl(`http://${host}:${pluginPort}/cartbase-plugin.json`);
 
   const githubServer = spawn(process.execPath, [path.join(root, "e2e", "mock-github.mjs")], {
     cwd: root,

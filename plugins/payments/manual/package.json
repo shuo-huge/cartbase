@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/plugin-manual-payment",
+  "name": "@cartbase/plugin-manual-payment",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -8,8 +8,8 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/database": "workspace:*",
-    "@cloudcart/plugin-sdk": "workspace:*",
-    "@cloudcart/shared": "workspace:*"
+    "@cartbase/database": "workspace:*",
+    "@cartbase/plugin-sdk": "workspace:*",
+    "@cartbase/shared": "workspace:*"
   }
 }

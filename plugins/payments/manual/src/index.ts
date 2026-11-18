@@ -1,4 +1,4 @@
-import type { Database } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
 import type {
   CheckoutInput,
   CheckoutResult,
@@ -7,8 +7,8 @@ import type {
   PaymentPlugin,
   PaymentStatus,
   ValidationResult,
-} from "@cloudcart/plugin-sdk";
-import { escapeHtml, formatMoney } from "@cloudcart/shared";
+} from "@cartbase/plugin-sdk";
+import { escapeHtml, formatMoney } from "@cartbase/shared";
 
 export const manifest = {
   id: "manual",

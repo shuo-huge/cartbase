@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { addToCart, checkoutForm, createClient, createProduct } from "./support";
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import { env } from "cloudflare:test";
 
 interface ProductImage {

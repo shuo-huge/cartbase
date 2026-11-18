@@ -1,4 +1,4 @@
-# CloudCart brand icons
+# CartBase brand icons
 
 `icon.svg` is the master artwork. The other SVG and PNG/ICO files are generated
 from it so every surface (storefront, admin, docs, browser tabs, iOS home

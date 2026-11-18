@@ -1,8 +1,8 @@
-import type { Database } from "@cloudcart/database";
-import type { PluginHealthStatus, PluginRow } from "@cloudcart/database";
-import type { RemotePluginManifest } from "@cloudcart/plugin-sdk";
-import { decryptSecret, encryptSecret, newOpaqueToken } from "@cloudcart/security";
-import { HttpError, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { PluginHealthStatus, PluginRow } from "@cartbase/database";
+import type { RemotePluginManifest } from "@cartbase/plugin-sdk";
+import { decryptSecret, encryptSecret, newOpaqueToken } from "@cartbase/security";
+import { HttpError, nowIso } from "@cartbase/shared";
 
 export const REMOTE_SERVICE_SECRET_KEY = "_serviceSecret";
 
@@ -17,7 +17,7 @@ export interface InstallRemotePluginInput {
 
 export interface InstallRemotePluginResult {
   id: string;
-  /** Returned only once, when CloudCart generated the secret. */
+  /** Returned only once, when CartBase generated the secret. */
   serviceSecret?: string;
 }
 

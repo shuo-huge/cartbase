@@ -1,4 +1,4 @@
-import type { EmailBinding } from "@cloudcart/plugin-sdk";
+import type { EmailBinding } from "@cartbase/plugin-sdk";
 
 export interface Env {
   DB: D1Database;
@@ -41,4 +41,4 @@ export type AppContext = {
   Variables: AppVariables;
 };
 
-export const CLOUDCART_VERSION = "0.5.0";
+export const CARTBASE_VERSION = "0.5.0";

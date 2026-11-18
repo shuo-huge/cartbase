@@ -3,14 +3,14 @@ title: 插件概览
 description: 内置插件与远程插件的区别、安全边界和适用场景。
 ---
 
-CloudCart 支持两种插件：
+CartBase 支持两种插件：
 
 | | 内置插件（Bundled） | 远程插件（Remote） |
 |---|---|---|
 | 代码位置 | 随 Worker 构建打包 | 插件作者自己的 HTTPS 服务 |
-| 安装方式 | 随 CloudCart 版本发布 | 后台输入 Manifest URL |
+| 安装方式 | 随 CartBase 版本发布 | 后台输入 Manifest URL |
 | 是否需要重新部署 | 升级代码需要 | 不需要 |
-| 后台页面 | 内置在 CloudCart 后台 | 通过 iframe 嵌入 |
+| 后台页面 | 内置在 CartBase 后台 | 通过 iframe 嵌入 |
 | 数据访问 | Worker 内部服务 | 权限受限的 `/api/plugin/v1/*` |
 | 即时生效 | 启用即生效 | 安装并启用后生效 |
 
@@ -36,7 +36,7 @@ CloudCart 支持两种插件：
 
 安全边界：
 
-- 插件代码**永远不会**下载到 CloudCart Worker 执行
+- 插件代码**永远不会**下载到 CartBase Worker 执行
 - 安装时管理员确认 Manifest 和权限
 - 服务端通信使用 HMAC-SHA256 签名
 - 后台 iframe 使用短期 JWT，只能访问授权 API

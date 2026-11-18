@@ -4,12 +4,12 @@ import { bindNewsletterForms } from "./newsletter";
 
 declare global {
   interface Window {
-    CloudCart?: { cart: CartStore };
+    CartBase?: { cart: CartStore };
   }
 }
 
 const cart = new CartStore();
-window.CloudCart = { cart };
+window.CartBase = { cart };
 
 bindCartButtons(cart);
 bindCartPage(cart);

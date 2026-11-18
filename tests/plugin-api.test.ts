@@ -1,13 +1,13 @@
 import { env, SELF } from "cloudflare:test";
 import { beforeAll, beforeEach, describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import {
   createProduct,
   getOrCreateStoreId,
   installRemotePlugin,
-} from "@cloudcart/core";
-import { parseRemotePluginManifest } from "@cloudcart/plugin-sdk";
-import { createPluginJwt } from "@cloudcart/security";
+} from "@cartbase/core";
+import { parseRemotePluginManifest } from "@cartbase/plugin-sdk";
+import { createPluginJwt } from "@cartbase/security";
 
 const MASTER = "test-master-key-0123456789abcdef";
 const ORIGIN = "https://plugin.example.com";
@@ -43,7 +43,7 @@ beforeAll(async () => {
   const db = database();
   await installRemotePlugin(db, {
     manifest,
-    manifestUrl: "https://plugin.example.com/cloudcart-plugin.json",
+    manifestUrl: "https://plugin.example.com/cartbase-plugin.json",
     manifestHash: "hash-api",
     serviceSecret: "test-service-secret-0123456789",
     masterKey: MASTER,

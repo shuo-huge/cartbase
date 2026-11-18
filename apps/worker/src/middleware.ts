@@ -5,8 +5,8 @@ import {
   isApiKeySessionOnly,
   requiredScopesForRequest,
   touchApiKey,
-} from "@cloudcart/core";
-import { verifyCsrf } from "@cloudcart/security";
+} from "@cartbase/core";
+import { verifyCsrf } from "@cartbase/security";
 import type { MiddlewareHandler } from "hono";
 import type { AppContext } from "./env";
 import {

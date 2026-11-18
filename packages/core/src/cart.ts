@@ -1,12 +1,12 @@
-import type { Database } from "@cloudcart/database";
-import type { CartRow } from "@cloudcart/database";
-import { HttpError, newId, nowIso, randomToken } from "@cloudcart/shared";
-import { hashToken } from "@cloudcart/security";
+import type { Database } from "@cartbase/database";
+import type { CartRow } from "@cartbase/database";
+import { HttpError, newId, nowIso, randomToken } from "@cartbase/shared";
+import { hashToken } from "@cartbase/security";
 import { evaluateCoupon } from "./coupons";
 import { getShippingOptions } from "./shipping";
 import { orderTotalWithTax, resolveTaxRate, taxAmountCents, taxableBaseCents } from "./tax";
 
-export const CART_COOKIE = "cc_cart";
+export const CART_COOKIE = "cb_cart";
 export const MAX_LINE_QUANTITY = 9999;
 
 export interface CartLineView {

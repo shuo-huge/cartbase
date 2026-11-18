@@ -1,9 +1,9 @@
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import {
   expireStaleOrders,
   type DispatchSummary,
   type ExpireOrdersSummary,
-} from "@cloudcart/core";
+} from "@cartbase/core";
 import type { Env } from "./env";
 import { processEmailQueueForEnv } from "./email";
 

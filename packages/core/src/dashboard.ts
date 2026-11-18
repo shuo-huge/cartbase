@@ -1,4 +1,4 @@
-import type { Database } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
 
 export interface DashboardStats {
   totalOrders: number;

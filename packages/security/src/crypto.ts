@@ -1,4 +1,4 @@
-import { fromBase64Url, randomToken, toBase64Url } from "@cloudcart/shared";
+import { fromBase64Url, randomToken, toBase64Url } from "@cartbase/shared";
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -49,6 +49,9 @@ async function importHkdf(masterKey: string): Promise<CryptoKey> {
   return crypto.subtle.importKey("raw", utf8(masterKey) as BufferSource, "HKDF", false, ["deriveKey", "deriveBits"]);
 }
 
+// Legacy HKDF domain-separation values are intentionally kept unchanged.
+// Changing the salt or info makes every encrypted value already stored in D1
+// (payment credentials, plugin secrets, jsDelivr tokens) undecryptable.
 export async function deriveAesKey(masterKey: string, info = "cloudcart:aes-gcm:v1"): Promise<CryptoKey> {
   const ikm = await importHkdf(masterKey);
   return crypto.subtle.deriveKey(

@@ -1,4 +1,4 @@
-import type { Database } from "@cloudcart/database";
+import type { Database } from "@cartbase/database";
 import { loadPluginRuntimeConfig } from "./plugins";
 
 export const PAYMENT_SECRET_KEYS: Record<string, string[]> = {

@@ -24,7 +24,7 @@ Each zone can have multiple shipping rates:
 - Free shipping above a threshold
 - Whether enabled
 
-At checkout, CloudCart selects the available shipping rates based on the shipping address and order amount.
+At checkout, CartBase selects the available shipping rates based on the shipping address and order amount.
 
 ## Taxes
 

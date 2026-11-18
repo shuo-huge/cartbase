@@ -1,9 +1,9 @@
 ---
 title: Introduction
-description: What CloudCart is, what it covers and how it runs.
+description: What CartBase is, what it covers and how it runs.
 ---
 
-CloudCart is a free, open-source, plugin-based ecommerce platform built natively on Cloudflare Workers. It is aimed at merchants and developers who want to run an independent store at low cost without maintaining servers or databases.
+CartBase is a free, open-source, plugin-based ecommerce platform built natively on Cloudflare Workers. It is aimed at merchants and developers who want to run an independent store at low cost without maintaining servers or databases.
 
 ## Runtime model
 

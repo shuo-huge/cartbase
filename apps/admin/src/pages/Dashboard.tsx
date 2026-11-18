@@ -1,4 +1,4 @@
-import { formatDate } from "@cloudcart/shared";
+import { formatDate } from "@cartbase/shared";
 import { adminGet } from "../api";
 import { DataTable, ErrorBox, Loading, Money, StatusBadge, useAsync } from "../components";
 import { linkProps } from "../router";

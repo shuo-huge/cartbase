@@ -1,10 +1,10 @@
-import { PluginRegistry } from "@cloudcart/core";
-import type { PaymentPlugin } from "@cloudcart/plugin-sdk";
-import { manifest as manualPaymentManifest, manualPaymentPlugin } from "@cloudcart/plugin-manual-payment";
-import { manifest as adminI18nManifest } from "@cloudcart/plugin-admin-i18n";
-import { manifest as emailNotificationsManifest } from "@cloudcart/plugin-email-notifications";
-import stripePaymentPlugin from "@cloudcart/plugin-stripe";
-import paypalPaymentPlugin from "@cloudcart/plugin-paypal";
+import { PluginRegistry } from "@cartbase/core";
+import type { PaymentPlugin } from "@cartbase/plugin-sdk";
+import { manifest as manualPaymentManifest, manualPaymentPlugin } from "@cartbase/plugin-manual-payment";
+import { manifest as adminI18nManifest } from "@cartbase/plugin-admin-i18n";
+import { manifest as emailNotificationsManifest } from "@cartbase/plugin-email-notifications";
+import stripePaymentPlugin from "@cartbase/plugin-stripe";
+import paypalPaymentPlugin from "@cartbase/plugin-paypal";
 
 /**
  * Build-time plugin registry. Only plugins listed here are bundled into the

@@ -8,11 +8,11 @@ import {
   loadStoreConfig,
   setPluginSettings,
   writeAuditLog,
-} from "@cloudcart/core";
-import { HttpError } from "@cloudcart/shared";
+} from "@cartbase/core";
+import { HttpError } from "@cartbase/shared";
 import { Hono, type Context } from "hono";
 import { z } from "zod";
-import { CLOUDCART_VERSION } from "../env";
+import { CARTBASE_VERSION } from "../env";
 import { requirePluginPermission } from "../plugin-api-auth";
 import { db, jsonError, readJson } from "../lib";
 import type { AppContext } from "../env";
@@ -64,7 +64,7 @@ pluginApiRoutes.get("/health", (c) => c.json({
     ok: true,
     pluginId: c.get("pluginId"),
     storeId: c.get("pluginStoreId"),
-    version: CLOUDCART_VERSION,
+    version: CARTBASE_VERSION,
   },
 }));
 
@@ -81,7 +81,7 @@ pluginApiRoutes.get("/store", async (c) => {
         currency: store.currency,
         locale: store.locale,
         timezone: c.env.STORE_TIMEZONE ?? "UTC",
-        version: CLOUDCART_VERSION,
+        version: CARTBASE_VERSION,
       },
     });
   } catch (error) {

@@ -1,4 +1,4 @@
-import { formatDate, type PageDocument, type PageSection } from "@cloudcart/shared";
+import { formatDate, type PageDocument, type PageSection } from "@cartbase/shared";
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import Sortable from "sortablejs";
 import { adminGet, adminSend, getCookie } from "../api";
@@ -142,7 +142,7 @@ export function PageEditorPage({ slug }: { slug: string }) {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRF-Token": getCookie("cc_csrf"),
+          "X-CSRF-Token": getCookie("cb_csrf"),
         },
         body: JSON.stringify({ document: next }),
       });

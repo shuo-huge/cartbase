@@ -14,10 +14,10 @@
 
 ## API keys (CLI and agents)
 
-- Long-lived admin API keys are bearer tokens (`cck_<id>.<secret>`). D1 stores only a SHA-256 hash
+- Long-lived admin API keys are bearer tokens (`cbk_<id>.<secret>`). D1 stores only a SHA-256 hash
   and the public key id; the plaintext is returned once at creation.
 - Keys are scoped per resource (`products:read`, `products:write`, `pages:read`, `orders:write`,
-  etc.). The wildcard `*` is opt-in for the generic `cloudcart api` escape hatch.
+  etc.). The wildcard `*` is opt-in for the generic `cartbase api` escape hatch.
 - API keys bypass CSRF, but only when the request carries `Authorization: Bearer`. Cookie sessions
   keep the existing double-submit CSRF requirement.
 - API keys cannot change the administrator password, create/revoke other keys, manage plugins, or
@@ -45,7 +45,7 @@
 ## CSRF
 
 Admin mutations require:
-- the `X-CSRF-Token` header **and** the `cc_csrf` cookie, both equal to the session’s CSRF token
+- the `X-CSRF-Token` header **and** the `cb_csrf` cookie, both equal to the session’s CSRF token
   (double-submit, constant-time comparison).
 - Login/setup/status routes are exempt; all other `/api/admin/*` mutations are protected.
 
@@ -77,7 +77,7 @@ Admin mutations require:
   HKDF-SHA256 from `APP_MASTER_KEY`.
 - Encrypted values are never returned to the browser (only `••••••••`), logged, or included in error
   responses.
-- Local CLI deployments also store generated secrets in `.cloudcart/deploy.json` (gitignored). Protect that file like a password store. Workers Builds stores runtime secrets in Cloudflare and prints only the one-time setup URL in the build log.
+- Local CLI deployments also store generated secrets in `.cartbase/deploy.json` (gitignored). Protect that file like a password store. Workers Builds stores runtime secrets in Cloudflare and prints only the one-time setup URL in the build log.
 - Rotating `APP_MASTER_KEY` invalidates sessions and makes stored encrypted provider credentials
   undecryptable; re-enter them afterwards.
 
@@ -112,8 +112,8 @@ Admin mutations require:
 
 ## Remote plugins
 
-- Plugin code never runs inside the CloudCart Worker. A remote plugin is an independently deployed
-  HTTPS service; CloudCart stores only its manifest and calls signed APIs.
+- Plugin code never runs inside the CartBase Worker. A remote plugin is an independently deployed
+  HTTPS service; CartBase stores only its manifest and calls signed APIs.
 - Manifest URLs require HTTPS on port 443 with a public hostname. Literal loopback, private,
   link-local and internal hosts, embedded credentials, and unvalidated redirects are rejected.
   Fetches have a 5-second timeout and 64 KiB limit.

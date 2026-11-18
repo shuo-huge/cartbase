@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcart/plugin-admin-i18n",
+  "name": "@cartbase/plugin-admin-i18n",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@cloudcart/database": "workspace:*",
-    "@cloudcart/plugin-sdk": "workspace:*"
+    "@cartbase/database": "workspace:*",
+    "@cartbase/plugin-sdk": "workspace:*"
   }
 }

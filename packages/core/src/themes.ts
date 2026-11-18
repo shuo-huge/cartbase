@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { ThemeRow } from "@cloudcart/database";
-import { HttpError, nowIso } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { ThemeRow } from "@cartbase/database";
+import { HttpError, nowIso } from "@cartbase/shared";
 
 export async function listThemes(db: Database): Promise<ThemeRow[]> {
   return db.all<ThemeRow>("SELECT * FROM themes ORDER BY active DESC, name");

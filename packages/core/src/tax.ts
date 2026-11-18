@@ -1,6 +1,6 @@
-import type { Database } from "@cloudcart/database";
-import type { TaxRateRow } from "@cloudcart/database";
-import { HttpError, newId, nowIso, percentageOf } from "@cloudcart/shared";
+import type { Database } from "@cartbase/database";
+import type { TaxRateRow } from "@cartbase/database";
+import { HttpError, newId, nowIso, percentageOf } from "@cartbase/shared";
 import { z } from "zod";
 import { getSetting, SETTING_KEYS } from "./settings";
 

@@ -1,6 +1,6 @@
 ---
 title: 本地开发
-description: 在本地运行 CloudCart，修改代码并使用本地 D1 调试。
+description: 在本地运行 CartBase，修改代码并使用本地 D1 调试。
 ---
 
 ## 环境要求
@@ -12,8 +12,8 @@ description: 在本地运行 CloudCart，修改代码并使用本地 D1 调试�
 ## 启动
 
 ```bash
-git clone https://github.com/shuo-huge/cloudcart.git
-cd cloudcart
+git clone https://github.com/shuo-huge/cartbase.git
+cd cartbase
 pnpm install
 pnpm db:migrate:local
 pnpm dev

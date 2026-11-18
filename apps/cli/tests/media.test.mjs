@@ -56,7 +56,7 @@ describe("CLI media import", () => {
     let uploaded;
     const client = new ApiClient({
       baseUrl: "https://store.example.com",
-      apiKey: "cck_test",
+      apiKey: "cbk_test",
       fetchImpl: async (_url, init) => {
         uploaded = init.body;
         return new Response(JSON.stringify({ ok: true, data: { id: "med_1" } }), {

@@ -1,13 +1,13 @@
 ---
 title: CLI deploy
-description: Deploy CloudCart entirely from your local command line, with the setup page opened automatically when deployment finishes.
+description: Deploy CartBase entirely from your local command line, with the setup page opened automatically when deployment finishes.
 ---
 
 If you want the store/setup page to **open automatically** after deployment, CLI deployment is recommended.
 
 ```bash
-git clone https://github.com/shuo-huge/cloudcart.git
-cd cloudcart
+git clone https://github.com/shuo-huge/cartbase.git
+cd cartbase
 pnpm install
 pnpm run deploy:cloudflare
 ```
@@ -33,7 +33,7 @@ pnpm run deploy:cloudflare -- --check           # environment check only, no res
 pnpm run deploy:cloudflare -- --no-open         # do not open a browser automatically
 ```
 
-You can also set the `CLOUDCART_NO_OPEN=1` environment variable to disable automatic opening.
+You can also set the `CARTBASE_NO_OPEN=1` environment variable to disable automatic opening.
 
 ## Repeated deployments
 

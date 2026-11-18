@@ -3,9 +3,9 @@ import type {
   MediaRow,
   MediaStorageConfigRow,
   MediaStorageProvider,
-} from "@cloudcart/database";
-import { decryptSecret, encryptSecret, sha256Hex } from "@cloudcart/security";
-import { HttpError, nowIso } from "@cloudcart/shared";
+} from "@cartbase/database";
+import { decryptSecret, encryptSecret, sha256Hex } from "@cartbase/security";
+import { HttpError, nowIso } from "@cartbase/shared";
 import { insertMediaRow, type ValidatedImage } from "./media";
 
 export const GITHUB_API_BASE = "https://api.github.com";
@@ -287,7 +287,7 @@ function githubHeaders(token: string): Record<string, string> {
     Accept: "application/vnd.github+json",
     "Content-Type": "application/json",
     "X-GitHub-Api-Version": "2022-11-28",
-    "User-Agent": "CloudCart",
+    "User-Agent": "CartBase",
   };
 }
 
@@ -332,7 +332,7 @@ export async function uploadToJsDelivr(
   const objectPath = `${path}/${filename}`;
   const contentsUrl = `${apiBase}/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodePath(objectPath)}`;
   const body = {
-    message: `Add ${filename} from CloudCart`,
+    message: `Add ${filename} from CartBase`,
     content: bytesToBase64(image.bytes),
     branch,
   };
@@ -464,7 +464,7 @@ export async function testR2Storage(bucket: R2Bucket | undefined): Promise<Media
     };
   }
   try {
-    await bucket.head("__cloudcart_probe__");
+    await bucket.head("__cartbase_probe__");
     return {
       ok: true,
       message: "R2 binding is available.",

@@ -34,12 +34,12 @@ function buildContext({ flags, args, env, definition }) {
     manifest: COMMANDS,
     requireClient() {
       if (client) return client;
-      if (!resolved.url) throw usageError("A store URL is required. Use --url or CLOUDCART_URL.");
+      if (!resolved.url) throw usageError("A store URL is required. Use --url or CARTBASE_URL.");
       if (!resolved.apiKey) throw authError();
       client = new ApiClient({
         baseUrl: normalizeUrl(resolved.url, { allowInsecure: Boolean(flags.insecure) }),
         apiKey: resolved.apiKey,
-        userAgent: flags["user-agent"] || env.CLOUDCART_USER_AGENT,
+        userAgent: flags["user-agent"] || env.CARTBASE_USER_AGENT,
         timeout,
         dryRun: Boolean(flags["dry-run"]),
         verbose: Boolean(flags.verbose),
@@ -79,7 +79,7 @@ export async function main(argv, env = process.env) {
   }
 
   if (flags.version && positionals.length === 0) {
-    emitSuccess("version", { data: { version: "0.5.0" }, message: "CloudCart CLI 0.5.0" }, flags, {});
+    emitSuccess("version", { data: { version: "0.5.0" }, message: "CartBase CLI 0.5.0" }, flags, {});
     return;
   }
   if (positionals.length === 0) {

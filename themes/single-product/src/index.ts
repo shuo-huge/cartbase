@@ -1,4 +1,4 @@
-import { createTheme, type ThemeManifest } from "@cloudcart/theme-sdk";
+import { createTheme, type ThemeManifest } from "@cartbase/theme-sdk";
 
 const manifest: ThemeManifest = {
   id: "single-product",

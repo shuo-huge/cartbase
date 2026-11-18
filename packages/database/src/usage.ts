@@ -2,7 +2,7 @@ import type { Database } from "./db";
 
 /**
  * Local resource accounting. Cloudflare does not expose per-request quota
- * counters to the application, so these numbers are CloudCart's own estimates
+ * counters to the application, so these numbers are CartBase's own estimates
  * and are labelled as such in the admin UI. Real metrics must be read from the
  * Cloudflare dashboard.
  */

@@ -1,6 +1,6 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { Database } from "@cloudcart/database";
+import { Database } from "@cartbase/database";
 import {
   getOrCreateStoreId,
   getRemoteServiceSecret,
@@ -10,8 +10,8 @@ import {
   setPluginEnabled,
   uninstallRemotePlugin,
   updateRemotePlugin,
-} from "@cloudcart/core";
-import { parseRemotePluginManifest } from "@cloudcart/plugin-sdk";
+} from "@cartbase/core";
+import { parseRemotePluginManifest } from "@cartbase/plugin-sdk";
 
 const MASTER = "test-master-key-0123456789abcdef";
 
@@ -31,7 +31,7 @@ function manifest(overrides: Record<string, unknown> = {}) {
     author: "Example Developer",
     capabilities: ["analytics.read"],
     permissions: ["orders:read", "products:read"],
-    service: { baseUrl: "https://plugin.example.com/api/cloudcart/v1", auth: "hmac-sha256" },
+    service: { baseUrl: "https://plugin.example.com/api/cartbase/v1", auth: "hmac-sha256" },
     admin: {
       entryUrl: "https://plugin.example.com/admin",
       pages: [{ id: "overview", label: "Overview", icon: "chart" }],
@@ -53,7 +53,7 @@ describe("remote plugin lifecycle", () => {
     const db = database();
     const installed = await installRemotePlugin(db, {
       manifest: manifest(),
-      manifestUrl: "https://plugin.example.com/cloudcart-plugin.json",
+      manifestUrl: "https://plugin.example.com/cartbase-plugin.json",
       manifestHash: "hash-1",
       masterKey: MASTER,
       bundledIds: new Set(),
@@ -96,7 +96,7 @@ describe("remote plugin lifecycle", () => {
     const db = database();
     const updated = await updateRemotePlugin(db, "example-analytics", {
       manifest: manifest({ version: "1.1.0" }),
-      manifestUrl: "https://plugin.example.com/cloudcart-plugin.json",
+      manifestUrl: "https://plugin.example.com/cartbase-plugin.json",
       manifestHash: "hash-2",
       masterKey: MASTER,
     });
@@ -110,10 +110,10 @@ describe("remote plugin lifecycle", () => {
     const moved = await updateRemotePlugin(db, "example-analytics", {
       manifest: manifest({
         version: "1.2.0",
-        service: { baseUrl: "https://plugin-v2.example.com/api/cloudcart/v1", auth: "hmac-sha256" },
+        service: { baseUrl: "https://plugin-v2.example.com/api/cartbase/v1", auth: "hmac-sha256" },
         admin: { entryUrl: "https://plugin-v2.example.com/admin", pages: [] },
       }),
-      manifestUrl: "https://plugin.example.com/cloudcart-plugin.json",
+      manifestUrl: "https://plugin.example.com/cartbase-plugin.json",
       manifestHash: "hash-3",
       masterKey: MASTER,
     });
@@ -140,7 +140,7 @@ describe("remote plugin lifecycle", () => {
     const db = database();
     await expect(installRemotePlugin(db, {
       manifest: manifest({ id: "stripe" }),
-      manifestUrl: "https://plugin.example.com/cloudcart-plugin.json",
+      manifestUrl: "https://plugin.example.com/cartbase-plugin.json",
       manifestHash: "hash-x",
       masterKey: MASTER,
       bundledIds: new Set(["stripe"]),

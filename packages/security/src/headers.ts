@@ -55,7 +55,7 @@ export function securityHeaders(options: SecurityHeaderOptions = {}): Record<str
     "default-src 'self'",
     `script-src ${scriptSrc}`,
     `style-src ${styleSrc}`,
-    // External HTTPS image URLs are a first-class CloudCart feature;
+    // External HTTPS image URLs are a first-class CartBase feature;
     // without https: the storefront would render broken product images.
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",

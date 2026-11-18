@@ -85,7 +85,7 @@ test("captures README screenshots in English and Simplified Chinese", async ({
   test.setTimeout(300_000);
 
   const adminState = await request.storageState();
-  const csrf = adminState.cookies.find((cookie) => cookie.name === "cc_csrf")?.value ?? "";
+  const csrf = adminState.cookies.find((cookie) => cookie.name === "cb_csrf")?.value ?? "";
   expect(csrf, "admin session is missing its CSRF cookie").toBeTruthy();
   const fixtures = loadFixtures();
 
@@ -117,7 +117,7 @@ test("captures README screenshots in English and Simplified Chinese", async ({
     defaultProvider: "jsdelivr",
     jsdelivr: {
       owner: "lumen-studio",
-      repo: "cloudcart-media",
+      repo: "cartbase-media",
       branch: "main",
       path: "products",
       token: "github_pat_readme_screenshot_demo",
@@ -389,8 +389,8 @@ test("captures README screenshots in English and Simplified Chinese", async ({
     await adminPage.goto("/admin/", { waitUntil: "domcontentloaded" });
     await adminPage.locator(".sidebar").waitFor({ state: "visible" });
     await adminPage.evaluate((value) => {
-      if (value === "en") window.localStorage.removeItem("cloudcart.admin.locale");
-      else window.localStorage.setItem("cloudcart.admin.locale", value === "zh" ? "zh-CN" : value);
+      if (value === "en") window.localStorage.removeItem("cartbase.admin.locale");
+      else window.localStorage.setItem("cartbase.admin.locale", value === "zh" ? "zh-CN" : value);
     }, locale);
     await adminPage.reload({ waitUntil: "domcontentloaded" });
     await adminPage.locator(".sidebar").waitFor({ state: "visible" });
@@ -420,4 +420,29 @@ test("captures README screenshots in English and Simplified Chinese", async ({
 
   await contexts.en.close();
   await contexts.zh.close();
+
+  /* ------------------------------------------------------------------ */
+  /* Logged-out login pages used by the READMEs                          */
+  /* ------------------------------------------------------------------ */
+
+  for (const locale of ["en", "zh"] as const) {
+    const loginContext = await browser.newContext({
+      viewport: { width: 1280, height: 720 },
+      locale: locale === "en" ? "en-US" : "zh-CN",
+      storageState: { cookies: [], origins: [] },
+    });
+    const loginPage = await loginContext.newPage();
+    await loginPage.goto("/admin/login", { waitUntil: "domcontentloaded" });
+    await loginPage.evaluate((value) => {
+      if (value === "en") window.localStorage.removeItem("cartbase.admin.locale");
+      else window.localStorage.setItem("cartbase.admin.locale", value);
+    }, locale === "zh" ? "zh-CN" : "en");
+    await loginPage.reload({ waitUntil: "domcontentloaded" });
+    await loginPage.locator(".auth-card").waitFor({ state: "visible" });
+    await settle(loginPage);
+    const file = path.resolve(`docs/images/admin-login-${locale}.png`);
+    await loginPage.screenshot({ path: file, type: "png", animations: "disabled", caret: "hide" });
+    console.log(`[screenshots] ${path.relative(process.cwd(), file)}`);
+    await loginContext.close();
+  }
 });

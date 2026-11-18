@@ -17,5 +17,6 @@ test-results/
 Thumbs.db
 .idea/
 deploy.config.json
+.cartbase/
 .cloudcart/
 .gstack/

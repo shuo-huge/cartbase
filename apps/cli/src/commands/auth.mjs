@@ -13,7 +13,7 @@ function options(ctx) {
 }
 
 function urlFor(ctx, value) {
-  return normalizeUrl(value || ctx.flags.url || ctx.env.CLOUDCART_URL || ctx.url, {
+  return normalizeUrl(value || ctx.flags.url || ctx.env.CARTBASE_URL || ctx.url, {
     allowInsecure: Boolean(ctx.flags.insecure),
   });
 }
@@ -28,8 +28,8 @@ async function sessionLogin(ctx, baseUrl) {
 
 export async function login(ctx) {
   const baseUrl = urlFor(ctx);
-  const profileName = String(ctx.flags.profile || ctx.env.CLOUDCART_PROFILE || ctx.config.defaultProfile || "default");
-  const explicitKey = ctx.flags.key || ctx.flags.token || ctx.env.CLOUDCART_API_KEY || ctx.env.CLOUDCART_TOKEN;
+  const profileName = String(ctx.flags.profile || ctx.env.CARTBASE_PROFILE || ctx.config.defaultProfile || "default");
+  const explicitKey = ctx.flags.key || ctx.flags.token || ctx.env.CARTBASE_API_KEY || ctx.env.CARTBASE_TOKEN;
 
   if (explicitKey) {
     const client = new ApiClient({ baseUrl, apiKey: explicitKey, ...options(ctx) });
@@ -112,7 +112,7 @@ export async function login(ctx) {
 
 export async function setup(ctx) {
   const baseUrl = urlFor(ctx);
-  const profileName = String(ctx.flags.profile || ctx.env.CLOUDCART_PROFILE || "default");
+  const profileName = String(ctx.flags.profile || ctx.env.CARTBASE_PROFILE || "default");
   const email = await getEmail(ctx.flags, ctx.env);
   const password = await getPassword(ctx.flags, ctx.env);
   const setupToken = await getSetupToken(ctx.flags);
@@ -180,7 +180,7 @@ export async function status(ctx) {
   return {
     data,
     message: profiles.length === 0
-      ? "No saved profiles. Run `cloudcart auth login --url ... --email ...`."
+      ? "No saved profiles. Run `cartbase auth login --url ... --email ...`."
       : profiles.map((profile) => `${profile.current ? "*" : " "} ${profile.name}: ${profile.url} (${profile.key})`).join("\n"),
   };
 }
@@ -244,7 +244,7 @@ export async function keysCreate(ctx) {
     message: [
       `Created API key ${key.prefix}.`,
       `Key: ${key.token}`,
-      "This is the only time the key is shown. Store it in a secret manager, then run `cloudcart auth login --key ...`.",
+      "This is the only time the key is shown. Store it in a secret manager, then run `cartbase auth login --key ...`.",
     ].join("\n"),
   };
 }
@@ -260,7 +260,7 @@ export async function keysRevoke(ctx) {
 }
 
 export function requireUrl(ctx) {
-  if (!ctx.url && !ctx.flags.url && !ctx.env.CLOUDCART_URL) {
-    throw usageError("A store URL is required. Use --url or CLOUDCART_URL.");
+  if (!ctx.url && !ctx.flags.url && !ctx.env.CARTBASE_URL) {
+    throw usageError("A store URL is required. Use --url or CARTBASE_URL.");
   }
 }

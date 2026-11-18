@@ -1,4 +1,4 @@
--- CloudCart initial schema.
+-- CartBase initial schema.
 -- All monetary values are integers in the currency's minor unit (cents).
 -- All timestamps are ISO-8601 UTC strings.
 

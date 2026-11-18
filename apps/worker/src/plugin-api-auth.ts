@@ -1,7 +1,7 @@
 import type { MiddlewareHandler } from "hono";
-import type { PluginRow } from "@cloudcart/database";
-import { getOrCreateStoreId, storedRemoteManifest } from "@cloudcart/core";
-import { verifyPluginJwt } from "@cloudcart/security";
+import type { PluginRow } from "@cartbase/database";
+import { getOrCreateStoreId, storedRemoteManifest } from "@cartbase/core";
+import { verifyPluginJwt } from "@cartbase/security";
 import type { AppContext } from "./env";
 import { db, jsonError } from "./lib";
 

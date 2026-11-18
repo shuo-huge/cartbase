@@ -1,4 +1,4 @@
-# CloudCart Architecture
+# CartBase Architecture
 
 ## 1. Runtime topology
 
@@ -39,7 +39,7 @@ Browser ──► Cloudflare edge
 | `plugins/*` | Build-time bundled plugins (manual, Stripe, PayPal, admin i18n, email notifications) |
 | `themes/*` | Eight bundled themes |
 
-Core depends on `@cloudcart/plugin-sdk`'s **interfaces**, never on Stripe, PayPal or a concrete theme.
+Core depends on `@cartbase/plugin-sdk`'s **interfaces**, never on Stripe, PayPal or a concrete theme.
 The Worker composes concrete plugins/themes at its edge (`plugin-registry.ts`, `theme-registry.ts`).
 
 ## 3. Request flow
@@ -54,7 +54,7 @@ The Worker composes concrete plugins/themes at its edge (`plugin-registry.ts`, `
 ### Admin API keys and CLI
 
 - `/api/admin/*` accepts either the existing cookie session (with CSRF) or
-  `Authorization: Bearer cck_<id>.<secret>`.
+  `Authorization: Bearer cbk_<id>.<secret>`.
 - `admin_api_keys` stores the key id, administrator, scopes, expiry, last-used timestamp and a
   SHA-256 hash of the token. The plaintext token is returned once at creation.
 - Bearer requests skip CSRF because the credential is not ambient in a browser. Cookie sessions
@@ -156,7 +156,7 @@ PayPal’s return URL captures server-side, then feeds the **same** event pipeli
   `plugin_settings`.
 - The admin sidebar reads enabled remote plugins from `/api/admin/plugins`; `/admin/plugins/:id/:pageId`
   renders their `admin.entryUrl` in a sandboxed iframe.
-- The iframe sends `cloudcart:ready`; the admin verifies origin/source, calls
+- The iframe sends `cartbase:ready`; the admin verifies origin/source, calls
   `POST /api/admin/plugins/:id/launch`, and posts a 5-minute HS256 JWT to the exact plugin origin.
 - Plugin APIs live under `/api/plugin/v1/*` and use a separate bearer-token middleware with
   permission checks and exact-origin CORS. Admin session cookies are never sent to plugins.

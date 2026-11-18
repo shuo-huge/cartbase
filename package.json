@@ -3,7 +3,7 @@
   "version": "0.5.1",
   "private": true,
   "description": "A lightweight, plugin-based, themeable ecommerce platform built natively for Cloudflare Workers Free.",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "type": "module",
   "packageManager": "pnpm@12.16.1",
   "engines": {

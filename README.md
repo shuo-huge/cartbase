@@ -10,7 +10,7 @@ One Worker · One D1 database · Local uploads to R2 or jsDelivr · Optional ext
 
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![D1](https://img.shields.io/badge/Database-D1-0051FF)](https://developers.cloudflare.com/d1/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-127%20passing-brightgreen)](docs/TEST_REPORT.md)
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Architecture](docs/ARCHITECTURE.md) · [Deployment](docs/DEPLOYMENT.md)
@@ -33,7 +33,7 @@ CartBase exists because most ecommerce stacks force you to choose between paying
 | **VPS, MySQL, Redis, SSL, backups** | No server to patch, no database to provision. D1 is managed by Cloudflare; images can be uploaded to R2 or published through jsDelivr, with external HTTPS URLs still available. |
 | **SaaS lock-in and shared tenants** | Every store is its own Worker + D1 in **your** Cloudflare account; R2 can be added later. You own the data, the code, and the domain. |
 | **Heavy SSR frameworks exceed free CPU limits** | Hono + Preact + small string-based SSR. Every public page is still server-rendered and SEO-readable. |
-| **Expensive themes and closed page builders** | 8 structurally different bundled themes, a live three-column page editor, and a documented Theme SDK. MIT licensed. |
+| **Expensive themes and closed page builders** | 8 structurally different bundled themes, a live three-column page editor, and a documented Theme SDK. GPLv3 licensed. |
 | **Payment plugins that require a paid backend** | Manual payment, Stripe Checkout, and PayPal Orders v2 are bundled. Secrets are encrypted with AES-GCM. |
 | **Admin tools only in English** | The bundled Admin Language Pack adds English / 简体中文 with a runtime switcher. |
 | **Fake "one-click" demos** | Every claim here is implemented. Tests run in workerd against D1; R2-backed uploads are optional. Unfinished work is listed explicitly. |
@@ -49,7 +49,7 @@ CartBase exists because most ecommerce stacks force you to choose between paying
 | Multiple stores | One Worker + D1 per store; optional R2 | Plan limits / tenants | One site per install |
 | Themes | 8 bundled + SDK | Paid themes | Free/paid extensions |
 | Visual page editor | Built in | Built in | Third-party |
-| Open source | **MIT** | No | GPL |
+| Open source | **GPLv3** | No | GPL |
 
 ---
 
@@ -314,7 +314,7 @@ See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the exact verification matrix
 
 ## Contributing
 
-CartBase is MIT licensed. Themes, plugins, translations, bug reports and performance improvements are welcome.
+CartBase is GPLv3 licensed. Themes, plugins, translations, bug reports and performance improvements are welcome.
 
 - Add a theme: [docs/THEME_DEVELOPMENT.md](docs/THEME_DEVELOPMENT.md)
 - Add a plugin: [docs/PLUGIN_DEVELOPMENT.md](docs/PLUGIN_DEVELOPMENT.md)
@@ -323,4 +323,4 @@ CartBase is MIT licensed. Themes, plugins, translations, bug reports and perform
 
 ## License
 
-MIT. See [LICENSE](LICENSE). Third-party dependencies keep their own licenses.
+Copyright (C) 2026 CartBase contributors. Licensed under the GNU General Public License v3.0 only (GPL-3.0-only). See [LICENSE](LICENSE). Third-party dependencies keep their own licenses.
